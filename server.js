@@ -139,11 +139,12 @@ io.on('connection', (socket) => {
   socket.emit('gameState', {
     ...gameState,
     currentQuestion: gameState.gameStarted ? gameQuestions[gameState.currentQuestionIndex] : null,
-    // Include winners if the game is over
+    // Include winners and leaderboard if the game is over
     winners: gameState.gameOver ? Object.values(gameState.players).filter(p => {
       const maxScore = Math.max(...Object.values(gameState.players).map(p => p.score), 0);
       return p.score === maxScore;
-    }) : []
+    }) : [],
+    leaderboard: gameState.gameOver ? Object.values(gameState.players).sort((a, b) => b.score - a.score) : []
   });
 
   // Player joins the game
@@ -168,6 +169,22 @@ io.on('connection', (socket) => {
       delete gameState.disconnectedPlayers[playerName];
       
       console.log(`Player ${playerName} reconnected with new ID: ${socket.id}`);
+      
+      // If the game is over, send game over event with leaderboard
+      if (gameState.gameOver) {
+        // Sort players by score for leaderboard
+        const sortedPlayers = Object.values(gameState.players).sort((a, b) => b.score - a.score);
+        // Find winners
+        const maxScore = Math.max(...Object.values(gameState.players).map(p => p.score), 0);
+        const winners = Object.values(gameState.players).filter(p => p.score === maxScore);
+        
+        // Send game over specific to the reconnected player
+        socket.emit('gameOver', {
+          players: gameState.players,
+          winners,
+          leaderboard: sortedPlayers
+        });
+      }
     } else if (!gameState.gameStarted) {
       // New player joining before game starts
       gameState.players[socket.id] = {
@@ -252,6 +269,7 @@ io.on('connection', (socket) => {
       // Sort all players by score for the leaderboard (descending order)
       const sortedPlayers = Object.values(gameState.players).sort((a, b) => b.score - a.score);
       
+      // Send game over event with leaderboard to all clients
       io.emit('gameOver', {
         players: gameState.players,
         winners,

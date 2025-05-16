@@ -62,7 +62,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (leaderboardContainer) {
       leaderboardContainer.innerHTML = '';
       
-      if (leaderboard && leaderboard.length > 0) {
+      // Get leaderboard data from parameter or try to get from session storage as fallback
+      let leaderboardData = leaderboard;
+      if (!leaderboardData || leaderboardData.length === 0) {
+        try {
+          leaderboardData = JSON.parse(sessionStorage.getItem('triviaLeaderboard') || '[]');
+        } catch (e) {
+          console.error('Error parsing leaderboard data from session storage:', e);
+        }
+      }
+      
+      if (leaderboardData && leaderboardData.length > 0) {
         // Create leaderboard element
         const leaderboardElement = document.createElement('div');
         leaderboardElement.classList.add('leaderboard');
@@ -93,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Add table body with player data
         const tbody = document.createElement('tbody');
         
-        leaderboard.forEach((player, index) => {
+        leaderboardData.forEach((player, index) => {
           const row = document.createElement('tr');
           
           // Add rank cell (position)
@@ -161,7 +171,13 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         document.head.appendChild(style);
       } else {
-        leaderboardContainer.innerHTML = '<p>Leaderboard not available</p>';
+        // Instead of showing "leaderboard not available", show a message about checking the host screen
+        const messageElement = document.createElement('p');
+        messageElement.textContent = 'Please check the host screen for the final results.';
+        messageElement.style.textAlign = 'center';
+        messageElement.style.marginTop = '20px';
+        
+        leaderboardContainer.appendChild(messageElement);
       }
     }
   }
