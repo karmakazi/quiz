@@ -15,7 +15,10 @@ app.use(express.static('public'));
 
 // Load questions from JSON file
 const questionsData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'questions.json'), 'utf8'));
-const questions = questionsData.questions;
+const allQuestions = questionsData.questions;
+// We'll select random questions at the start of each game
+let gameQuestions = [];
+const QUESTIONS_PER_GAME = 5; // Number of questions per game, can be modified
 
 // Game state
 const gameState = {
@@ -23,9 +26,28 @@ const gameState = {
   currentQuestionIndex: 0,
   gameStarted: false,
   gameOver: false,
-  roundsTotal: 5, // We'll use 5 questions per game
+  roundsTotal: QUESTIONS_PER_GAME, // Using the configurable constant
   disconnectedPlayers: {}, // Store disconnected players' data
 };
+
+// Function to shuffle array (Fisher-Yates algorithm)
+function shuffleArray(array) {
+  const shuffled = [...array]; // Create a copy to avoid modifying the original
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; // Swap elements
+  }
+  return shuffled;
+}
+
+// Function to select random questions for a game
+function selectRandomQuestions(allQuestionsArray, count) {
+  // Shuffle the questions and take the first 'count' elements
+  const shuffled = shuffleArray(allQuestionsArray);
+  // Make sure we don't try to take more questions than available
+  const actualCount = Math.min(count, shuffled.length);
+  return shuffled.slice(0, actualCount);
+}
 
 // Get local IP address for QR code
 function getLocalIpAddress() {
@@ -66,7 +88,7 @@ io.on('connection', (socket) => {
   // Send current game state to new connections
   socket.emit('gameState', {
     ...gameState,
-    currentQuestion: gameState.gameStarted ? questions[gameState.currentQuestionIndex] : null,
+    currentQuestion: gameState.gameStarted ? gameQuestions[gameState.currentQuestionIndex] : null,
     // Include winners if the game is over
     winners: gameState.gameOver ? Object.values(gameState.players).filter(p => {
       const maxScore = Math.max(...Object.values(gameState.players).map(p => p.score), 0);
@@ -126,13 +148,18 @@ io.on('connection', (socket) => {
       gameState.currentQuestionIndex = 0;
       gameState.gameOver = false;
       
+      // Select random questions for the game
+      gameQuestions = selectRandomQuestions(allQuestions, QUESTIONS_PER_GAME);
+      // Update roundsTotal in case we got fewer questions than requested
+      gameState.roundsTotal = gameQuestions.length;
+      
       io.emit('gameStarted', {
-        currentQuestion: questions[gameState.currentQuestionIndex],
+        currentQuestion: gameQuestions[gameState.currentQuestionIndex],
         currentQuestionIndex: gameState.currentQuestionIndex,
         totalQuestions: gameState.roundsTotal,
       });
       
-      console.log('Game started');
+      console.log('Game started with', gameQuestions.length, 'random questions');
     } else {
       socket.emit('error', 'Need at least one player to start');
     }
@@ -153,7 +180,7 @@ io.on('connection', (socket) => {
     if (!gameState.gameStarted || gameState.gameOver) return;
     
     // Update scores based on current answers
-    const currentQuestion = questions[gameState.currentQuestionIndex];
+    const currentQuestion = gameQuestions[gameState.currentQuestionIndex];
     
     Object.values(gameState.players).forEach((player) => {
       if (player.currentAnswer === currentQuestion.correctAnswer) {
@@ -180,7 +207,7 @@ io.on('connection', (socket) => {
       console.log('Game over');
     } else {
       io.emit('nextQuestion', {
-        currentQuestion: questions[gameState.currentQuestionIndex],
+        currentQuestion: gameQuestions[gameState.currentQuestionIndex],
         currentQuestionIndex: gameState.currentQuestionIndex,
         totalQuestions: gameState.roundsTotal,
         players: gameState.players,
@@ -197,6 +224,8 @@ io.on('connection', (socket) => {
     gameState.currentQuestionIndex = 0;
     gameState.gameStarted = false;
     gameState.gameOver = false;
+    // Clear the game questions
+    gameQuestions = [];
     
     io.emit('gameReset');
     console.log('Game reset');
