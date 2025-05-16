@@ -249,9 +249,13 @@ io.on('connection', (socket) => {
       const maxScore = Math.max(...Object.values(gameState.players).map(p => p.score), 0);
       const winners = Object.values(gameState.players).filter(p => p.score === maxScore);
       
+      // Sort all players by score for the leaderboard (descending order)
+      const sortedPlayers = Object.values(gameState.players).sort((a, b) => b.score - a.score);
+      
       io.emit('gameOver', {
         players: gameState.players,
         winners,
+        leaderboard: sortedPlayers
       });
       
       console.log('Game over');

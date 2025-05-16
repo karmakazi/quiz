@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (state.gameOver) {
       // Handle game over first to prevent trying to show question 6
-      showGameOver(state.winners || []);
+      showGameOver(state.winners || [], state.leaderboard || []);
     } else if (state.gameStarted) {
       // Only show the game area if the game isn't over
       currentQuestion = state.currentQuestion;
@@ -106,16 +106,19 @@ document.addEventListener('DOMContentLoaded', () => {
   socket.on('gameOver', (data) => {
     players = data.players;
     const winners = data.winners;
+    const leaderboard = data.leaderboard || [];
     // Store game over state and winners in session storage for reliable refresh handling
     sessionStorage.setItem('triviaGameOver', 'true');
     sessionStorage.setItem('triviaGameWinners', JSON.stringify(winners));
-    showGameOver(winners);
+    sessionStorage.setItem('triviaLeaderboard', JSON.stringify(leaderboard));
+    showGameOver(winners, leaderboard);
   });
 
   socket.on('gameReset', () => {
     // Clear game over data when game is reset
     sessionStorage.removeItem('triviaGameOver');
     sessionStorage.removeItem('triviaGameWinners');
+    sessionStorage.removeItem('triviaLeaderboard');
     players = {};
     currentQuestion = null;
     currentQuestionIndex = 0;
@@ -128,9 +131,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (sessionStorage.getItem('triviaGameOver') === 'true') {
     try {
       const storedWinners = JSON.parse(sessionStorage.getItem('triviaGameWinners') || '[]');
-      showGameOver(storedWinners);
+      const storedLeaderboard = JSON.parse(sessionStorage.getItem('triviaLeaderboard') || '[]');
+      showGameOver(storedWinners, storedLeaderboard);
     } catch (e) {
-      console.error('Error parsing stored winners', e);
+      console.error('Error parsing stored winners or leaderboard', e);
       showGameOver([]);
     }
   }
@@ -210,36 +214,143 @@ document.addEventListener('DOMContentLoaded', () => {
     gameOver.classList.add('hidden');
   }
 
-  function showGameOver(winners = []) {
+  function showGameOver(winners = [], leaderboard = []) {
     waitingRoom.classList.add('hidden');
     gameArea.classList.add('hidden');
     gameOver.classList.remove('hidden');
     
     winnersContainer.innerHTML = '';
     
+    // Create winner announcement
+    const winnerAnnouncement = document.createElement('div');
+    
     if (winners.length === 0) {
-      winnersContainer.innerHTML = '<p>No winners!</p>';
+      winnerAnnouncement.innerHTML = '<p>No winners!</p>';
     } else if (winners.length === 1) {
-      winnersContainer.innerHTML = `
+      winnerAnnouncement.innerHTML = `
         <h3>Winner: ${winners[0].name}</h3>
         <p>Score: ${winners[0].score} points</p>
       `;
     } else {
-      const winnersList = document.createElement('div');
-      winnersList.innerHTML = '<h3>It\'s a tie!</h3>';
+      winnerAnnouncement.innerHTML = '<h3>It\'s a tie!</h3>';
       
-      const ul = document.createElement('ul');
-      ul.style.listStyleType = 'none';
-      ul.style.padding = '0';
+      const tiedWinnersList = document.createElement('ul');
+      tiedWinnersList.style.listStyleType = 'none';
+      tiedWinnersList.style.padding = '0';
       
       winners.forEach(winner => {
         const li = document.createElement('li');
         li.textContent = `${winner.name}: ${winner.score} points`;
-        ul.appendChild(li);
+        tiedWinnersList.appendChild(li);
       });
       
-      winnersList.appendChild(ul);
-      winnersContainer.appendChild(winnersList);
+      winnerAnnouncement.appendChild(tiedWinnersList);
     }
+    
+    winnersContainer.appendChild(winnerAnnouncement);
+    
+    // Create full leaderboard
+    const leaderboardElement = document.createElement('div');
+    leaderboardElement.classList.add('leaderboard');
+    leaderboardElement.innerHTML = '<h3>Final Leaderboard</h3>';
+    
+    // Use leaderboard data if available, otherwise sort players by score
+    const sortedPlayers = leaderboard.length > 0 ? 
+      leaderboard : 
+      Object.values(players).sort((a, b) => b.score - a.score);
+    
+    if (sortedPlayers.length > 0) {
+      const table = document.createElement('table');
+      table.classList.add('leaderboard-table');
+      
+      // Add table header
+      const thead = document.createElement('thead');
+      const headerRow = document.createElement('tr');
+      
+      const rankHeader = document.createElement('th');
+      rankHeader.textContent = 'Rank';
+      
+      const nameHeader = document.createElement('th');
+      nameHeader.textContent = 'Player';
+      
+      const scoreHeader = document.createElement('th');
+      scoreHeader.textContent = 'Score';
+      
+      headerRow.appendChild(rankHeader);
+      headerRow.appendChild(nameHeader);
+      headerRow.appendChild(scoreHeader);
+      thead.appendChild(headerRow);
+      table.appendChild(thead);
+      
+      // Add table body with player data
+      const tbody = document.createElement('tbody');
+      
+      sortedPlayers.forEach((player, index) => {
+        const row = document.createElement('tr');
+        
+        // Add rank cell (position)
+        const rankCell = document.createElement('td');
+        rankCell.textContent = `${index + 1}`;
+        
+        // Add player name cell
+        const nameCell = document.createElement('td');
+        nameCell.textContent = player.name;
+        
+        // Highlight winners
+        if (winners.some(w => w.id === player.id)) {
+          nameCell.classList.add('winner');
+        }
+        
+        // Add score cell
+        const scoreCell = document.createElement('td');
+        scoreCell.textContent = `${player.score}`;
+        
+        row.appendChild(rankCell);
+        row.appendChild(nameCell);
+        row.appendChild(scoreCell);
+        tbody.appendChild(row);
+      });
+      
+      table.appendChild(tbody);
+      leaderboardElement.appendChild(table);
+    } else {
+      leaderboardElement.innerHTML += '<p>No players found</p>';
+    }
+    
+    winnersContainer.appendChild(leaderboardElement);
+    
+    // Add some style for the leaderboard
+    const style = document.createElement('style');
+    style.textContent = `
+      .leaderboard {
+        margin-top: 30px;
+        padding: 20px;
+        background-color: #2d2d2d;
+        border-radius: 8px;
+      }
+      .leaderboard-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+      }
+      .leaderboard-table th,
+      .leaderboard-table td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #444;
+      }
+      .leaderboard-table th {
+        background-color: #1e1e1e;
+        color: #4da6ff;
+      }
+      .leaderboard-table tr:last-child td {
+        border-bottom: none;
+      }
+      .leaderboard-table .winner {
+        color: gold;
+        font-weight: bold;
+      }
+    `;
+    document.head.appendChild(style);
   }
 }); 

@@ -51,11 +51,119 @@ document.addEventListener('DOMContentLoaded', () => {
     gameOver.classList.add('hidden');
   }
 
-  function showGameOver() {
+  function showGameOver(leaderboard = null) {
     joinArea.classList.add('hidden');
     waitingArea.classList.add('hidden');
     gameArea.classList.add('hidden');
     gameOver.classList.remove('hidden');
+    
+    // Display leaderboard if available
+    const leaderboardContainer = document.getElementById('client-leaderboard');
+    if (leaderboardContainer) {
+      leaderboardContainer.innerHTML = '';
+      
+      if (leaderboard && leaderboard.length > 0) {
+        // Create leaderboard element
+        const leaderboardElement = document.createElement('div');
+        leaderboardElement.classList.add('leaderboard');
+        leaderboardElement.innerHTML = '<h3>Final Leaderboard</h3>';
+        
+        const table = document.createElement('table');
+        table.classList.add('leaderboard-table');
+        
+        // Add table header
+        const thead = document.createElement('thead');
+        const headerRow = document.createElement('tr');
+        
+        const rankHeader = document.createElement('th');
+        rankHeader.textContent = 'Rank';
+        
+        const nameHeader = document.createElement('th');
+        nameHeader.textContent = 'Player';
+        
+        const scoreHeader = document.createElement('th');
+        scoreHeader.textContent = 'Score';
+        
+        headerRow.appendChild(rankHeader);
+        headerRow.appendChild(nameHeader);
+        headerRow.appendChild(scoreHeader);
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+        
+        // Add table body with player data
+        const tbody = document.createElement('tbody');
+        
+        leaderboard.forEach((player, index) => {
+          const row = document.createElement('tr');
+          
+          // Add rank cell (position)
+          const rankCell = document.createElement('td');
+          rankCell.textContent = `${index + 1}`;
+          
+          // Add player name cell
+          const nameCell = document.createElement('td');
+          nameCell.textContent = player.name;
+          
+          // Highlight the current player
+          if (player.name === playerName) {
+            nameCell.classList.add('current-player');
+            row.classList.add('current-player-row');
+          }
+          
+          // Add score cell
+          const scoreCell = document.createElement('td');
+          scoreCell.textContent = `${player.score}`;
+          
+          row.appendChild(rankCell);
+          row.appendChild(nameCell);
+          row.appendChild(scoreCell);
+          tbody.appendChild(row);
+        });
+        
+        table.appendChild(tbody);
+        leaderboardElement.appendChild(table);
+        leaderboardContainer.appendChild(leaderboardElement);
+        
+        // Add some style for the leaderboard
+        const style = document.createElement('style');
+        style.textContent = `
+          .leaderboard {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #2d2d2d;
+            border-radius: 8px;
+          }
+          .leaderboard-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+          }
+          .leaderboard-table th,
+          .leaderboard-table td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #444;
+          }
+          .leaderboard-table th {
+            background-color: #1e1e1e;
+            color: #4da6ff;
+          }
+          .leaderboard-table tr:last-child td {
+            border-bottom: none;
+          }
+          .current-player {
+            color: #4da6ff;
+            font-weight: bold;
+          }
+          .current-player-row {
+            background-color: rgba(33, 150, 243, 0.1);
+          }
+        `;
+        document.head.appendChild(style);
+      } else {
+        leaderboardContainer.innerHTML = '<p>Leaderboard not available</p>';
+      }
+    }
   }
 
   // Check for saved player data immediately on load
@@ -139,22 +247,35 @@ document.addEventListener('DOMContentLoaded', () => {
     displayQuestion();
   });
 
-  socket.on('gameOver', () => {
+  socket.on('gameOver', (data) => {
     // Store game over state in session storage so refreshing will still show game over
     sessionStorage.setItem('triviaGameOver', 'true');
-    showGameOver();
+    
+    // Store leaderboard data if available
+    if (data && data.leaderboard) {
+      sessionStorage.setItem('triviaLeaderboard', JSON.stringify(data.leaderboard));
+    }
+    
+    showGameOver(data ? data.leaderboard : null);
   });
 
   socket.on('gameReset', () => {
     // Clear game over flag when game is reset
     sessionStorage.removeItem('triviaGameOver');
+    sessionStorage.removeItem('triviaLeaderboard');
     resetGameState();
     showJoinArea();
   });
 
   // Check for game over state in session storage during initialization
   if (sessionStorage.getItem('triviaGameOver') === 'true') {
-    showGameOver();
+    try {
+      const leaderboard = JSON.parse(sessionStorage.getItem('triviaLeaderboard') || '[]');
+      showGameOver(leaderboard);
+    } catch (e) {
+      console.error('Error parsing stored leaderboard', e);
+      showGameOver();
+    }
   }
 
   socket.on('answerSubmitted', (answer) => {
