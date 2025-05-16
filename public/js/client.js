@@ -85,14 +85,23 @@ document.addEventListener('DOMContentLoaded', () => {
   socket.on('gameState', (state) => {
     console.log("Received gameState:", state);
     
-    if (state.gameStarted) {
+    if (state.gameOver) {
+      // Handle game over first to prevent trying to show question 6
+      showGameOver();
+    } else if (state.gameStarted) {
+      // Only show the game area if the game isn't over
       currentQuestion = state.currentQuestion;
       currentQuestionIndex = state.currentQuestionIndex;
       totalQuestions = state.roundsTotal;
-      showGameArea();
-      displayQuestion();
-    } else if (state.gameOver) {
-      showGameOver();
+      
+      // Check if we're trying to show a question beyond the total
+      if (currentQuestionIndex >= totalQuestions) {
+        console.log("Invalid question index, showing game over");
+        showGameOver();
+      } else {
+        showGameArea();
+        displayQuestion();
+      }
     } else if (isReconnecting) {
       // We're reconnecting but game hasn't started yet
       showWaitingArea();
@@ -125,13 +134,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   socket.on('gameOver', () => {
+    // Store game over state in session storage so refreshing will still show game over
+    sessionStorage.setItem('triviaGameOver', 'true');
     showGameOver();
   });
 
   socket.on('gameReset', () => {
+    // Clear game over flag when game is reset
+    sessionStorage.removeItem('triviaGameOver');
     resetGameState();
     showJoinArea();
   });
+
+  // Check for game over state in session storage during initialization
+  if (sessionStorage.getItem('triviaGameOver') === 'true') {
+    showGameOver();
+  }
 
   socket.on('answerSubmitted', (answer) => {
     selectedAnswer = answer;

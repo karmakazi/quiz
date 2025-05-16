@@ -67,6 +67,11 @@ io.on('connection', (socket) => {
   socket.emit('gameState', {
     ...gameState,
     currentQuestion: gameState.gameStarted ? questions[gameState.currentQuestionIndex] : null,
+    // Include winners if the game is over
+    winners: gameState.gameOver ? Object.values(gameState.players).filter(p => {
+      const maxScore = Math.max(...Object.values(gameState.players).map(p => p.score), 0);
+      return p.score === maxScore;
+    }) : []
   });
 
   // Player joins the game

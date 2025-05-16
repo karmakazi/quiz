@@ -39,13 +39,22 @@ document.addEventListener('DOMContentLoaded', () => {
     players = state.players;
     currentQuestionIndex = state.currentQuestionIndex;
     
-    if (state.gameStarted) {
-      showGameArea();
+    if (state.gameOver) {
+      // Handle game over first to prevent trying to show question 6
+      showGameOver(state.winners || []);
+    } else if (state.gameStarted) {
+      // Only show the game area if the game isn't over
       currentQuestion = state.currentQuestion;
-      displayQuestion();
-      updatePlayersList();
-    } else if (state.gameOver) {
-      showGameOver();
+      
+      // Check if we're trying to show a question beyond the total
+      if (currentQuestionIndex >= totalQuestions) {
+        console.log("Invalid question index, showing game over");
+        showGameOver();
+      } else {
+        showGameArea();
+        displayQuestion();
+        updatePlayersList();
+      }
     } else {
       updateWaitingPlayersList();
     }
@@ -91,10 +100,16 @@ document.addEventListener('DOMContentLoaded', () => {
   socket.on('gameOver', (data) => {
     players = data.players;
     const winners = data.winners;
+    // Store game over state and winners in session storage for reliable refresh handling
+    sessionStorage.setItem('triviaGameOver', 'true');
+    sessionStorage.setItem('triviaGameWinners', JSON.stringify(winners));
     showGameOver(winners);
   });
 
   socket.on('gameReset', () => {
+    // Clear game over data when game is reset
+    sessionStorage.removeItem('triviaGameOver');
+    sessionStorage.removeItem('triviaGameWinners');
     players = {};
     currentQuestion = null;
     currentQuestionIndex = 0;
@@ -102,6 +117,17 @@ document.addEventListener('DOMContentLoaded', () => {
     showWaitingRoom();
     updateWaitingPlayersList();
   });
+
+  // Check for game over state in session storage during initialization
+  if (sessionStorage.getItem('triviaGameOver') === 'true') {
+    try {
+      const storedWinners = JSON.parse(sessionStorage.getItem('triviaGameWinners') || '[]');
+      showGameOver(storedWinners);
+    } catch (e) {
+      console.error('Error parsing stored winners', e);
+      showGameOver([]);
+    }
+  }
 
   // Event listeners
   startGameBtn.addEventListener('click', () => {
