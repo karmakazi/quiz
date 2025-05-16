@@ -64,6 +64,7 @@ const gameState = {
   gameOver: false,
   roundsTotal: QUESTIONS_PER_GAME, // Using the configurable constant
   disconnectedPlayers: {}, // Store disconnected players' data
+  leaderboard: [], // Persistent leaderboard for the current game
 };
 
 // Function to shuffle array (Fisher-Yates algorithm)
@@ -144,7 +145,7 @@ io.on('connection', (socket) => {
       const maxScore = Math.max(...Object.values(gameState.players).map(p => p.score), 0);
       return p.score === maxScore;
     }) : [],
-    leaderboard: gameState.gameOver ? Object.values(gameState.players).sort((a, b) => b.score - a.score) : []
+    leaderboard: gameState.gameOver ? gameState.leaderboard : [] // Use the stored leaderboard directly
   });
 
   // Player joins the game
@@ -177,6 +178,9 @@ io.on('connection', (socket) => {
         // Find winners
         const maxScore = Math.max(...Object.values(gameState.players).map(p => p.score), 0);
         const winners = Object.values(gameState.players).filter(p => p.score === maxScore);
+        
+        // Store the leaderboard in game state for reconnecting clients
+        gameState.leaderboard = sortedPlayers;
         
         // Send game over specific to the reconnected player
         socket.emit('gameOver', {
@@ -269,6 +273,9 @@ io.on('connection', (socket) => {
       // Sort all players by score for the leaderboard (descending order)
       const sortedPlayers = Object.values(gameState.players).sort((a, b) => b.score - a.score);
       
+      // Store the leaderboard in game state for reconnecting clients
+      gameState.leaderboard = sortedPlayers;
+      
       // Send game over event with leaderboard to all clients
       io.emit('gameOver', {
         players: gameState.players,
@@ -276,7 +283,7 @@ io.on('connection', (socket) => {
         leaderboard: sortedPlayers
       });
       
-      console.log('Game over');
+      console.log('Game over, leaderboard:', sortedPlayers);
     } else {
       io.emit('nextQuestion', {
         currentQuestion: gameQuestions[gameState.currentQuestionIndex],
@@ -296,6 +303,7 @@ io.on('connection', (socket) => {
     gameState.currentQuestionIndex = 0;
     gameState.gameStarted = false;
     gameState.gameOver = false;
+    gameState.leaderboard = []; // Clear the leaderboard
     // Clear the game questions
     gameQuestions = [];
     
@@ -342,6 +350,44 @@ app.get('/api/server-info', async (req, res) => {
     clientUrl: `${hostUrl}/client`,
     qrCode 
   });
+});
+
+// Add a direct HTTP route to get the leaderboard data
+app.get('/api/get-leaderboard', (req, res) => {
+  console.log('Received request for leaderboard data');
+  
+  try {
+    if (gameState.gameOver) {
+      // Get the latest leaderboard
+      const sortedPlayers = gameState.leaderboard.length > 0 
+        ? gameState.leaderboard 
+        : Object.values(gameState.players).sort((a, b) => b.score - a.score);
+      
+      // Get winners
+      const maxScore = Math.max(...Object.values(gameState.players).map(p => p.score || 0), 0);
+      const winners = Object.values(gameState.players).filter(p => p.score === maxScore);
+      
+      console.log('Returning leaderboard data:', { 
+        leaderboardCount: sortedPlayers.length,
+        winnerCount: winners.length
+      });
+      
+      res.json({
+        gameOver: true,
+        leaderboard: sortedPlayers,
+        winners: winners
+      });
+    } else {
+      console.log('Game not over yet, no leaderboard to return');
+      res.json({
+        gameOver: false,
+        message: 'Game is not over yet'
+      });
+    }
+  } catch (error) {
+    console.error('Error serving leaderboard data:', error);
+    res.status(500).json({ error: 'Server error processing leaderboard data' });
+  }
 });
 
 server.listen(PORT, () => {

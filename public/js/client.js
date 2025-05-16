@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const questionText = document.getElementById('question-text');
   const optionsContainer = document.getElementById('options-container');
   const answerStatus = document.getElementById('answer-status');
+  const refreshLeaderboardBtn = document.getElementById('refresh-leaderboard-btn');
 
   // Game state
   let playerName = '';
@@ -57,128 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
     gameArea.classList.add('hidden');
     gameOver.classList.remove('hidden');
     
-    // Display leaderboard if available
-    const leaderboardContainer = document.getElementById('client-leaderboard');
-    if (leaderboardContainer) {
-      leaderboardContainer.innerHTML = '';
-      
-      // Get leaderboard data from parameter or try to get from session storage as fallback
-      let leaderboardData = leaderboard;
-      if (!leaderboardData || leaderboardData.length === 0) {
-        try {
-          leaderboardData = JSON.parse(sessionStorage.getItem('triviaLeaderboard') || '[]');
-        } catch (e) {
-          console.error('Error parsing leaderboard data from session storage:', e);
-        }
-      }
-      
-      if (leaderboardData && leaderboardData.length > 0) {
-        // Create leaderboard element
-        const leaderboardElement = document.createElement('div');
-        leaderboardElement.classList.add('leaderboard');
-        leaderboardElement.innerHTML = '<h3>Final Leaderboard</h3>';
-        
-        const table = document.createElement('table');
-        table.classList.add('leaderboard-table');
-        
-        // Add table header
-        const thead = document.createElement('thead');
-        const headerRow = document.createElement('tr');
-        
-        const rankHeader = document.createElement('th');
-        rankHeader.textContent = 'Rank';
-        
-        const nameHeader = document.createElement('th');
-        nameHeader.textContent = 'Player';
-        
-        const scoreHeader = document.createElement('th');
-        scoreHeader.textContent = 'Score';
-        
-        headerRow.appendChild(rankHeader);
-        headerRow.appendChild(nameHeader);
-        headerRow.appendChild(scoreHeader);
-        thead.appendChild(headerRow);
-        table.appendChild(thead);
-        
-        // Add table body with player data
-        const tbody = document.createElement('tbody');
-        
-        leaderboardData.forEach((player, index) => {
-          const row = document.createElement('tr');
-          
-          // Add rank cell (position)
-          const rankCell = document.createElement('td');
-          rankCell.textContent = `${index + 1}`;
-          
-          // Add player name cell
-          const nameCell = document.createElement('td');
-          nameCell.textContent = player.name;
-          
-          // Highlight the current player
-          if (player.name === playerName) {
-            nameCell.classList.add('current-player');
-            row.classList.add('current-player-row');
-          }
-          
-          // Add score cell
-          const scoreCell = document.createElement('td');
-          scoreCell.textContent = `${player.score}`;
-          
-          row.appendChild(rankCell);
-          row.appendChild(nameCell);
-          row.appendChild(scoreCell);
-          tbody.appendChild(row);
-        });
-        
-        table.appendChild(tbody);
-        leaderboardElement.appendChild(table);
-        leaderboardContainer.appendChild(leaderboardElement);
-        
-        // Add some style for the leaderboard
-        const style = document.createElement('style');
-        style.textContent = `
-          .leaderboard {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #2d2d2d;
-            border-radius: 8px;
-          }
-          .leaderboard-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-          }
-          .leaderboard-table th,
-          .leaderboard-table td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #444;
-          }
-          .leaderboard-table th {
-            background-color: #1e1e1e;
-            color: #4da6ff;
-          }
-          .leaderboard-table tr:last-child td {
-            border-bottom: none;
-          }
-          .current-player {
-            color: #4da6ff;
-            font-weight: bold;
-          }
-          .current-player-row {
-            background-color: rgba(33, 150, 243, 0.1);
-          }
-        `;
-        document.head.appendChild(style);
-      } else {
-        // Instead of showing "leaderboard not available", show a message about checking the host screen
-        const messageElement = document.createElement('p');
-        messageElement.textContent = 'Please check the host screen for the final results.';
-        messageElement.style.textAlign = 'center';
-        messageElement.style.marginTop = '20px';
-        
-        leaderboardContainer.appendChild(messageElement);
-      }
+    // If we have leaderboard data passed in, display it
+    if (leaderboard && Array.isArray(leaderboard) && leaderboard.length > 0) {
+      displayLeaderboard(leaderboard);
+    } else {
+      // Otherwise fetch fresh data
+      fetchLeaderboardData();
     }
   }
 
@@ -211,13 +96,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // Reset partial game state
   resetGameState();
 
+  // Check for game over state in session storage during initialization
+  if (sessionStorage.getItem('triviaGameOver') === 'true') {
+    console.log('Found gameOver flag in sessionStorage - showing game over screen');
+    showGameOver(); // This will now fetch leaderboard data
+  }
+
   // Socket.IO event listeners
   socket.on('gameState', (state) => {
     console.log("Received gameState:", state);
     
     if (state.gameOver) {
       // Handle game over first to prevent trying to show question 6
-      showGameOver();
+      sessionStorage.setItem('triviaGameOver', 'true');
+      showGameOver(state.leaderboard);
     } else if (state.gameStarted) {
       // Only show the game area if the game isn't over
       currentQuestion = state.currentQuestion;
@@ -227,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Check if we're trying to show a question beyond the total
       if (currentQuestionIndex >= totalQuestions) {
         console.log("Invalid question index, showing game over");
+        sessionStorage.setItem('triviaGameOver', 'true');
         showGameOver();
       } else {
         showGameArea();
@@ -267,31 +160,161 @@ document.addEventListener('DOMContentLoaded', () => {
     // Store game over state in session storage so refreshing will still show game over
     sessionStorage.setItem('triviaGameOver', 'true');
     
-    // Store leaderboard data if available
-    if (data && data.leaderboard) {
-      sessionStorage.setItem('triviaLeaderboard', JSON.stringify(data.leaderboard));
-    }
+    // Log the received data
+    console.log('Received gameOver event with data:', data);
     
-    showGameOver(data ? data.leaderboard : null);
+    // Show game over screen with leaderboard data if available
+    showGameOver(data && data.leaderboard ? data.leaderboard : null);
   });
 
   socket.on('gameReset', () => {
     // Clear game over flag when game is reset
     sessionStorage.removeItem('triviaGameOver');
-    sessionStorage.removeItem('triviaLeaderboard');
     resetGameState();
     showJoinArea();
   });
 
-  // Check for game over state in session storage during initialization
-  if (sessionStorage.getItem('triviaGameOver') === 'true') {
-    try {
-      const leaderboard = JSON.parse(sessionStorage.getItem('triviaLeaderboard') || '[]');
-      showGameOver(leaderboard);
-    } catch (e) {
-      console.error('Error parsing stored leaderboard', e);
-      showGameOver();
+  // Create a simpler function for requesting leaderboard data directly via HTTP
+  function fetchLeaderboardData() {
+    console.log('Fetching leaderboard data via HTTP API');
+    
+    // Show loading message
+    const leaderboardContainer = document.getElementById('client-leaderboard');
+    if (leaderboardContainer) {
+      leaderboardContainer.innerHTML = '<p style="text-align:center;">Loading leaderboard...</p>';
     }
+    
+    // Use the correct API endpoint
+    fetch('/api/get-leaderboard')
+      .then(response => {
+        console.log('API response status:', response.status);
+        return response.json();
+      })
+      .then(data => {
+        console.log('Received leaderboard data:', data);
+        
+        if (data && data.gameOver && data.leaderboard && Array.isArray(data.leaderboard)) {
+          // Update the display with the fresh data
+          displayLeaderboard(data.leaderboard);
+        } else {
+          // If no data, show message
+          if (leaderboardContainer) {
+            leaderboardContainer.innerHTML = '<p style="text-align:center;">Leaderboard not available</p>';
+          }
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching leaderboard data:', error);
+        if (leaderboardContainer) {
+          leaderboardContainer.innerHTML = '<p style="text-align:center;">Could not load leaderboard</p>';
+        }
+      });
+  }
+
+  // Create a separate function to display the leaderboard
+  function displayLeaderboard(leaderboardData) {
+    const leaderboardContainer = document.getElementById('client-leaderboard');
+    if (!leaderboardContainer || !leaderboardData || !Array.isArray(leaderboardData) || leaderboardData.length === 0) {
+      return;
+    }
+    
+    leaderboardContainer.innerHTML = '';
+    
+    // Create leaderboard element
+    const leaderboardElement = document.createElement('div');
+    leaderboardElement.style.marginTop = '20px';
+    leaderboardElement.style.padding = '15px';
+    leaderboardElement.style.backgroundColor = '#2d2d2d';
+    leaderboardElement.style.borderRadius = '8px';
+    
+    const header = document.createElement('h3');
+    header.textContent = 'Final Leaderboard';
+    header.style.textAlign = 'center';
+    header.style.color = '#4da6ff';
+    header.style.marginBottom = '10px';
+    leaderboardElement.appendChild(header);
+    
+    const table = document.createElement('table');
+    table.style.width = '100%';
+    table.style.borderCollapse = 'collapse';
+    
+    // Add table header
+    const thead = document.createElement('thead');
+    const headerRow = document.createElement('tr');
+    
+    const rankHeader = document.createElement('th');
+    rankHeader.textContent = 'Rank';
+    rankHeader.style.padding = '8px';
+    rankHeader.style.textAlign = 'left';
+    rankHeader.style.borderBottom = '1px solid #444';
+    rankHeader.style.backgroundColor = '#1e1e1e';
+    rankHeader.style.color = '#4da6ff';
+    
+    const nameHeader = document.createElement('th');
+    nameHeader.textContent = 'Player';
+    nameHeader.style.padding = '8px';
+    nameHeader.style.textAlign = 'left';
+    nameHeader.style.borderBottom = '1px solid #444';
+    nameHeader.style.backgroundColor = '#1e1e1e';
+    nameHeader.style.color = '#4da6ff';
+    
+    const scoreHeader = document.createElement('th');
+    scoreHeader.textContent = 'Score';
+    scoreHeader.style.padding = '8px';
+    scoreHeader.style.textAlign = 'left';
+    scoreHeader.style.borderBottom = '1px solid #444';
+    scoreHeader.style.backgroundColor = '#1e1e1e';
+    scoreHeader.style.color = '#4da6ff';
+    
+    headerRow.appendChild(rankHeader);
+    headerRow.appendChild(nameHeader);
+    headerRow.appendChild(scoreHeader);
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+    
+    // Add table body with player data
+    const tbody = document.createElement('tbody');
+    
+    leaderboardData.forEach((player, index) => {
+      const row = document.createElement('tr');
+      
+      // Add rank cell (position)
+      const rankCell = document.createElement('td');
+      rankCell.textContent = `${index + 1}`;
+      rankCell.style.padding = '8px';
+      rankCell.style.textAlign = 'left';
+      rankCell.style.borderBottom = index === leaderboardData.length - 1 ? 'none' : '1px solid #444';
+      
+      // Add player name cell
+      const nameCell = document.createElement('td');
+      nameCell.textContent = player.name;
+      nameCell.style.padding = '8px';
+      nameCell.style.textAlign = 'left';
+      nameCell.style.borderBottom = index === leaderboardData.length - 1 ? 'none' : '1px solid #444';
+      
+      // Highlight the current player
+      if (player.name === playerName) {
+        nameCell.style.color = '#4da6ff';
+        nameCell.style.fontWeight = 'bold';
+        row.style.backgroundColor = 'rgba(33, 150, 243, 0.1)';
+      }
+      
+      // Add score cell
+      const scoreCell = document.createElement('td');
+      scoreCell.textContent = `${player.score}`;
+      scoreCell.style.padding = '8px';
+      scoreCell.style.textAlign = 'left';
+      scoreCell.style.borderBottom = index === leaderboardData.length - 1 ? 'none' : '1px solid #444';
+      
+      row.appendChild(rankCell);
+      row.appendChild(nameCell);
+      row.appendChild(scoreCell);
+      tbody.appendChild(row);
+    });
+    
+    table.appendChild(tbody);
+    leaderboardElement.appendChild(table);
+    leaderboardContainer.appendChild(leaderboardElement);
   }
 
   socket.on('answerSubmitted', (answer) => {
@@ -382,5 +405,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     // Don't clear playerName or localStorage since we use that for reconnection
+  }
+
+  // Add a new event listener for leaderboard data responses
+  socket.on('leaderboardData', (data) => {
+    console.log('Received leaderboardData event:', data);
+    if (data && Array.isArray(data.leaderboard) && data.leaderboard.length > 0) {
+      // Store the leaderboard data
+      const leaderboardJSON = JSON.stringify(data.leaderboard);
+      try {
+        sessionStorage.setItem('triviaLeaderboard', leaderboardJSON);
+        localStorage.setItem('triviaLeaderboard', leaderboardJSON);
+      } catch (e) {
+        console.error('Error storing leaderboard data:', e);
+      }
+      
+      // Update the display
+      showGameOver(data.leaderboard);
+    }
+  });
+
+  // Add event listener for the refresh leaderboard button
+  if (refreshLeaderboardBtn) {
+    refreshLeaderboardBtn.addEventListener('click', () => {
+      console.log('Manual leaderboard refresh requested');
+      fetchLeaderboardData();
+    });
   }
 }); 
