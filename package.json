@@ -1,0 +1,26 @@
+{
+  "name": "trivia-app",
+  "version": "1.0.0",
+  "description": "A simple trivia game with host and client views",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "trivia",
+    "game",
+    "websockets",
+    "qrcode"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "qrcode": "^1.5.4",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

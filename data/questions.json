@@ -1,0 +1,124 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Which planet is known as the Red Planet?",
+      "options": [
+        "Venus",
+        "Mars",
+        "Jupiter",
+        "Saturn",
+        "Mercury"
+      ],
+      "correctAnswer": "Mars"
+    },
+    {
+      "id": 2,
+      "question": "What is the largest ocean on Earth?",
+      "options": [
+        "Atlantic Ocean",
+        "Indian Ocean",
+        "Arctic Ocean",
+        "Pacific Ocean",
+        "Southern Ocean"
+      ],
+      "correctAnswer": "Pacific Ocean"
+    },
+    {
+      "id": 3,
+      "question": "Who painted the Mona Lisa?",
+      "options": [
+        "Vincent van Gogh",
+        "Pablo Picasso",
+        "Leonardo da Vinci",
+        "Michelangelo",
+        "Claude Monet"
+      ],
+      "correctAnswer": "Leonardo da Vinci"
+    },
+    {
+      "id": 4,
+      "question": "What is the capital of Australia?",
+      "options": [
+        "Sydney",
+        "Melbourne",
+        "Canberra",
+        "Perth",
+        "Brisbane"
+      ],
+      "correctAnswer": "Canberra"
+    },
+    {
+      "id": 5,
+      "question": "Which element has the chemical symbol 'Au'?",
+      "options": [
+        "Silver",
+        "Gold",
+        "Aluminum",
+        "Argon",
+        "Arsenic"
+      ],
+      "correctAnswer": "Gold"
+    },
+    {
+      "id": 6,
+      "question": "What is the smallest prime number?",
+      "options": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswer": "2"
+    },
+    {
+      "id": 7,
+      "question": "Which animal is known as the 'King of the Jungle'?",
+      "options": [
+        "Tiger",
+        "Lion",
+        "Elephant",
+        "Gorilla",
+        "Leopard"
+      ],
+      "correctAnswer": "Lion"
+    },
+    {
+      "id": 8,
+      "question": "What is the largest organ in the human body?",
+      "options": [
+        "Heart",
+        "Brain",
+        "Liver",
+        "Skin",
+        "Lungs"
+      ],
+      "correctAnswer": "Skin"
+    },
+    {
+      "id": 9,
+      "question": "Which country is home to the Great Barrier Reef?",
+      "options": [
+        "Brazil",
+        "Mexico",
+        "Australia",
+        "Indonesia",
+        "Thailand"
+      ],
+      "correctAnswer": "Australia"
+    },
+    {
+      "id": 10,
+      "question": "Who wrote the play 'Romeo and Juliet'?",
+      "options": [
+        "Charles Dickens",
+        "William Shakespeare",
+        "Jane Austen",
+        "Mark Twain",
+        "Oscar Wilde"
+      ],
+      "correctAnswer": "William Shakespeare"
+    }
+  ]
+} 

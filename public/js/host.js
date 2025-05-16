@@ -1,0 +1,213 @@
+document.addEventListener('DOMContentLoaded', () => {
+  // DOM Elements
+  const waitingRoom = document.getElementById('waiting-room');
+  const gameArea = document.getElementById('game-area');
+  const gameOver = document.getElementById('game-over');
+  const qrCode = document.getElementById('qr-code');
+  const joinUrl = document.getElementById('join-url');
+  const waitingPlayersList = document.getElementById('waiting-players-list');
+  const playersList = document.getElementById('players-list');
+  const startGameBtn = document.getElementById('start-game-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const newGameBtn = document.getElementById('new-game-btn');
+  const questionNumber = document.getElementById('question-number');
+  const questionText = document.getElementById('question-text');
+  const optionsList = document.getElementById('options-list');
+  const winnersContainer = document.getElementById('winners-container');
+
+  // Game state
+  let players = {};
+  let currentQuestion = null;
+  let currentQuestionIndex = 0;
+  let totalQuestions = 5;
+  let playersWhoAnswered = new Set();
+
+  // Connect to Socket.IO server
+  const socket = io();
+
+  // Fetch server info and set up QR code
+  fetch('/api/server-info')
+    .then(response => response.json())
+    .then(data => {
+      qrCode.src = data.qrCode;
+      joinUrl.textContent = `or visit: ${data.clientUrl}`;
+    })
+    .catch(error => console.error('Error fetching server info:', error));
+
+  // Socket.IO event listeners
+  socket.on('gameState', (state) => {
+    players = state.players;
+    currentQuestionIndex = state.currentQuestionIndex;
+    
+    if (state.gameStarted) {
+      showGameArea();
+      currentQuestion = state.currentQuestion;
+      displayQuestion();
+      updatePlayersList();
+    } else if (state.gameOver) {
+      showGameOver();
+    } else {
+      updateWaitingPlayersList();
+    }
+  });
+
+  socket.on('playerJoined', (data) => {
+    players = data.players;
+    updateWaitingPlayersList();
+    startGameBtn.disabled = Object.keys(players).length === 0;
+  });
+
+  socket.on('playerLeft', (data) => {
+    players = data.players;
+    updateWaitingPlayersList();
+    updatePlayersList();
+    startGameBtn.disabled = Object.keys(players).length === 0;
+  });
+
+  socket.on('playerAnswered', (data) => {
+    playersWhoAnswered.add(data.playerId);
+    updatePlayersList();
+  });
+
+  socket.on('gameStarted', (data) => {
+    currentQuestion = data.currentQuestion;
+    currentQuestionIndex = data.currentQuestionIndex;
+    totalQuestions = data.totalQuestions;
+    playersWhoAnswered.clear();
+    showGameArea();
+    displayQuestion();
+    updatePlayersList();
+  });
+
+  socket.on('nextQuestion', (data) => {
+    currentQuestion = data.currentQuestion;
+    currentQuestionIndex = data.currentQuestionIndex;
+    players = data.players;
+    playersWhoAnswered.clear();
+    displayQuestion();
+    updatePlayersList();
+  });
+
+  socket.on('gameOver', (data) => {
+    players = data.players;
+    const winners = data.winners;
+    showGameOver(winners);
+  });
+
+  socket.on('gameReset', () => {
+    players = {};
+    currentQuestion = null;
+    currentQuestionIndex = 0;
+    playersWhoAnswered.clear();
+    showWaitingRoom();
+    updateWaitingPlayersList();
+  });
+
+  // Event listeners
+  startGameBtn.addEventListener('click', () => {
+    socket.emit('startGame');
+  });
+
+  nextBtn.addEventListener('click', () => {
+    socket.emit('nextQuestion');
+  });
+
+  newGameBtn.addEventListener('click', () => {
+    socket.emit('resetGame');
+  });
+
+  // Helper functions
+  function updateWaitingPlayersList() {
+    waitingPlayersList.innerHTML = '';
+    Object.values(players).forEach(player => {
+      const li = document.createElement('li');
+      li.textContent = player.name;
+      waitingPlayersList.appendChild(li);
+    });
+    
+    startGameBtn.disabled = Object.keys(players).length === 0;
+  }
+
+  function updatePlayersList() {
+    playersList.innerHTML = '';
+    Object.values(players).forEach(player => {
+      const li = document.createElement('li');
+      const hasAnswered = playersWhoAnswered.has(player.id);
+      
+      const nameSpan = document.createElement('span');
+      nameSpan.textContent = player.name;
+      if (hasAnswered) {
+        nameSpan.classList.add('player-answered');
+      }
+      
+      const scoreSpan = document.createElement('span');
+      scoreSpan.textContent = `Score: ${player.score}`;
+      
+      li.appendChild(nameSpan);
+      li.appendChild(scoreSpan);
+      playersList.appendChild(li);
+    });
+  }
+
+  function displayQuestion() {
+    if (!currentQuestion) return;
+    
+    questionNumber.textContent = `Question ${currentQuestionIndex + 1} of ${totalQuestions}`;
+    questionText.textContent = currentQuestion.question;
+    
+    optionsList.innerHTML = '';
+    currentQuestion.options.forEach(option => {
+      const li = document.createElement('li');
+      li.textContent = option;
+      if (option === currentQuestion.correctAnswer) {
+        li.dataset.correct = 'true';
+      }
+      optionsList.appendChild(li);
+    });
+  }
+
+  function showWaitingRoom() {
+    waitingRoom.classList.remove('hidden');
+    gameArea.classList.add('hidden');
+    gameOver.classList.add('hidden');
+  }
+
+  function showGameArea() {
+    waitingRoom.classList.add('hidden');
+    gameArea.classList.remove('hidden');
+    gameOver.classList.add('hidden');
+  }
+
+  function showGameOver(winners = []) {
+    waitingRoom.classList.add('hidden');
+    gameArea.classList.add('hidden');
+    gameOver.classList.remove('hidden');
+    
+    winnersContainer.innerHTML = '';
+    
+    if (winners.length === 0) {
+      winnersContainer.innerHTML = '<p>No winners!</p>';
+    } else if (winners.length === 1) {
+      winnersContainer.innerHTML = `
+        <h3>Winner: ${winners[0].name}</h3>
+        <p>Score: ${winners[0].score} points</p>
+      `;
+    } else {
+      const winnersList = document.createElement('div');
+      winnersList.innerHTML = '<h3>It\'s a tie!</h3>';
+      
+      const ul = document.createElement('ul');
+      ul.style.listStyleType = 'none';
+      ul.style.padding = '0';
+      
+      winners.forEach(winner => {
+        const li = document.createElement('li');
+        li.textContent = `${winner.name}: ${winner.score} points`;
+        ul.appendChild(li);
+      });
+      
+      winnersList.appendChild(ul);
+      winnersContainer.appendChild(winnersList);
+    }
+  }
+}); 
