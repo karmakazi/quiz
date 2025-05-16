@@ -60,17 +60,14 @@ document.addEventListener('DOMContentLoaded', () => {
       playerName = playerData.name;
       
       if (playerName) {
-        // Mark as reconnecting and prefill name
-        isReconnecting = true;
+        // Just pre-fill the name input, but don't auto-join
         playerNameInput.value = playerName;
-        playerNameDisplay.textContent = playerName;
         
-        // Auto-rejoin if we have player data
-        console.log("Attempting to reconnect as:", playerName);
-        socket.emit('joinGame', playerName);
+        // Only store the name for reconnection logic but don't auto-join
+        isReconnecting = false;
         
-        // Show waiting area while reconnecting
-        showWaitingArea();
+        // Always show the join area first
+        showJoinArea();
       }
     } catch (e) {
       console.error('Error parsing saved player data', e);
@@ -169,6 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       socket.emit('joinGame', playerName);
       playerNameDisplay.textContent = playerName;
+      isReconnecting = true; // Now we're in reconnection mode
       showWaitingArea();
     }
   });
