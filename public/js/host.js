@@ -21,14 +21,32 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentQuestionIndex = 0;
   let totalQuestions = 5;
   let playersWhoAnswered = new Set();
+  let scoreChanges = {};
 
   // Connect to Socket.IO server with options for Vercel serverless
   const socket = io({
     transports: ['websocket', 'polling'],
     reconnection: true,
-    reconnectionAttempts: 5,
+    reconnectionAttempts: Infinity, // Keep trying indefinitely
     reconnectionDelay: 1000,
+    reconnectionDelayMax: 5000, // Cap at 5 seconds
+    timeout: 20000,
     autoConnect: true
+  });
+
+  // Add reconnection handling
+  socket.on('reconnect', () => {
+    console.log('Host reconnected to server');
+    // Request updated game state from server
+    // The server will automatically send it
+  });
+
+  socket.on('reconnect_error', (error) => {
+    console.log('Reconnection error:', error);
+  });
+
+  socket.on('connect_error', (error) => {
+    console.log('Connection error:', error);
   });
 
   // Fetch server info and set up QR code
@@ -98,6 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     currentQuestion = data.currentQuestion;
     currentQuestionIndex = data.currentQuestionIndex;
     players = data.players;
+    scoreChanges = data.scoreChanges || {};
     playersWhoAnswered.clear();
     displayQuestion();
     updatePlayersList();
@@ -176,13 +195,65 @@ document.addEventListener('DOMContentLoaded', () => {
         nameSpan.classList.add('player-answered');
       }
       
+      // Create score display with appropriate visual indicators
       const scoreSpan = document.createElement('span');
-      scoreSpan.textContent = `Score: ${player.score}`;
+      
+      // Check if we have score change data for this player
+      const playerScoreChange = scoreChanges[player.id];
+      
+      if (playerScoreChange) {
+        // Create a container for the icon and score
+        const scoreContainer = document.createElement('div');
+        scoreContainer.style.display = 'flex';
+        scoreContainer.style.alignItems = 'center';
+        scoreContainer.style.gap = '5px';
+        
+        // Add an icon based on whether the answer was correct
+        const icon = document.createElement('span');
+        
+        if (playerScoreChange.isCorrect) {
+          // Check mark for correct answers
+          icon.innerHTML = '✓';
+          icon.style.color = '#4CAF50'; // Green
+          icon.style.fontWeight = 'bold';
+        } else {
+          // X mark for incorrect answers
+          icon.innerHTML = '✗';
+          icon.style.color = '#F44336'; // Red
+          icon.style.fontWeight = 'bold';
+        }
+        
+        scoreContainer.appendChild(icon);
+        
+        // Create the score text
+        const scoreText = document.createElement('span');
+        scoreText.textContent = `Score: ${player.score}`;
+        
+        // Apply color based on score change
+        if (playerScoreChange.scoreChanged && playerScoreChange.isCorrect) {
+          scoreText.style.color = '#2196F3'; // Blue for increased score
+          scoreText.style.fontWeight = 'bold';
+        } else if (!playerScoreChange.scoreChanged && !playerScoreChange.isCorrect) {
+          scoreText.style.color = '#F44336'; // Red for no change
+        }
+        
+        scoreContainer.appendChild(scoreText);
+        scoreSpan.appendChild(scoreContainer);
+      } else {
+        // Default display if no score change data
+        scoreSpan.textContent = `Score: ${player.score}`;
+      }
       
       li.appendChild(nameSpan);
       li.appendChild(scoreSpan);
       playersList.appendChild(li);
     });
+    
+    // Clear score changes after updating the display
+    // This ensures the colors only show right after a question
+    setTimeout(() => {
+      scoreChanges = {};
+    }, 5000); // Clear after 5 seconds so the colors remain visible for a while
   }
 
   function displayQuestion() {

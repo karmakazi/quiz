@@ -150,10 +150,59 @@ io.on('connection', (socket) => {
 
   // Player joins the game
   socket.on('joinGame', (playerName) => {
-    // Check if this might be a reconnecting player
+    // Store the player name in the socket object for future reference
+    socket.playerName = playerName;
+    
+    // First, check if a player with this name is already in the active players
+    const existingActivePlayer = Object.values(gameState.players).find(p => p.name === playerName);
+    
+    if (existingActivePlayer) {
+      // Update the existing player's socket ID
+      const oldSocketId = existingActivePlayer.id;
+      
+      // Copy the player data to the new socket ID
+      gameState.players[socket.id] = {
+        ...existingActivePlayer,
+        id: socket.id,
+      };
+      
+      // Remove the old socket entry
+      delete gameState.players[oldSocketId];
+      
+      console.log(`Player ${playerName} reconnected with new socket ID: ${socket.id} (replacing ${oldSocketId})`);
+      
+      // Notify everyone about the updated player list
+      io.emit('playerJoined', {
+        players: gameState.players,
+        playerId: socket.id,
+      });
+      
+      // If game is in progress, send current question to the reconnected player
+      if (gameState.gameStarted && !gameState.gameOver) {
+        socket.emit('gameStarted', {
+          currentQuestion: gameQuestions[gameState.currentQuestionIndex],
+          currentQuestionIndex: gameState.currentQuestionIndex,
+          totalQuestions: gameState.roundsTotal,
+        });
+      } else if (gameState.gameOver) {
+        // If the game is over, send game over event with leaderboard
+        socket.emit('gameOver', {
+          players: gameState.players,
+          winners: Object.values(gameState.players).filter(p => {
+            const maxScore = Math.max(...Object.values(gameState.players).map(p => p.score), 0);
+            return p.score === maxScore;
+          }),
+          leaderboard: gameState.leaderboard
+        });
+      }
+      
+      return; // Exit early since we've handled the reconnection
+    }
+    
+    // Check if this might be a reconnecting player from disconnectedPlayers
     let isReconnection = false;
     
-    // Look for a disconnected player with the same name - direct lookup by name
+    // Look for a disconnected player with the same name
     if (gameState.disconnectedPlayers[playerName]) {
       isReconnection = true;
       
@@ -169,24 +218,24 @@ io.on('connection', (socket) => {
       // Remove from disconnected players
       delete gameState.disconnectedPlayers[playerName];
       
-      console.log(`Player ${playerName} reconnected with new ID: ${socket.id}`);
+      console.log(`Player ${playerName} reconnected with new ID: ${socket.id} from disconnected list`);
       
       // If the game is over, send game over event with leaderboard
       if (gameState.gameOver) {
-        // Sort players by score for leaderboard
-        const sortedPlayers = Object.values(gameState.players).sort((a, b) => b.score - a.score);
-        // Find winners
-        const maxScore = Math.max(...Object.values(gameState.players).map(p => p.score), 0);
-        const winners = Object.values(gameState.players).filter(p => p.score === maxScore);
-        
-        // Store the leaderboard in game state for reconnecting clients
-        gameState.leaderboard = sortedPlayers;
-        
-        // Send game over specific to the reconnected player
         socket.emit('gameOver', {
           players: gameState.players,
-          winners,
-          leaderboard: sortedPlayers
+          winners: Object.values(gameState.players).filter(p => {
+            const maxScore = Math.max(...Object.values(gameState.players).map(p => p.score), 0);
+            return p.score === maxScore;
+          }),
+          leaderboard: gameState.leaderboard
+        });
+      } else if (gameState.gameStarted) {
+        // If game is in progress, send current game state
+        socket.emit('gameStarted', {
+          currentQuestion: gameQuestions[gameState.currentQuestionIndex],
+          currentQuestionIndex: gameState.currentQuestionIndex,
+          totalQuestions: gameState.roundsTotal,
         });
       }
     } else if (!gameState.gameStarted) {
@@ -238,11 +287,113 @@ io.on('connection', (socket) => {
 
   // Player submits an answer
   socket.on('submitAnswer', (answer) => {
-    if (gameState.gameStarted && !gameState.gameOver && gameState.players[socket.id]) {
-      gameState.players[socket.id].currentAnswer = answer;
-      socket.emit('answerSubmitted', answer);
-      io.emit('playerAnswered', { playerId: socket.id });
-      console.log(`Player ${gameState.players[socket.id].name} submitted answer: ${answer}`);
+    // Check if game is active
+    if (gameState.gameStarted && !gameState.gameOver) {
+      // First check if the player exists with this socket ID
+      if (gameState.players[socket.id]) {
+        // Player found, proceed normally
+        gameState.players[socket.id].currentAnswer = answer;
+        socket.emit('answerSubmitted', answer);
+        io.emit('playerAnswered', { playerId: socket.id });
+        console.log(`Player ${gameState.players[socket.id].name} submitted answer: ${answer}`);
+      } else {
+        // Look for this player by checking all players and disconnected players
+        let playerName = null;
+        
+        // Attempt to extract name from socket data if available
+        if (socket.playerName) {
+          playerName = socket.playerName;
+        }
+        
+        // If not found, try to get from query params if socket.io passed them
+        if (!playerName && socket.handshake && socket.handshake.query && socket.handshake.query.name) {
+          playerName = socket.handshake.query.name;
+        }
+        
+        if (playerName) {
+          console.log(`Found player name ${playerName} for reconnection`);
+          
+          // Check if player exists in disconnected players
+          if (gameState.disconnectedPlayers[playerName]) {
+            // Reconnect the player first before processing answer
+            const playerData = gameState.disconnectedPlayers[playerName];
+            
+            // Create new player entry with updated socket ID
+            gameState.players[socket.id] = {
+              ...playerData,
+              id: socket.id,
+              currentAnswer: answer // Set the answer immediately
+            };
+            
+            // Clean up old socket entry if it exists
+            if (playerData.oldSocketId && playerData.oldSocketId !== socket.id) {
+              delete gameState.players[playerData.oldSocketId];
+            }
+            
+            // Remove from disconnected players
+            delete gameState.disconnectedPlayers[playerName];
+            
+            // Save player name in socket for future reference
+            socket.playerName = playerName;
+            
+            // Send events
+            socket.emit('answerSubmitted', answer);
+            io.emit('playerAnswered', { playerId: socket.id });
+            
+            // Update all clients with new player list
+            io.emit('playerJoined', {
+              players: gameState.players,
+              playerId: socket.id,
+            });
+            
+            console.log(`Player ${playerName} auto-reconnected and submitted answer: ${answer}`);
+          } else {
+            // Check if player exists with a different socket ID
+            const existingPlayer = Object.values(gameState.players).find(p => p.name === playerName);
+            
+            if (existingPlayer) {
+              // Player exists but with a different socket ID, update it
+              const oldSocketId = existingPlayer.id;
+              
+              // Create new player entry with updated socket ID
+              gameState.players[socket.id] = {
+                ...existingPlayer,
+                id: socket.id,
+                currentAnswer: answer
+              };
+              
+              // Clean up old socket entry
+              delete gameState.players[oldSocketId];
+              
+              // Save player name in socket for future reference
+              socket.playerName = playerName;
+              
+              // Send events
+              socket.emit('answerSubmitted', answer);
+              io.emit('playerAnswered', { playerId: socket.id });
+              
+              // Update all clients with new player list
+              io.emit('playerJoined', {
+                players: gameState.players,
+                playerId: socket.id,
+              });
+              
+              console.log(`Player ${playerName} updated socket ID from ${oldSocketId} to ${socket.id} and submitted answer: ${answer}`);
+            } else {
+              // Player not found at all, ask to join
+              console.log(`Player with name ${playerName} not found in any list`);
+              socket.emit('error', 'Please rejoin the game');
+            }
+          }
+        } else {
+          // No player name found, ask to join
+          console.log(`No player name found for socket ${socket.id}`);
+          socket.emit('error', 'Please rejoin the game');
+        }
+      }
+    } else {
+      // Game not started or already over
+      socket.emit('error', 'Cannot submit answer at this time');
     }
   });
 
@@ -253,10 +404,26 @@ io.on('connection', (socket) => {
     // Update scores based on current answers
     const currentQuestion = gameQuestions[gameState.currentQuestionIndex];
     
+    // Keep track of score changes to send to clients
+    const scoreChanges = {};
+    
     Object.values(gameState.players).forEach((player) => {
+      // Record previous score before updating
+      const previousScore = player.score;
+      
+      // Update score if answer is correct
       if (player.currentAnswer === currentQuestion.correctAnswer) {
         player.score += 1;
       }
+      
+      // Record if the score changed
+      scoreChanges[player.id] = {
+        previousScore: previousScore,
+        newScore: player.score,
+        scoreChanged: previousScore !== player.score,
+        isCorrect: player.currentAnswer === currentQuestion.correctAnswer
+      };
+      
       player.currentAnswer = null;
     });
     
@@ -290,6 +457,7 @@ io.on('connection', (socket) => {
         currentQuestionIndex: gameState.currentQuestionIndex,
         totalQuestions: gameState.roundsTotal,
         players: gameState.players,
+        scoreChanges: scoreChanges
       });
       
       console.log(`Moving to question ${gameState.currentQuestionIndex + 1}`);
@@ -316,21 +484,46 @@ io.on('connection', (socket) => {
     if (gameState.players[socket.id]) {
       const playerData = gameState.players[socket.id];
       
-      // Store the player data using NAME as the key for easier reconnection
-      gameState.disconnectedPlayers[playerData.name] = playerData;
+      // Store the player data in disconnectedPlayers with a timestamp
+      gameState.disconnectedPlayers[playerData.name] = {
+        ...playerData,
+        disconnectedAt: Date.now(),
+        oldSocketId: socket.id // Keep track of the old socket ID
+      };
       
-      // Remove from active players
-      delete gameState.players[socket.id];
+      console.log(`Player ${playerData.name} disconnected temporarily (data saved for reconnection)`);
       
-      // Notify other players
-      io.emit('playerLeft', {
-        players: gameState.players,
-        playerId: socket.id,
-      });
-      
-      console.log(`Player ${playerData.name} disconnected (data saved for reconnection)`);
+      // Set a timeout to remove the player if they don't reconnect within 30 seconds
+      // We DO NOT immediately remove them from the active players list
+      setTimeout(() => {
+        // Check if the player is still in the disconnected list and hasn't reconnected
+        if (gameState.disconnectedPlayers[playerData.name]) {
+          // Now check if they're still using the same socket ID (i.e., haven't reconnected)
+          const isReconnected = !Object.values(gameState.players).some(p => 
+            p.name === playerData.name && p.id !== gameState.disconnectedPlayers[playerData.name].oldSocketId
+          );
+          
+          if (!isReconnected) {
+            // If they haven't reconnected, now remove them from active players
+            delete gameState.players[gameState.disconnectedPlayers[playerData.name].oldSocketId];
+            
+            // Notify other players
+            io.emit('playerLeft', {
+              players: gameState.players,
+              playerId: gameState.disconnectedPlayers[playerData.name].oldSocketId,
+            });
+            
+            console.log(`Player ${playerData.name} has been fully removed after timeout`);
+          } else {
+            // They reconnected with a new socket ID, so just clean up the disconnected entry
+            delete gameState.disconnectedPlayers[playerData.name];
+            console.log(`Player ${playerData.name} reconnected successfully, cleaned up disconnected entry`);
+          }
+        }
+      }, 30000); // 30 seconds timeout
+    } else {
+      console.log('Client disconnected:', socket.id);
     }
-    console.log('Client disconnected:', socket.id);
   });
 });
 
