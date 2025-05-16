@@ -22,8 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
   let totalQuestions = 5;
   let playersWhoAnswered = new Set();
 
-  // Connect to Socket.IO server
-  const socket = io();
+  // Connect to Socket.IO server with options for Vercel serverless
+  const socket = io({
+    transports: ['websocket', 'polling'],
+    reconnection: true,
+    reconnectionAttempts: 5,
+    reconnectionDelay: 1000,
+    autoConnect: true
+  });
 
   // Fetch server info and set up QR code
   fetch('/api/server-info')

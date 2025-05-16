@@ -20,8 +20,14 @@ document.addEventListener('DOMContentLoaded', () => {
   let selectedAnswer = null;
   let isReconnecting = false;
 
-  // Connect to Socket.IO server
-  const socket = io();
+  // Connect to Socket.IO server with options for Vercel serverless
+  const socket = io({
+    transports: ['websocket', 'polling'],
+    reconnection: true,
+    reconnectionAttempts: 5,
+    reconnectionDelay: 1000,
+    autoConnect: true
+  });
 
   // Helper functions first so they're available
   function showJoinArea() {

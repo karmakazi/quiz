@@ -8,10 +8,46 @@ const qrcode = require('qrcode');
 
 const app = express();
 const server = http.createServer(app);
-const io = socketIo(server);
+
+// Socket.io with CORS configuration for Vercel
+const io = socketIo(server, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["*"],
+    credentials: true
+  },
+  // This adapter helps with serverless deployment
+  transports: ['websocket', 'polling'],
+  allowEIO3: true
+});
 
 // Serve static files
 app.use(express.static('public'));
+
+// CORS middleware for express
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.header('Access-Control-Allow-Headers', '*');
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+  next();
+});
+
+// Add basic routes for HTML files
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'host.html'));
+});
+
+app.get('/host', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'host.html'));
+});
+
+app.get('/client', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'client.html'));
+});
 
 // Load questions from JSON file
 const questionsData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'questions.json'), 'utf8'));
@@ -51,6 +87,11 @@ function selectRandomQuestions(allQuestionsArray, count) {
 
 // Get local IP address for QR code
 function getLocalIpAddress() {
+  // For deployed environments, return null to let the host handle it
+  if (process.env.NODE_ENV === 'production') {
+    return null;
+  }
+
   const interfaces = os.networkInterfaces();
   for (const name of Object.keys(interfaces)) {
     const networkInterface = interfaces[name];
@@ -68,12 +109,21 @@ function getLocalIpAddress() {
 
 const PORT = process.env.PORT || 3000;
 const ipAddress = getLocalIpAddress();
-const serverUrl = `http://${ipAddress}:${PORT}`;
+// For production, we'll let the host URL be determined at request time
+const serverUrl = ipAddress ? `http://${ipAddress}:${PORT}` : '';
 
 // Generate QR code for client connection
-async function generateQRCode() {
+async function generateQRCode(hostUrl) {
   try {
-    const qrCodeDataUrl = await qrcode.toDataURL(`${serverUrl}/client`);
+    // Use provided hostUrl or default to serverUrl
+    const baseUrl = hostUrl || serverUrl;
+    // If we're in production with no baseUrl yet, default to placeholder
+    if (!baseUrl && process.env.NODE_ENV === 'production') {
+      // Return a placeholder
+      return 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=';
+    }
+    
+    const qrCodeDataUrl = await qrcode.toDataURL(`${baseUrl}/client`);
     return qrCodeDataUrl;
   } catch (err) {
     console.error('Error generating QR code:', err);
@@ -254,20 +304,20 @@ io.on('connection', (socket) => {
   });
 });
 
-// Routes
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'host.html'));
-});
-
-app.get('/client', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'client.html'));
-});
-
 app.get('/api/server-info', async (req, res) => {
-  const qrCode = await generateQRCode();
+  // Determine the host URL from the request in production
+  let hostUrl = serverUrl;
+  if (process.env.NODE_ENV === 'production') {
+    // Get protocol, hostname and port from request
+    const protocol = req.headers['x-forwarded-proto'] || req.protocol;
+    const host = req.headers.host;
+    hostUrl = `${protocol}://${host}`;
+  }
+  
+  const qrCode = await generateQRCode(hostUrl);
   res.json({ 
-    url: serverUrl,
-    clientUrl: `${serverUrl}/client`,
+    url: hostUrl,
+    clientUrl: `${hostUrl}/client`,
     qrCode 
   });
 });
