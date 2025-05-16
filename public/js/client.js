@@ -117,8 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
     selectedAnswer = null;
     
     // Clear UI
-    answerStatus.classList.add('hidden');
-    answerStatus.textContent = '';
     optionsContainer.innerHTML = '';
     
     // Remove any stored state for this question
@@ -140,11 +138,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   socket.on('answerSubmitted', (answer) => {
     selectedAnswer = answer;
-    answerStatus.textContent = `Your answer "${answer}" has been submitted.`;
-    answerStatus.classList.remove('hidden');
-    answerStatus.classList.add('success-message');
     
-    // Update UI to show selected answer using simplified approach
+    // Keep only the button selection UI update
     const optionButtons = optionsContainer.querySelectorAll('.option-btn');
     optionButtons.forEach(button => {
       // Reset all buttons to default first
@@ -220,7 +215,6 @@ document.addEventListener('DOMContentLoaded', () => {
     sessionStorage.removeItem('triviaGameState');
     
     // Reset UI elements
-    answerStatus.classList.add('hidden');
     optionsContainer.innerHTML = '';
     
     // Remove any selected classes from buttons
