@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Game state
   let players = {};
   let currentQuestion = null;
+  let previousQuestion = null;
   let currentQuestionIndex = 0;
   let totalQuestions = 5;
   let playersWhoAnswered = new Set();
@@ -113,6 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   socket.on('nextQuestion', (data) => {
+    // Store the current question as previous before updating
+    previousQuestion = currentQuestion;
     currentQuestion = data.currentQuestion;
     currentQuestionIndex = data.currentQuestionIndex;
     players = data.players;
@@ -120,6 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
     playersWhoAnswered.clear();
     displayQuestion();
     updatePlayersList();
+    updatePreviousAnswer();
   });
 
   socket.on('gameOver', (data) => {
@@ -273,16 +277,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function updatePreviousAnswer() {
+    const previousAnswerDiv = document.getElementById('previous-answer');
+    const previousQuestionText = document.getElementById('previous-question-text');
+    const previousCorrectAnswer = document.getElementById('previous-correct-answer');
+
+    if (previousQuestion) {
+      previousAnswerDiv.classList.remove('hidden');
+      previousQuestionText.textContent = previousQuestion.question;
+      previousCorrectAnswer.textContent = `Correct Answer: ${previousQuestion.correctAnswer}`;
+    } else {
+      previousAnswerDiv.classList.add('hidden');
+    }
+  }
+
   function showWaitingRoom() {
     waitingRoom.classList.remove('hidden');
     gameArea.classList.add('hidden');
     gameOver.classList.add('hidden');
+    document.getElementById('previous-answer').classList.add('hidden');
   }
 
   function showGameArea() {
     waitingRoom.classList.add('hidden');
     gameArea.classList.remove('hidden');
     gameOver.classList.add('hidden');
+    updatePreviousAnswer();
   }
 
   function showGameOver(winners = [], leaderboard = []) {
