@@ -51,9 +51,7 @@ app.get('/client', (req, res) => {
 
 // Load questions from JSON file
 const questionsData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'questions.json'), 'utf8'));
-const allQuestions = questionsData.questions;
-// We'll select random questions at the start of each game
-let gameQuestions = [];
+let availableQuestions = shuffleArray([...questionsData.questions]); // Create a copy and shuffle immediately
 const QUESTIONS_PER_GAME = 5; // Number of questions per game, can be modified
 
 // Game state
@@ -65,6 +63,7 @@ const gameState = {
   roundsTotal: QUESTIONS_PER_GAME, // Using the configurable constant
   disconnectedPlayers: {}, // Store disconnected players' data
   leaderboard: [], // Persistent leaderboard for the current game
+  currentQuestion: null, // Store the current question
 };
 
 // Function to shuffle array (Fisher-Yates algorithm)
@@ -77,13 +76,18 @@ function shuffleArray(array) {
   return shuffled;
 }
 
-// Function to select random questions for a game
-function selectRandomQuestions(allQuestionsArray, count) {
-  // Shuffle the questions and take the first 'count' elements
-  const shuffled = shuffleArray(allQuestionsArray);
-  // Make sure we don't try to take more questions than available
-  const actualCount = Math.min(count, shuffled.length);
-  return shuffled.slice(0, actualCount);
+// Function to get next question
+function getNextQuestion() {
+  // If we're running low on questions, reset the available questions
+  if (availableQuestions.length < QUESTIONS_PER_GAME) {
+    console.log('Resetting question pool - running low on questions');
+    availableQuestions = [...questionsData.questions]; // Reset to full question set
+    availableQuestions = shuffleArray(availableQuestions); // Reshuffle
+  }
+  
+  // Get the next question and remove it from available questions
+  const nextQuestion = availableQuestions.shift();
+  return nextQuestion;
 }
 
 // Get local IP address for QR code
@@ -139,7 +143,7 @@ io.on('connection', (socket) => {
   // Send current game state to new connections
   socket.emit('gameState', {
     ...gameState,
-    currentQuestion: gameState.gameStarted ? gameQuestions[gameState.currentQuestionIndex] : null,
+    currentQuestion: gameState.gameStarted ? gameState.currentQuestion : null,
     // Include winners and leaderboard if the game is over
     winners: gameState.gameOver ? Object.values(gameState.players).filter(p => {
       const maxScore = Math.max(...Object.values(gameState.players).map(p => p.score), 0);
@@ -180,7 +184,7 @@ io.on('connection', (socket) => {
       // If game is in progress, send current question to the reconnected player
       if (gameState.gameStarted && !gameState.gameOver) {
         socket.emit('gameStarted', {
-          currentQuestion: gameQuestions[gameState.currentQuestionIndex],
+          currentQuestion: gameState.currentQuestion,
           currentQuestionIndex: gameState.currentQuestionIndex,
           totalQuestions: gameState.roundsTotal,
         });
@@ -233,7 +237,7 @@ io.on('connection', (socket) => {
       } else if (gameState.gameStarted) {
         // If game is in progress, send current game state
         socket.emit('gameStarted', {
-          currentQuestion: gameQuestions[gameState.currentQuestionIndex],
+          currentQuestion: gameState.currentQuestion,
           currentQuestionIndex: gameState.currentQuestionIndex,
           totalQuestions: gameState.roundsTotal,
         });
@@ -268,18 +272,16 @@ io.on('connection', (socket) => {
       gameState.currentQuestionIndex = 0;
       gameState.gameOver = false;
       
-      // Select random questions for the game
-      gameQuestions = selectRandomQuestions(allQuestions, QUESTIONS_PER_GAME);
-      // Update roundsTotal in case we got fewer questions than requested
-      gameState.roundsTotal = gameQuestions.length;
+      // Get the first question
+      gameState.currentQuestion = getNextQuestion();
       
       io.emit('gameStarted', {
-        currentQuestion: gameQuestions[gameState.currentQuestionIndex],
+        currentQuestion: gameState.currentQuestion,
         currentQuestionIndex: gameState.currentQuestionIndex,
         totalQuestions: gameState.roundsTotal,
       });
       
-      console.log('Game started with', gameQuestions.length, 'random questions');
+      console.log('Game started with first question');
     } else {
       socket.emit('error', 'Need at least one player to start');
     }
@@ -401,9 +403,6 @@ io.on('connection', (socket) => {
   socket.on('nextQuestion', () => {
     if (!gameState.gameStarted || gameState.gameOver) return;
     
-    // Update scores based on current answers
-    const currentQuestion = gameQuestions[gameState.currentQuestionIndex];
-    
     // Keep track of score changes to send to clients
     const scoreChanges = {};
     
@@ -412,7 +411,7 @@ io.on('connection', (socket) => {
       const previousScore = player.score;
       
       // Update score if answer is correct
-      if (player.currentAnswer === currentQuestion.correctAnswer) {
+      if (player.currentAnswer === gameState.currentQuestion.correctAnswer) {
         player.score += 1;
       }
       
@@ -421,7 +420,7 @@ io.on('connection', (socket) => {
         previousScore: previousScore,
         newScore: player.score,
         scoreChanged: previousScore !== player.score,
-        isCorrect: player.currentAnswer === currentQuestion.correctAnswer
+        isCorrect: player.currentAnswer === gameState.currentQuestion.correctAnswer
       };
       
       player.currentAnswer = null;
@@ -452,8 +451,11 @@ io.on('connection', (socket) => {
       
       console.log('Game over, leaderboard:', sortedPlayers);
     } else {
+      // Get the next question
+      gameState.currentQuestion = getNextQuestion();
+      
       io.emit('nextQuestion', {
-        currentQuestion: gameQuestions[gameState.currentQuestionIndex],
+        currentQuestion: gameState.currentQuestion,
         currentQuestionIndex: gameState.currentQuestionIndex,
         totalQuestions: gameState.roundsTotal,
         players: gameState.players,
@@ -472,8 +474,6 @@ io.on('connection', (socket) => {
     gameState.gameStarted = false;
     gameState.gameOver = false;
     gameState.leaderboard = []; // Clear the leaderboard
-    // Clear the game questions
-    gameQuestions = [];
     
     io.emit('gameReset');
     console.log('Game reset');
