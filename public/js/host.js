@@ -282,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const previousQuestionText = document.getElementById('previous-question-text');
     const previousCorrectAnswer = document.getElementById('previous-correct-answer');
 
-    if (previousQuestion) {
+    if (previousQuestion && currentQuestionIndex > 0) {
       previousAnswerDiv.classList.remove('hidden');
       previousQuestionText.textContent = previousQuestion.question;
       previousCorrectAnswer.textContent = `Correct Answer: ${previousQuestion.correctAnswer}`;
@@ -302,7 +302,13 @@ document.addEventListener('DOMContentLoaded', () => {
     waitingRoom.classList.add('hidden');
     gameArea.classList.remove('hidden');
     gameOver.classList.add('hidden');
-    updatePreviousAnswer();
+    
+    // Only show previous answer if we're not on the first question
+    if (currentQuestionIndex === 0) {
+      document.getElementById('previous-answer').classList.add('hidden');
+    } else {
+      updatePreviousAnswer();
+    }
   }
 
   function showGameOver(winners = [], leaderboard = []) {
