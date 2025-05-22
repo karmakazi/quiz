@@ -11,23 +11,46 @@
       padding: 20px;
       background-color: #121212;
       color: #e0e0e0;
+      height: 100vh;
+      box-sizing: border-box;
+      overflow: hidden;
     }
     .container {
-      max-width: 1000px;
+      max-width: 100%;
+      height: 91%;
       margin: 0 auto;
       background-color: #1e1e1e;
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
       padding: 20px;
+      padding-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
     }
     h1, h2, h3 {
       text-align: center;
       color: #4da6ff;
+      margin: 0 0 15px 0;
     }
     .game-area {
       display: flex;
+      flex: 1;
+      min-height: 0;
+      height: calc(100% - 60px);
+    }
+    .left-panel {
+      width: calc(50% - 20px);
+      display: flex;
       flex-direction: column;
-      gap: 20px;
+      align-items: center;
+    }
+    .right-panel {
+      width: calc(50% - 20px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-left: 40px; /* Explicit margin between panels */
     }
     .qr-container {
       display: flex;
@@ -53,6 +76,9 @@
       padding: 20px;
       border-radius: 8px;
       margin-bottom: 20px;
+      width: 95%;
+      max-height: fit-content;
+      overflow-y: auto;
     }
     .options-list {
       list-style-type: none;
@@ -71,7 +97,12 @@
       border-color: #2e7d32;
     }
     .players-container {
-      margin-top: 20px;
+      background-color: #2d2d2d;
+      padding: 20px;
+      border-radius: 8px;
+      width: 95%;
+      max-height: calc(100vh - 200px);
+      overflow-y: auto;
     }
     .players-list {
       list-style-type: none;
@@ -94,6 +125,7 @@
       display: flex;
       justify-content: center;
       margin-top: 20px;
+      margin-bottom: 20px;
     }
     button {
       background-color: #2196f3;
@@ -118,13 +150,57 @@
       margin-top: 20px;
     }
     .hidden {
-      display: none;
+      display: none !important;
     }
     .previous-answer {
       background-color: #2d2d2d;
       padding: 20px;
       border-radius: 8px;
       margin-bottom: 20px;
+      width: 95%;
+    }
+    .game-over {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #1e1e1e;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .leaderboard {
+      width: 100%;
+      max-width: 600px;
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #2d2d2d;
+      border-radius: 8px;
+    }
+    .leaderboard-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    .leaderboard-table th,
+    .leaderboard-table td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #444;
+    }
+    .leaderboard-table th {
+      background-color: #1e1e1e;
+      color: #4da6ff;
+    }
+    .leaderboard-table tr:last-child td {
+      border-bottom: none;
+    }
+    .leaderboard-table .winner {
+      color: gold;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -151,30 +227,34 @@
     
     <!-- Game Area -->
     <div id="game-area" class="game-area hidden">
-      <div class="question-container">
-        <h2 id="question-number"></h2>
-        <h3 id="question-text"></h3>
-        <ul id="options-list" class="options-list"></ul>
+      <div class="left-panel">
+        <div class="question-container">
+          <h2 id="question-number"></h2>
+          <h3 id="question-text"></h3>
+          <ul id="options-list" class="options-list"></ul>
+        </div>
+        
+        <div id="previous-answer" class="previous-answer hidden">
+          <h3>Previous Answer:</h3>
+          <p id="previous-question-text"></p>
+          <p id="previous-correct-answer"></p>
+        </div>
+        
+        <div class="button-container">
+          <button id="next-btn">Next Question</button>
+        </div>
       </div>
       
-      <div id="previous-answer" class="previous-answer hidden">
-        <h3>Previous Answer:</h3>
-        <p id="previous-question-text"></p>
-        <p id="previous-correct-answer"></p>
-      </div>
-      
-      <div class="players-container">
-        <h3>Players:</h3>
-        <ul id="players-list" class="players-list"></ul>
-      </div>
-      
-      <div class="button-container">
-        <button id="next-btn">Next Question</button>
+      <div class="right-panel">
+        <div class="players-container">
+          <h3>Players:</h3>
+          <ul id="players-list" class="players-list"></ul>
+        </div>
       </div>
     </div>
     
     <!-- Game Over -->
-    <div id="game-over" class="hidden">
+    <div id="game-over" class="game-over hidden">
       <h2>Game Over!</h2>
       <div class="winners-container" id="winners-container"></div>
       <div class="button-container">
