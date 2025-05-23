@@ -321,6 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create winner announcement
     const winnerAnnouncement = document.createElement('div');
     winnerAnnouncement.style.textAlign = 'center';
+    winnerAnnouncement.style.marginBottom = '10px';
     
     if (winners.length === 0) {
       winnerAnnouncement.innerHTML = '<p>No winners!</p>';
@@ -336,6 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
       tiedWinnersList.style.listStyleType = 'none';
       tiedWinnersList.style.padding = '0';
       tiedWinnersList.style.textAlign = 'center';
+      tiedWinnersList.style.margin = '5px 0';
       
       winners.forEach(winner => {
         const li = document.createElement('li');
@@ -354,10 +356,12 @@ document.addEventListener('DOMContentLoaded', () => {
     leaderboardElement.style.maxWidth = '800px';
     leaderboardElement.style.marginLeft = 'auto';
     leaderboardElement.style.marginRight = 'auto';
+    leaderboardElement.style.marginTop = '15px';
     
     const leaderboardTitle = document.createElement('h3');
     leaderboardTitle.textContent = 'Final Leaderboard';
     leaderboardTitle.style.textAlign = 'center';
+    leaderboardTitle.style.marginBottom = '10px';
     leaderboardElement.appendChild(leaderboardTitle);
     
     // Use leaderboard data if available, otherwise sort players by score
@@ -432,7 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const style = document.createElement('style');
     style.textContent = `
       .leaderboard {
-        margin-top: 30px;
+        margin-top: 15px;
         padding: 20px;
         background-color: #2d2d2d;
         border-radius: 8px;
@@ -465,7 +469,12 @@ document.addEventListener('DOMContentLoaded', () => {
       .winner-heading {
         text-align: center;
         color: #4da6ff;
-        margin: 0 0 15px 0;
+        margin: 0 0 10px 0;
+      }
+      .game-over {
+        justify-content: flex-start;
+        padding-top: 40px;
+        overflow-y: auto;
       }
     `;
     document.head.appendChild(style);

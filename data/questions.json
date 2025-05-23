@@ -359,6 +359,846 @@
         "Mexico City"
       ],
       "correctAnswer": "Tokyo"
+    },
+    {
+      "id": 31,
+      "question": "Which country is the largest producer of coffee in the world?",
+      "options": [
+        "Colombia",
+        "Vietnam",
+        "Ethiopia",
+        "Brazil",
+        "Indonesia"
+      ],
+      "correctAnswer": "Brazil"
+    },
+    {
+      "id": 32,
+      "question": "What is the smallest country in the world by land area?",
+      "options": [
+        "Monaco",
+        "Nauru",
+        "Vatican City",
+        "San Marino",
+        "Liechtenstein"
+      ],
+      "correctAnswer": "Vatican City"
+    },
+    {
+      "id": 33,
+      "question": "Which element has the atomic number 1?",
+      "options": [
+        "Helium",
+        "Carbon",
+        "Hydrogen",
+        "Oxygen",
+        "Nitrogen"
+      ],
+      "correctAnswer": "Hydrogen"
+    },
+    {
+      "id": 34,
+      "question": "What is the national animal of Canada?",
+      "options": [
+        "Moose",
+        "Beaver",
+        "Polar Bear",
+        "Wolf",
+        "Eagle"
+      ],
+      "correctAnswer": "Beaver"
+    },
+    {
+      "id": 35,
+      "question": "Which planet rotates on its side with its axis nearly parallel to its orbit?",
+      "options": [
+        "Venus",
+        "Mars",
+        "Neptune",
+        "Uranus",
+        "Saturn"
+      ],
+      "correctAnswer": "Uranus"
+    },
+    {
+      "id": 36,
+      "question": "Who wrote the novel '1984'?",
+      "options": [
+        "Aldous Huxley",
+        "Ray Bradbury",
+        "George Orwell",
+        "H.G. Wells",
+        "Franz Kafka"
+      ],
+      "correctAnswer": "George Orwell"
+    },
+    {
+      "id": 37,
+      "question": "What is the currency of Japan?",
+      "options": [
+        "Yuan",
+        "Won",
+        "Yen",
+        "Ringgit",
+        "Baht"
+      ],
+      "correctAnswer": "Yen"
+    },
+    {
+      "id": 38,
+      "question": "Which vitamin is produced when your skin is exposed to sunlight?",
+      "options": [
+        "Vitamin A",
+        "Vitamin B",
+        "Vitamin C",
+        "Vitamin D",
+        "Vitamin E"
+      ],
+      "correctAnswer": "Vitamin D"
+    },
+    {
+      "id": 39,
+      "question": "What is the largest desert in the world?",
+      "options": [
+        "Gobi Desert",
+        "Sahara Desert",
+        "Arabian Desert",
+        "Antarctic Desert",
+        "Kalahari Desert"
+      ],
+      "correctAnswer": "Antarctic Desert"
+    },
+    {
+      "id": 40,
+      "question": "Which of these animals does not lay eggs?",
+      "options": [
+        "Platypus",
+        "Echidna",
+        "Dolphin",
+        "Lizard",
+        "Snake"
+      ],
+      "correctAnswer": "Dolphin"
+    },
+    {
+      "id": 41,
+      "question": "What is the capital of Canada?",
+      "options": [
+        "Toronto",
+        "Vancouver",
+        "Montreal",
+        "Ottawa",
+        "Quebec City"
+      ],
+      "correctAnswer": "Ottawa"
+    },
+    {
+      "id": 42,
+      "question": "Which famous scientist developed the theory of natural selection?",
+      "options": [
+        "Isaac Newton",
+        "Charles Darwin",
+        "Gregor Mendel",
+        "Louis Pasteur",
+        "Marie Curie"
+      ],
+      "correctAnswer": "Charles Darwin"
+    },
+    {
+      "id": 43,
+      "question": "What is the largest internal organ in the human body?",
+      "options": [
+        "Brain",
+        "Heart",
+        "Liver",
+        "Lungs",
+        "Stomach"
+      ],
+      "correctAnswer": "Liver"
+    },
+    {
+      "id": 44,
+      "question": "Which of these is not a type of cloud?",
+      "options": [
+        "Cumulus",
+        "Stratus",
+        "Nimbus",
+        "Cirrus",
+        "Columnous"
+      ],
+      "correctAnswer": "Columnous"
+    },
+    {
+      "id": 45,
+      "question": "What is the official language of Brazil?",
+      "options": [
+        "Spanish",
+        "Portuguese",
+        "French",
+        "English",
+        "Italian"
+      ],
+      "correctAnswer": "Portuguese"
+    },
+    {
+      "id": 46,
+      "question": "Which planet is closest to the sun?",
+      "options": [
+        "Venus",
+        "Earth",
+        "Mars",
+        "Mercury",
+        "Neptune"
+      ],
+      "correctAnswer": "Mercury"
+    },
+    {
+      "id": 47,
+      "question": "What is the largest bird in the world?",
+      "options": [
+        "Emu",
+        "Ostrich",
+        "Albatross",
+        "Condor",
+        "Eagle"
+      ],
+      "correctAnswer": "Ostrich"
+    },
+    {
+      "id": 48,
+      "question": "Which of these is not a noble gas?",
+      "options": [
+        "Helium",
+        "Neon",
+        "Argon",
+        "Nitrogen",
+        "Xenon"
+      ],
+      "correctAnswer": "Nitrogen"
+    },
+    {
+      "id": 49,
+      "question": "What is the capital of South Korea?",
+      "options": [
+        "Busan",
+        "Incheon",
+        "Seoul",
+        "Daegu",
+        "Pyongyang"
+      ],
+      "correctAnswer": "Seoul"
+    },
+    {
+      "id": 50,
+      "question": "Which of these instruments is not part of a standard orchestra's string section?",
+      "options": [
+        "Violin",
+        "Viola",
+        "Cello",
+        "Double Bass",
+        "Guitar"
+      ],
+      "correctAnswer": "Guitar"
+    },
+    {
+      "id": 51,
+      "question": "What is the main component of the Earth's atmosphere?",
+      "options": [
+        "Oxygen",
+        "Carbon Dioxide",
+        "Nitrogen",
+        "Argon",
+        "Helium"
+      ],
+      "correctAnswer": "Nitrogen"
+    },
+    {
+      "id": 52,
+      "question": "Which of these countries is landlocked?",
+      "options": [
+        "Vietnam",
+        "Bolivia",
+        "Egypt",
+        "Sweden",
+        "Portugal"
+      ],
+      "correctAnswer": "Bolivia"
+    },
+    {
+      "id": 53,
+      "question": "What is the largest species of big cat?",
+      "options": [
+        "Lion",
+        "Tiger",
+        "Jaguar",
+        "Leopard",
+        "Cheetah"
+      ],
+      "correctAnswer": "Tiger"
+    },
+    {
+      "id": 54,
+      "question": "Which of these elements is a metal?",
+      "options": [
+        "Carbon",
+        "Sulfur",
+        "Phosphorus",
+        "Aluminum",
+        "Iodine"
+      ],
+      "correctAnswer": "Aluminum"
+    },
+    {
+      "id": 55,
+      "question": "What is the capital of Argentina?",
+      "options": [
+        "Santiago",
+        "Lima",
+        "Buenos Aires",
+        "Montevideo",
+        "Brasilia"
+      ],
+      "correctAnswer": "Buenos Aires"
+    },
+    {
+      "id": 56,
+      "question": "Which of these is not a programming language?",
+      "options": [
+        "Python",
+        "Java",
+        "Ruby",
+        "Cobra",
+        "Sapphire"
+      ],
+      "correctAnswer": "Sapphire"
+    },
+    {
+      "id": 57,
+      "question": "What is the largest moon in our solar system?",
+      "options": [
+        "Titan",
+        "Europa",
+        "Ganymede",
+        "Luna",
+        "Callisto"
+      ],
+      "correctAnswer": "Ganymede"
+    },
+    {
+      "id": 58,
+      "question": "Which country has the longest coastline in the world?",
+      "options": [
+        "Russia",
+        "Australia",
+        "Canada",
+        "United States",
+        "Indonesia"
+      ],
+      "correctAnswer": "Canada"
+    },
+    {
+      "id": 59,
+      "question": "What is the chemical symbol for silver?",
+      "options": [
+        "Si",
+        "Sv",
+        "Ag",
+        "Au",
+        "Sr"
+      ],
+      "correctAnswer": "Ag"
+    },
+    {
+      "id": 60,
+      "question": "Which of these animals is not a marsupial?",
+      "options": [
+        "Kangaroo",
+        "Koala",
+        "Wombat",
+        "Platypus",
+        "Opossum"
+      ],
+      "correctAnswer": "Platypus"
+    },
+    {
+      "id": 61,
+      "question": "What is the capital of Egypt?",
+      "options": [
+        "Alexandria",
+        "Cairo",
+        "Luxor",
+        "Aswan",
+        "Giza"
+      ],
+      "correctAnswer": "Cairo"
+    },
+    {
+      "id": 62,
+      "question": "Which of these is not a primary color of light?",
+      "options": [
+        "Red",
+        "Green",
+        "Blue",
+        "Yellow",
+        "White"
+      ],
+      "correctAnswer": "Yellow"
+    },
+    {
+      "id": 63,
+      "question": "What is the smallest mammal in the world?",
+      "options": [
+        "Pygmy Marmoset",
+        "Bumblebee Bat",
+        "Mouse Lemur",
+        "Harvest Mouse",
+        "Pygmy Shrew"
+      ],
+      "correctAnswer": "Bumblebee Bat"
+    },
+    {
+      "id": 64,
+      "question": "Which of these countries is not in Africa?",
+      "options": [
+        "Ghana",
+        "Guyana",
+        "Kenya",
+        "Morocco",
+        "Tanzania"
+      ],
+      "correctAnswer": "Guyana"
+    },
+    {
+      "id": 65,
+      "question": "What is the world's most widely spoken language by number of native speakers?",
+      "options": [
+        "English",
+        "Hindi",
+        "Spanish",
+        "Arabic",
+        "Mandarin Chinese"
+      ],
+      "correctAnswer": "Mandarin Chinese"
+    },
+    {
+      "id": 66,
+      "question": "Which of these is not a type of rock?",
+      "options": [
+        "Igneous",
+        "Sedimentary",
+        "Metamorphic",
+        "Coniferous",
+        "Volcanic"
+      ],
+      "correctAnswer": "Coniferous"
+    },
+    {
+      "id": 67,
+      "question": "What is the capital of New Zealand?",
+      "options": [
+        "Auckland",
+        "Christchurch",
+        "Wellington",
+        "Hamilton",
+        "Dunedin"
+      ],
+      "correctAnswer": "Wellington"
+    },
+    {
+      "id": 68,
+      "question": "Which of these planets has no moons?",
+      "options": [
+        "Earth",
+        "Mars",
+        "Venus",
+        "Jupiter",
+        "Saturn"
+      ],
+      "correctAnswer": "Venus"
+    },
+    {
+      "id": 69,
+      "question": "What is the largest species of bear?",
+      "options": [
+        "Grizzly Bear",
+        "Polar Bear",
+        "Kodiak Bear",
+        "Black Bear",
+        "Panda Bear"
+      ],
+      "correctAnswer": "Polar Bear"
+    },
+    {
+      "id": 70,
+      "question": "Which of these elements is a liquid at room temperature?",
+      "options": [
+        "Iron",
+        "Copper",
+        "Mercury",
+        "Aluminum",
+        "Lead"
+      ],
+      "correctAnswer": "Mercury"
+    },
+    {
+      "id": 71,
+      "question": "What is the capital of India?",
+      "options": [
+        "Mumbai",
+        "Kolkata",
+        "Chennai",
+        "New Delhi",
+        "Bangalore"
+      ],
+      "correctAnswer": "New Delhi"
+    },
+    {
+      "id": 72,
+      "question": "Which of these is not a type of pasta?",
+      "options": [
+        "Linguine",
+        "Fettuccine",
+        "Tortellini",
+        "Manicotti",
+        "Minestrone"
+      ],
+      "correctAnswer": "Minestrone"
+    },
+    {
+      "id": 73,
+      "question": "What is the largest island in the world?",
+      "options": [
+        "Madagascar",
+        "Greenland",
+        "New Guinea",
+        "Borneo",
+        "Great Britain"
+      ],
+      "correctAnswer": "Greenland"
+    },
+    {
+      "id": 74,
+      "question": "Which of these animals is not a primate?",
+      "options": [
+        "Lemur",
+        "Gorilla",
+        "Koala",
+        "Baboon",
+        "Chimpanzee"
+      ],
+      "correctAnswer": "Koala"
+    },
+    {
+      "id": 75,
+      "question": "What is the capital of Mexico?",
+      "options": [
+        "Guadalajara",
+        "Cancun",
+        "Mexico City",
+        "Monterrey",
+        "Tijuana"
+      ],
+      "correctAnswer": "Mexico City"
+    },
+    {
+      "id": 76,
+      "question": "Which of these is not a wind instrument?",
+      "options": [
+        "Flute",
+        "Clarinet",
+        "Saxophone",
+        "Cello",
+        "Oboe"
+      ],
+      "correctAnswer": "Cello"
+    },
+    {
+      "id": 77,
+      "question": "What is the deepest point in the world's oceans?",
+      "options": [
+        "Mariana Trench",
+        "Tonga Trench",
+        "Puerto Rico Trench",
+        "Java Trench",
+        "South Sandwich Trench"
+      ],
+      "correctAnswer": "Mariana Trench"
+    },
+    {
+      "id": 78,
+      "question": "Which of these countries is not in Europe?",
+      "options": [
+        "Slovenia",
+        "Slovakia",
+        "Serbia",
+        "Suriname",
+        "Sweden"
+      ],
+      "correctAnswer": "Suriname"
+    },
+    {
+      "id": 79,
+      "question": "What is the chemical symbol for lead?",
+      "options": [
+        "Ld",
+        "Le",
+        "Pb",
+        "Pl",
+        "Pd"
+      ],
+      "correctAnswer": "Pb"
+    },
+    {
+      "id": 80,
+      "question": "Which of these animals is not a reptile?",
+      "options": [
+        "Turtle",
+        "Crocodile",
+        "Salamander",
+        "Snake",
+        "Lizard"
+      ],
+      "correctAnswer": "Salamander"
+    },
+    {
+      "id": 81,
+      "question": "What is the capital of Brazil?",
+      "options": [
+        "Rio de Janeiro",
+        "São Paulo",
+        "Brasília",
+        "Salvador",
+        "Fortaleza"
+      ],
+      "correctAnswer": "Brasília"
+    },
+    {
+      "id": 82,
+      "question": "Which of these is not a type of galaxy?",
+      "options": [
+        "Spiral",
+        "Elliptical",
+        "Irregular",
+        "Cylindrical",
+        "Lenticular"
+      ],
+      "correctAnswer": "Cylindrical"
+    },
+    {
+      "id": 83,
+      "question": "What is the fastest land animal?",
+      "options": [
+        "Lion",
+        "Cheetah",
+        "Gazelle",
+        "Ostrich",
+        "Pronghorn Antelope"
+      ],
+      "correctAnswer": "Cheetah"
+    },
+    {
+      "id": 84,
+      "question": "Which of these countries does not border China?",
+      "options": [
+        "Russia",
+        "India",
+        "Mongolia",
+        "Thailand",
+        "Kazakhstan"
+      ],
+      "correctAnswer": "Thailand"
+    },
+    {
+      "id": 85,
+      "question": "What is the most abundant element in the Earth's crust?",
+      "options": [
+        "Silicon",
+        "Aluminum",
+        "Iron",
+        "Calcium",
+        "Oxygen"
+      ],
+      "correctAnswer": "Oxygen"
+    },
+    {
+      "id": 86,
+      "question": "Which of these is not a citrus fruit?",
+      "options": [
+        "Lemon",
+        "Lime",
+        "Orange",
+        "Grapefruit",
+        "Mango"
+      ],
+      "correctAnswer": "Mango"
+    },
+    {
+      "id": 87,
+      "question": "What is the capital of Turkey?",
+      "options": [
+        "Istanbul",
+        "Ankara",
+        "Izmir",
+        "Antalya",
+        "Bursa"
+      ],
+      "correctAnswer": "Ankara"
+    },
+    {
+      "id": 88,
+      "question": "Which of these is not one of the four fundamental forces of nature?",
+      "options": [
+        "Gravity",
+        "Electromagnetic force",
+        "Strong nuclear force",
+        "Weak nuclear force",
+        "Centrifugal force"
+      ],
+      "correctAnswer": "Centrifugal force"
+    },
+    {
+      "id": 89,
+      "question": "What is the largest type of whale?",
+      "options": [
+        "Humpback Whale",
+        "Sperm Whale",
+        "Orca",
+        "Blue Whale",
+        "Gray Whale"
+      ],
+      "correctAnswer": "Blue Whale"
+    },
+    {
+      "id": 90,
+      "question": "Which of these countries is not in South America?",
+      "options": [
+        "Colombia",
+        "Ecuador",
+        "Panama",
+        "Peru",
+        "Uruguay"
+      ],
+      "correctAnswer": "Panama"
+    },
+    {
+      "id": 91,
+      "question": "What is the chemical symbol for sodium?",
+      "options": [
+        "So",
+        "Sd",
+        "Na",
+        "Sm",
+        "Sn"
+      ],
+      "correctAnswer": "Na"
+    },
+    {
+      "id": 92,
+      "question": "Which of these animals is not a carnivore?",
+      "options": [
+        "Lion",
+        "Wolf",
+        "Eagle",
+        "Shark",
+        "Elephant"
+      ],
+      "correctAnswer": "Elephant"
+    },
+    {
+      "id": 93,
+      "question": "What is the capital of Russia?",
+      "options": [
+        "St. Petersburg",
+        "Kiev",
+        "Moscow",
+        "Minsk",
+        "Vladivostok"
+      ],
+      "correctAnswer": "Moscow"
+    },
+    {
+      "id": 94,
+      "question": "Which of these is not a phase of matter?",
+      "options": [
+        "Solid",
+        "Liquid",
+        "Gas",
+        "Plasma",
+        "Spectrum"
+      ],
+      "correctAnswer": "Spectrum"
+    },
+    {
+      "id": 95,
+      "question": "What is the tallest tree species in the world?",
+      "options": [
+        "Giant Sequoia",
+        "Coast Redwood",
+        "Douglas Fir",
+        "Mountain Ash",
+        "Sitka Spruce"
+      ],
+      "correctAnswer": "Coast Redwood"
+    },
+    {
+      "id": 96,
+      "question": "Which of these countries is not in Africa?",
+      "options": [
+        "Senegal",
+        "Suriname",
+        "Somalia",
+        "Sudan",
+        "Sierra Leone"
+      ],
+      "correctAnswer": "Suriname"
+    },
+    {
+      "id": 97,
+      "question": "What is the world's largest freshwater lake by volume?",
+      "options": [
+        "Lake Superior",
+        "Lake Victoria",
+        "Lake Baikal",
+        "Lake Michigan",
+        "Great Bear Lake"
+      ],
+      "correctAnswer": "Lake Baikal"
+    },
+    {
+      "id": 98,
+      "question": "Which of these instruments has keys?",
+      "options": [
+        "Violin",
+        "Guitar",
+        "Harp",
+        "Saxophone",
+        "Cello"
+      ],
+      "correctAnswer": "Saxophone"
+    },
+    {
+      "id": 99,
+      "question": "What is the capital of China?",
+      "options": [
+        "Shanghai",
+        "Hong Kong",
+        "Beijing",
+        "Guangzhou",
+        "Shenzhen"
+      ],
+      "correctAnswer": "Beijing"
+    },
+    {
+      "id": 100,
+      "question": "Which of these animals lays eggs?",
+      "options": [
+        "Bat",
+        "Dolphin",
+        "Platypus",
+        "Kangaroo",
+        "Whale"
+      ],
+      "correctAnswer": "Platypus"
     }
   ]
 } 
