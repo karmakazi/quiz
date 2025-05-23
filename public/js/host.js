@@ -320,20 +320,22 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Create winner announcement
     const winnerAnnouncement = document.createElement('div');
+    winnerAnnouncement.style.textAlign = 'center';
     
     if (winners.length === 0) {
       winnerAnnouncement.innerHTML = '<p>No winners!</p>';
     } else if (winners.length === 1) {
       winnerAnnouncement.innerHTML = `
-        <h3>Winner: ${winners[0].name}</h3>
+        <h3 class="winner-heading">Winner: ${winners[0].name}</h3>
         <p>Score: ${winners[0].score} points</p>
       `;
     } else {
-      winnerAnnouncement.innerHTML = '<h3>It\'s a tie!</h3>';
+      winnerAnnouncement.innerHTML = '<h3 class="winner-heading">It\'s a tie!</h3>';
       
       const tiedWinnersList = document.createElement('ul');
       tiedWinnersList.style.listStyleType = 'none';
       tiedWinnersList.style.padding = '0';
+      tiedWinnersList.style.textAlign = 'center';
       
       winners.forEach(winner => {
         const li = document.createElement('li');
@@ -349,7 +351,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Create full leaderboard
     const leaderboardElement = document.createElement('div');
     leaderboardElement.classList.add('leaderboard');
-    leaderboardElement.innerHTML = '<h3>Final Leaderboard</h3>';
+    leaderboardElement.style.maxWidth = '800px';
+    leaderboardElement.style.marginLeft = 'auto';
+    leaderboardElement.style.marginRight = 'auto';
+    
+    const leaderboardTitle = document.createElement('h3');
+    leaderboardTitle.textContent = 'Final Leaderboard';
+    leaderboardTitle.style.textAlign = 'center';
+    leaderboardElement.appendChild(leaderboardTitle);
     
     // Use leaderboard data if available, otherwise sort players by score
     const sortedPlayers = leaderboard.length > 0 ? 
@@ -411,7 +420,10 @@ document.addEventListener('DOMContentLoaded', () => {
       table.appendChild(tbody);
       leaderboardElement.appendChild(table);
     } else {
-      leaderboardElement.innerHTML += '<p>No players found</p>';
+      const noPlayersMsg = document.createElement('p');
+      noPlayersMsg.textContent = 'No players found';
+      noPlayersMsg.style.textAlign = 'center';
+      leaderboardElement.appendChild(noPlayersMsg);
     }
     
     winnersContainer.appendChild(leaderboardElement);
@@ -424,6 +436,9 @@ document.addEventListener('DOMContentLoaded', () => {
         padding: 20px;
         background-color: #2d2d2d;
         border-radius: 8px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
       }
       .leaderboard-table {
         width: 100%;
@@ -446,6 +461,11 @@ document.addEventListener('DOMContentLoaded', () => {
       .leaderboard-table .winner {
         color: gold;
         font-weight: bold;
+      }
+      .winner-heading {
+        text-align: center;
+        color: #4da6ff;
+        margin: 0 0 15px 0;
       }
     `;
     document.head.appendChild(style);
