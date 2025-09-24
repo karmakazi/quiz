@@ -73,6 +73,21 @@ app.get('/client', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'client.html'));
 });
 
+app.get('/teacher', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'teacher.html'));
+});
+
+// API endpoint for teacher dashboard
+app.get('/api/teacher/dashboard', (req, res) => {
+  try {
+    const data = loadStudentData();
+    res.json(data);
+  } catch (error) {
+    console.error('Error serving dashboard data:', error);
+    res.status(500).json({ error: 'Error loading dashboard data' });
+  }
+});
+
 // Load questions from JSON file
 const questionsData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'questions.json'), 'utf8'));
 let availableQuestions = shuffleArray([...questionsData.questions]); // Create a copy and shuffle immediately
@@ -489,11 +504,7 @@ io.on('connection', (socket) => {
         quizId: gameState.quizId,
         timestamp: Date.now(),
         responses: gameState.responses,
-        leaderboard: sortedPlayers.map(player => ({
-          name: player.name,
-          score: player.score,
-          totalQuestions: gameState.roundsTotal
-        }))
+        totalQuestions: QUESTIONS_PER_GAME
       };
       
       // Add quiz results to the quizzes array

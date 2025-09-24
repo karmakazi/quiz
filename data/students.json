@@ -1,206 +1,83 @@
 {
   "students": {
-    "Andrew": {
-      "name": "Andrew",
-      "quizzes": [
-        1758742088300
-      ]
-    },
     "Andrew Harris": {
       "name": "Andrew Harris",
       "quizzes": [
-        1758743699830,
-        1758743986064,
-        1758744246922
+        1758746772360,
+        1758746857245
       ]
     }
   },
   "quizzes": [
     {
-      "quizId": 1758742088300,
-      "timestamp": 1758742304327,
-      "responses": {
-        "Andrew": [
-          {
-            "questionIndex": 0,
-            "question": "What is the smallest bone in the human body?",
-            "selectedAnswer": "Stapes",
-            "correctAnswer": "Stapes",
-            "isCorrect": true,
-            "timestamp": 1758742270329
-          },
-          {
-            "questionIndex": 1,
-            "question": "Which of these is not a type of pasta?",
-            "selectedAnswer": "Minestrone",
-            "correctAnswer": "Minestrone",
-            "isCorrect": true,
-            "timestamp": 1758742278854
-          },
-          {
-            "questionIndex": 2,
-            "question": "What is the largest bird in the world?",
-            "selectedAnswer": "Albatross",
-            "correctAnswer": "Ostrich",
-            "isCorrect": false,
-            "timestamp": 1758742284987
-          },
-          {
-            "questionIndex": 3,
-            "question": "Which instrument has 47 strings and 7 pedals?",
-            "selectedAnswer": "Harp",
-            "correctAnswer": "Harp",
-            "isCorrect": true,
-            "timestamp": 1758742291137
-          },
-          {
-            "questionIndex": 4,
-            "question": "What is the largest moon in our solar system?",
-            "selectedAnswer": "Titan",
-            "correctAnswer": "Ganymede",
-            "isCorrect": false,
-            "timestamp": 1758742303096
-          }
-        ]
-      },
-      "leaderboard": [
-        {
-          "name": "Andrew",
-          "score": 3,
-          "totalQuestions": 5
-        }
-      ]
-    },
-    {
-      "quizId": 1758743699830,
-      "timestamp": 1758743787412,
+      "quizId": 1758746772360,
+      "timestamp": 1758746856455,
       "responses": {
         "Andrew Harris": [
           {
             "questionIndex": 0,
-            "question": "Which fruit contains the most potassium?",
-            "selectedAnswer": "Banana",
-            "correctAnswer": "Banana",
+            "question": "Who painted the Mona Lisa?",
+            "selectedAnswer": "Leonardo da Vinci",
+            "correctAnswer": "Leonardo da Vinci",
             "isCorrect": true,
-            "timestamp": 1758743742968
+            "timestamp": 1758746806694
           },
           {
             "questionIndex": 1,
-            "question": "What is the largest internal organ in the human body?",
-            "selectedAnswer": "Lungs",
-            "correctAnswer": "Liver",
-            "isCorrect": false,
-            "timestamp": 1758743753310
-          },
-          {
-            "questionIndex": 2,
-            "question": "Which of these planets has no moons?",
-            "selectedAnswer": "Venus",
-            "correctAnswer": "Venus",
-            "isCorrect": true,
-            "timestamp": 1758743764634
-          },
-          {
-            "questionIndex": 3,
-            "question": "Which of these countries is not in Africa?",
-            "selectedAnswer": "Ghana",
-            "correctAnswer": "Guyana",
-            "isCorrect": false,
-            "timestamp": 1758743781061
-          },
-          {
-            "questionIndex": 4,
-            "question": "What is the capital of Argentina?",
-            "selectedAnswer": "Buenos Aires",
-            "correctAnswer": "Buenos Aires",
-            "isCorrect": true,
-            "timestamp": 1758743786079
-          }
-        ]
-      },
-      "leaderboard": [
-        {
-          "name": "Andrew Harris",
-          "score": 3,
-          "totalQuestions": 5
-        }
-      ]
-    },
-    {
-      "quizId": 1758743986064,
-      "timestamp": 1758744130528,
-      "responses": {
-        "Andrew Harris": [
-          {
-            "questionIndex": 0,
-            "question": "What is the capital of Australia?",
-            "selectedAnswer": "Canberra",
-            "correctAnswer": "Canberra",
-            "isCorrect": true,
-            "timestamp": 1758744093300
-          },
-          {
-            "questionIndex": 1,
-            "question": "What is the largest ocean on Earth?",
-            "selectedAnswer": "Atlantic Ocean",
-            "correctAnswer": "Pacific Ocean",
-            "isCorrect": false,
-            "timestamp": 1758744105301
-          },
-          {
-            "questionIndex": 2,
             "question": "Which planet is known as the Red Planet?",
             "selectedAnswer": "Mars",
             "correctAnswer": "Mars",
             "isCorrect": true,
-            "timestamp": 1758744112161
+            "timestamp": 1758746809668
           },
           {
-            "questionIndex": 3,
-            "question": "What is the largest ocean on Earth?",
-            "selectedAnswer": "Atlantic Ocean",
-            "correctAnswer": "Pacific Ocean",
-            "isCorrect": false,
-            "timestamp": 1758744121216
-          },
-          {
-            "questionIndex": 4,
-            "question": "Which element has the chemical symbol 'Au'?",
-            "selectedAnswer": "Gold",
-            "correctAnswer": "Gold",
-            "isCorrect": true,
-            "timestamp": 1758744129364
-          }
-        ]
-      },
-      "leaderboard": [
-        {
-          "name": "Andrew Harris",
-          "score": 3,
-          "totalQuestions": 5
-        }
-      ]
-    },
-    {
-      "quizId": 1758744246922,
-      "timestamp": 1758744616539,
-      "responses": {
-        "Andrew Harris": [
-          {
-            "questionIndex": 0,
+            "questionIndex": 2,
             "question": "What is the capital of Australia?",
             "selectedAnswer": "Canberra",
             "correctAnswer": "Canberra",
             "isCorrect": true,
-            "timestamp": 1758744599142
+            "timestamp": 1758746813325
           },
           {
-            "questionIndex": 1,
+            "questionIndex": 3,
             "question": "Which element has the chemical symbol 'Au'?",
             "selectedAnswer": "Gold",
             "correctAnswer": "Gold",
             "isCorrect": true,
-            "timestamp": 1758744603555
+            "timestamp": 1758746816836
+          },
+          {
+            "questionIndex": 4,
+            "question": "What is the largest ocean on Earth?",
+            "selectedAnswer": "Pacific Ocean",
+            "correctAnswer": "Pacific Ocean",
+            "isCorrect": true,
+            "timestamp": 1758746849927
+          }
+        ]
+      },
+      "totalQuestions": 5
+    },
+    {
+      "quizId": 1758746857245,
+      "timestamp": 1758746913293,
+      "responses": {
+        "Andrew Harris": [
+          {
+            "questionIndex": 0,
+            "question": "What is the largest ocean on Earth?",
+            "selectedAnswer": "Pacific Ocean",
+            "correctAnswer": "Pacific Ocean",
+            "isCorrect": true,
+            "timestamp": 1758746903122
+          },
+          {
+            "questionIndex": 1,
+            "question": "Which planet is known as the Red Planet?",
+            "selectedAnswer": "Mars",
+            "correctAnswer": "Mars",
+            "isCorrect": true,
+            "timestamp": 1758746905105
           },
           {
             "questionIndex": 2,
@@ -208,33 +85,27 @@
             "selectedAnswer": "Leonardo da Vinci",
             "correctAnswer": "Leonardo da Vinci",
             "isCorrect": true,
-            "timestamp": 1758744607780
+            "timestamp": 1758746908553
           },
           {
             "questionIndex": 3,
-            "question": "What is the largest ocean on Earth?",
-            "selectedAnswer": "Pacific Ocean",
-            "correctAnswer": "Pacific Ocean",
+            "question": "What is the capital of Australia?",
+            "selectedAnswer": "Canberra",
+            "correctAnswer": "Canberra",
             "isCorrect": true,
-            "timestamp": 1758744611770
+            "timestamp": 1758746910837
           },
           {
             "questionIndex": 4,
-            "question": "Which planet is known as the Red Planet?",
-            "selectedAnswer": "Mars",
-            "correctAnswer": "Mars",
+            "question": "Which element has the chemical symbol 'Au'?",
+            "selectedAnswer": "Gold",
+            "correctAnswer": "Gold",
             "isCorrect": true,
-            "timestamp": 1758744615461
+            "timestamp": 1758746912766
           }
         ]
       },
-      "leaderboard": [
-        {
-          "name": "Andrew Harris",
-          "score": 5,
-          "totalQuestions": 5
-        }
-      ]
+      "totalQuestions": 5
     }
   ]
 }
