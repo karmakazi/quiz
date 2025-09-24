@@ -43,19 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
     gameOver.classList.add('hidden');
   }
 
-  function showGameOver(leaderboard = null) {
+  function showGameOver() {
     joinArea.classList.add('hidden');
     waitingArea.classList.add('hidden');
     gameArea.classList.add('hidden');
     gameOver.classList.remove('hidden');
-    
-    // If we have leaderboard data passed in, display it
-    if (leaderboard && Array.isArray(leaderboard) && leaderboard.length > 0) {
-      displayLeaderboard(leaderboard);
-    } else {
-      // Otherwise fetch fresh data
-      fetchLeaderboardData();
-    }
   }
 
   // Check for saved player data before initializing Socket.IO
@@ -342,148 +334,6 @@ document.addEventListener('DOMContentLoaded', () => {
     showJoinArea();
   });
 
-  // Create a simpler function for requesting leaderboard data directly via HTTP
-  function fetchLeaderboardData() {
-    console.log('Fetching leaderboard data via HTTP API');
-    
-    // Show loading message
-    const leaderboardContainer = document.getElementById('client-leaderboard');
-    if (leaderboardContainer) {
-      leaderboardContainer.innerHTML = '<p style="text-align:center;">Loading leaderboard...</p>';
-    }
-    
-    // Use the correct API endpoint
-    fetch('/api/get-leaderboard')
-      .then(response => {
-        console.log('API response status:', response.status);
-        return response.json();
-      })
-      .then(data => {
-        console.log('Received leaderboard data:', data);
-        
-        if (data && data.gameOver && data.leaderboard && Array.isArray(data.leaderboard)) {
-          // Update the display with the fresh data
-          displayLeaderboard(data.leaderboard);
-        } else {
-          // If no data, show message
-          if (leaderboardContainer) {
-            leaderboardContainer.innerHTML = '<p style="text-align:center;">Leaderboard not available</p>';
-          }
-        }
-      })
-      .catch(error => {
-        console.error('Error fetching leaderboard data:', error);
-        if (leaderboardContainer) {
-          leaderboardContainer.innerHTML = '<p style="text-align:center;">Could not load leaderboard</p>';
-        }
-      });
-  }
-
-  // Create a separate function to display the leaderboard
-  function displayLeaderboard(leaderboardData) {
-    const leaderboardContainer = document.getElementById('client-leaderboard');
-    if (!leaderboardContainer || !leaderboardData || !Array.isArray(leaderboardData) || leaderboardData.length === 0) {
-      return;
-    }
-    
-    leaderboardContainer.innerHTML = '';
-    
-    // Create leaderboard element
-    const leaderboardElement = document.createElement('div');
-    leaderboardElement.style.marginTop = '20px';
-    leaderboardElement.style.padding = '15px';
-    leaderboardElement.style.backgroundColor = '#2d2d2d';
-    leaderboardElement.style.borderRadius = '8px';
-    
-    const header = document.createElement('h3');
-    header.textContent = 'Final Leaderboard';
-    header.style.textAlign = 'center';
-    header.style.color = '#4da6ff';
-    header.style.marginBottom = '10px';
-    leaderboardElement.appendChild(header);
-    
-    const table = document.createElement('table');
-    table.style.width = '100%';
-    table.style.borderCollapse = 'collapse';
-    
-    // Add table header
-    const thead = document.createElement('thead');
-    const headerRow = document.createElement('tr');
-    
-    const rankHeader = document.createElement('th');
-    rankHeader.textContent = 'Rank';
-    rankHeader.style.padding = '8px';
-    rankHeader.style.textAlign = 'left';
-    rankHeader.style.borderBottom = '1px solid #444';
-    rankHeader.style.backgroundColor = '#1e1e1e';
-    rankHeader.style.color = '#4da6ff';
-    
-    const nameHeader = document.createElement('th');
-    nameHeader.textContent = 'Player';
-    nameHeader.style.padding = '8px';
-    nameHeader.style.textAlign = 'left';
-    nameHeader.style.borderBottom = '1px solid #444';
-    nameHeader.style.backgroundColor = '#1e1e1e';
-    nameHeader.style.color = '#4da6ff';
-    
-    const scoreHeader = document.createElement('th');
-    scoreHeader.textContent = 'Score';
-    scoreHeader.style.padding = '8px';
-    scoreHeader.style.textAlign = 'left';
-    scoreHeader.style.borderBottom = '1px solid #444';
-    scoreHeader.style.backgroundColor = '#1e1e1e';
-    scoreHeader.style.color = '#4da6ff';
-    
-    headerRow.appendChild(rankHeader);
-    headerRow.appendChild(nameHeader);
-    headerRow.appendChild(scoreHeader);
-    thead.appendChild(headerRow);
-    table.appendChild(thead);
-    
-    // Add table body with player data
-    const tbody = document.createElement('tbody');
-    
-    leaderboardData.forEach((player, index) => {
-      const row = document.createElement('tr');
-      
-      // Add rank cell (position)
-      const rankCell = document.createElement('td');
-      rankCell.textContent = `${index + 1}`;
-      rankCell.style.padding = '8px';
-      rankCell.style.textAlign = 'left';
-      rankCell.style.borderBottom = index === leaderboardData.length - 1 ? 'none' : '1px solid #444';
-      
-      // Add player name cell
-      const nameCell = document.createElement('td');
-      nameCell.textContent = player.name;
-      nameCell.style.padding = '8px';
-      nameCell.style.textAlign = 'left';
-      nameCell.style.borderBottom = index === leaderboardData.length - 1 ? 'none' : '1px solid #444';
-      
-      // Highlight the current player
-      if (player.name === playerName) {
-        nameCell.style.color = '#4da6ff';
-        nameCell.style.fontWeight = 'bold';
-        row.style.backgroundColor = 'rgba(33, 150, 243, 0.1)';
-      }
-      
-      // Add score cell
-      const scoreCell = document.createElement('td');
-      scoreCell.textContent = `${player.score}`;
-      scoreCell.style.padding = '8px';
-      scoreCell.style.textAlign = 'left';
-      scoreCell.style.borderBottom = index === leaderboardData.length - 1 ? 'none' : '1px solid #444';
-      
-      row.appendChild(rankCell);
-      row.appendChild(nameCell);
-      row.appendChild(scoreCell);
-      tbody.appendChild(row);
-    });
-    
-    table.appendChild(tbody);
-    leaderboardElement.appendChild(table);
-    leaderboardContainer.appendChild(leaderboardElement);
-  }
 
   // Add a function to update button visuals based on the selected answer
   function updateSelectedButton() {
@@ -633,29 +483,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // Don't clear playerName or localStorage since we use that for reconnection
   }
 
-  // Add a new event listener for leaderboard data responses
-  socket.on('leaderboardData', (data) => {
-    console.log('Received leaderboardData event:', data);
-    if (data && Array.isArray(data.leaderboard) && data.leaderboard.length > 0) {
-      // Store the leaderboard data
-      const leaderboardJSON = JSON.stringify(data.leaderboard);
-      try {
-        sessionStorage.setItem('triviaLeaderboard', leaderboardJSON);
-        localStorage.setItem('triviaLeaderboard', leaderboardJSON);
-      } catch (e) {
-        console.error('Error storing leaderboard data:', e);
-      }
-      
-      // Update the display
-      showGameOver(data.leaderboard);
-    }
-  });
-
-  // Add event listener for the refresh leaderboard button
-  if (refreshLeaderboardBtn) {
-    refreshLeaderboardBtn.addEventListener('click', () => {
-      console.log('Manual leaderboard refresh requested');
-      fetchLeaderboardData();
-    });
-  }
 }); 

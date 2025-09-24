@@ -162,17 +162,6 @@
       color: #777777;
       cursor: not-allowed;
     }
-    .winners-container {
-      text-align: center;
-      margin-top: 10px;
-      width: 100%;
-      max-width: 900px;
-    }
-    .winner-heading {
-      text-align: center;
-      color: #4da6ff;
-      margin: 0 0 15px 0;
-    }
     .hidden {
       display: none !important;
     }
@@ -193,51 +182,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      padding-top: 40px;
+      justify-content: center;
       z-index: 1000;
       text-align: center;
-      overflow-y: auto;
     }
     .game-over h2 {
       text-align: center;
-      margin-bottom: 10px;
-    }
-    .leaderboard {
-      width: 100%;
-      max-width: 800px;
-      margin-top: 15px;
-      padding: 20px;
-      background-color: #2d2d2d;
-      border-radius: 8px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .leaderboard h3 {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-    .leaderboard-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
-    }
-    .leaderboard-table th,
-    .leaderboard-table td {
-      padding: 10px;
-      text-align: left;
-      border-bottom: 1px solid #444;
-    }
-    .leaderboard-table th {
-      background-color: #1e1e1e;
-      color: #4da6ff;
-    }
-    .leaderboard-table tr:last-child td {
-      border-bottom: none;
-    }
-    .leaderboard-table .winner {
-      color: gold;
-      font-weight: bold;
+      margin-bottom: 30px;
+      font-size: 28px;
     }
   </style>
 </head>
@@ -291,10 +243,9 @@
     
     <!-- Game Over -->
     <div id="game-over" class="game-over hidden">
-      <h2>Game Over!</h2>
-      <div class="winners-container" id="winners-container"></div>
+      <h2>Quiz Complete!</h2>
       <div class="button-container">
-        <button id="new-game-btn">New Game</button>
+        <button id="new-game-btn">Start New Quiz</button>
       </div>
     </div>
   </div>
