@@ -59,8 +59,8 @@
       margin-bottom: 20px;
     }
     .qr-code {
-      width: 200px;
-      height: 200px;
+      width: 300px;
+      height: 300px;
       margin: 10px 0;
       background-color: white;
       padding: 10px;
@@ -120,6 +120,23 @@
     }
     .player-answered {
       color: #a0a0a0;
+    }
+    .image-container {
+      background-color: #2d2d2d;
+      padding: 20px;
+      border-radius: 8px;
+      width: 95%;
+      height: calc(100vh - 200px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .question-image {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 4px;
     }
     .button-container {
       display: flex;
@@ -266,9 +283,8 @@
       </div>
       
       <div class="right-panel">
-        <div class="players-container">
-          <h3>Players:</h3>
-          <ul id="players-list" class="players-list"></ul>
+        <div class="image-container">
+          <img id="question-image" class="question-image" src="" alt="Question Image">
         </div>
       </div>
     </div>

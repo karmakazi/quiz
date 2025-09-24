@@ -266,6 +266,15 @@ document.addEventListener('DOMContentLoaded', () => {
     questionNumber.textContent = `Question ${currentQuestionIndex + 1} of ${totalQuestions}`;
     questionText.textContent = currentQuestion.question;
     
+    // Update question image
+    const questionImage = document.getElementById('question-image');
+    if (currentQuestion.image) {
+      questionImage.src = currentQuestion.image;
+      questionImage.style.display = 'block';
+    } else {
+      questionImage.style.display = 'none';
+    }
+    
     optionsList.innerHTML = '';
     currentQuestion.options.forEach(option => {
       const li = document.createElement('li');

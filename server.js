@@ -6,6 +6,30 @@ const fs = require('fs');
 const os = require('os');
 const qrcode = require('qrcode');
 
+// Function to load student data
+function loadStudentData() {
+  const studentDataPath = path.join(__dirname, 'data', 'students.json');
+  try {
+    if (fs.existsSync(studentDataPath)) {
+      return JSON.parse(fs.readFileSync(studentDataPath, 'utf8'));
+    }
+    return { students: {}, quizzes: [] };
+  } catch (error) {
+    console.error('Error loading student data:', error);
+    return { students: {}, quizzes: [] };
+  }
+}
+
+// Function to save student data
+function saveStudentData(data) {
+  const studentDataPath = path.join(__dirname, 'data', 'students.json');
+  try {
+    fs.writeFileSync(studentDataPath, JSON.stringify(data, null, 2));
+  } catch (error) {
+    console.error('Error saving student data:', error);
+  }
+}
+
 const app = express();
 const server = http.createServer(app);
 
@@ -64,6 +88,8 @@ const gameState = {
   disconnectedPlayers: {}, // Store disconnected players' data
   leaderboard: [], // Persistent leaderboard for the current game
   currentQuestion: null, // Store the current question
+  quizId: Date.now(), // Unique identifier for this quiz session
+  responses: {}, // Store detailed responses for each player
 };
 
 // Function to shuffle array (Fisher-Yates algorithm)
@@ -78,9 +104,9 @@ function shuffleArray(array) {
 
 // Function to get next question
 function getNextQuestion() {
-  // If we're running low on questions, reset the available questions
-  if (availableQuestions.length < QUESTIONS_PER_GAME) {
-    console.log('Resetting question pool - running low on questions');
+  // If we're out of questions, shuffle the full set
+  if (availableQuestions.length === 0) {
+    console.log('Resetting question pool - out of questions');
     availableQuestions = [...questionsData.questions]; // Reset to full question set
     availableQuestions = shuffleArray(availableQuestions); // Reshuffle
   }
@@ -294,10 +320,25 @@ io.on('connection', (socket) => {
       // First check if the player exists with this socket ID
       if (gameState.players[socket.id]) {
         // Player found, proceed normally
-        gameState.players[socket.id].currentAnswer = answer;
+        const player = gameState.players[socket.id];
+        player.currentAnswer = answer;
+
+        // Store detailed response
+        if (!gameState.responses[player.name]) {
+          gameState.responses[player.name] = [];
+        }
+        gameState.responses[player.name].push({
+          questionIndex: gameState.currentQuestionIndex,
+          question: gameState.currentQuestion.question,
+          selectedAnswer: answer,
+          correctAnswer: gameState.currentQuestion.correctAnswer,
+          isCorrect: answer === gameState.currentQuestion.correctAnswer,
+          timestamp: Date.now()
+        });
+
         socket.emit('answerSubmitted', answer);
         io.emit('playerAnswered', { playerId: socket.id });
-        console.log(`Player ${gameState.players[socket.id].name} submitted answer: ${answer}`);
+        console.log(`Player ${player.name} submitted answer: ${answer}`);
       } else {
         // Look for this player by checking all players and disconnected players
         let playerName = null;
@@ -441,6 +482,36 @@ io.on('connection', (socket) => {
       
       // Store the leaderboard in game state for reconnecting clients
       gameState.leaderboard = sortedPlayers;
+
+      // Save quiz results to students.json
+      const studentData = loadStudentData();
+      const quizResults = {
+        quizId: gameState.quizId,
+        timestamp: Date.now(),
+        responses: gameState.responses,
+        leaderboard: sortedPlayers.map(player => ({
+          name: player.name,
+          score: player.score,
+          totalQuestions: gameState.roundsTotal
+        }))
+      };
+      
+      // Add quiz results to the quizzes array
+      studentData.quizzes.push(quizResults);
+
+      // Update or add student records
+      Object.entries(gameState.responses).forEach(([studentName, responses]) => {
+        if (!studentData.students[studentName]) {
+          studentData.students[studentName] = {
+            name: studentName,
+            quizzes: []
+          };
+        }
+        studentData.students[studentName].quizzes.push(gameState.quizId);
+      });
+
+      // Save the updated data
+      saveStudentData(studentData);
       
       // Send game over event with leaderboard to all clients
       io.emit('gameOver', {
