@@ -4,7 +4,8 @@
       "name": "Andrew Harris",
       "quizzes": [
         1758746772360,
-        1758746857245
+        1758746857245,
+        1758747404430
       ]
     }
   },
@@ -102,6 +103,55 @@
             "correctAnswer": "Gold",
             "isCorrect": true,
             "timestamp": 1758746912766
+          }
+        ]
+      },
+      "totalQuestions": 5
+    },
+    {
+      "quizId": 1758747404430,
+      "timestamp": 1758747491278,
+      "responses": {
+        "Andrew Harris": [
+          {
+            "questionIndex": 0,
+            "question": "What is the capital of Australia?",
+            "selectedAnswer": "Sydney",
+            "correctAnswer": "Canberra",
+            "isCorrect": false,
+            "timestamp": 1758747478548
+          },
+          {
+            "questionIndex": 1,
+            "question": "What is the largest ocean on Earth?",
+            "selectedAnswer": "Indian Ocean",
+            "correctAnswer": "Pacific Ocean",
+            "isCorrect": false,
+            "timestamp": 1758747482693
+          },
+          {
+            "questionIndex": 2,
+            "question": "Who painted the Mona Lisa?",
+            "selectedAnswer": "Michelangelo",
+            "correctAnswer": "Leonardo da Vinci",
+            "isCorrect": false,
+            "timestamp": 1758747484812
+          },
+          {
+            "questionIndex": 3,
+            "question": "Which planet is known as the Red Planet?",
+            "selectedAnswer": "Mars",
+            "correctAnswer": "Mars",
+            "isCorrect": true,
+            "timestamp": 1758747487967
+          },
+          {
+            "questionIndex": 4,
+            "question": "Which element has the chemical symbol 'Au'?",
+            "selectedAnswer": "Gold",
+            "correctAnswer": "Gold",
+            "isCorrect": true,
+            "timestamp": 1758747490729
           }
         ]
       },

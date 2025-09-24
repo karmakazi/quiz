@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const totalQuizzes = document.getElementById('total-quizzes');
   const averageScore = document.getElementById('average-score');
   const quizContainer = document.getElementById('quiz-container');
-  const studentListBody = document.getElementById('student-list-body');
   const refreshBtn = document.getElementById('refresh-btn');
 
   // Fetch and display data
@@ -41,9 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Display quizzes
     displayQuizzes(data.quizzes);
-
-    // Display student performance
-    displayStudentPerformance(data);
   }
 
   function displayQuizzes(quizzes) {
@@ -62,13 +58,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
       quizElement.innerHTML = `
         <div class="quiz-header">
-          <h3>Quiz on ${quizDate} at ${quizTime}</h3>
-          <span class="quiz-stats">
-            ${totalStudents} Student${totalStudents !== 1 ? 's' : ''} | 
-            ${totalQuestions} Question${totalQuestions !== 1 ? 's' : ''}
-          </span>
+          <div class="quiz-info">
+            <h3>Quiz on ${quizDate} at ${quizTime}</h3>
+            <span class="quiz-stats">
+              ${totalStudents} Student${totalStudents !== 1 ? 's' : ''} | 
+              ${totalQuestions} Question${totalQuestions !== 1 ? 's' : ''}
+            </span>
+          </div>
+          <div class="expand-icon">▼</div>
         </div>
-        <div class="student-scores">
+        <div class="student-scores" style="display: none;">
           ${Object.entries(quiz.responses).map(([studentName, responses]) => {
             const correctAnswers = responses.filter(r => r.isCorrect).length;
             const percentage = ((correctAnswers / totalQuestions) * 100).toFixed(1);
@@ -81,7 +80,22 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       `;
 
-      quizElement.addEventListener('click', () => {
+      const header = quizElement.querySelector('.quiz-header');
+      const studentScores = quizElement.querySelector('.student-scores');
+      const expandIcon = quizElement.querySelector('.expand-icon');
+
+      // Add click handler for the quiz header
+      header.addEventListener('click', () => {
+        const isHidden = studentScores.style.display === 'none';
+        studentScores.style.display = isHidden ? 'grid' : 'none';
+        expandIcon.textContent = isHidden ? '▲' : '▼';
+      });
+
+      // Add separate click handler for student scores
+      studentScores.addEventListener('click', (event) => {
+        event.stopPropagation(); // Prevent event from bubbling up to quiz header
+        
+        // Show detailed responses
         const existingDetails = document.querySelector('.quiz-details');
         if (existingDetails) {
           if (existingDetails.dataset.quizTime === quiz.timestamp.toString()) {
@@ -136,60 +150,9 @@ document.addEventListener('DOMContentLoaded', () => {
         quizElement.after(detailsElement);
       });
 
+      // Add the quiz element to the container
       quizContainer.appendChild(quizElement);
     });
-  }
-
-  function displayStudentPerformance(data) {
-    studentListBody.innerHTML = '';
-    
-    // Calculate student statistics
-    const studentStats = {};
-    
-    // Initialize student stats
-    Object.keys(data.students).forEach(studentName => {
-      studentStats[studentName] = {
-        quizzesTaken: 0,
-        totalScore: 0,
-        totalQuestions: 0,
-        lastQuizDate: 0
-      };
-    });
-    
-    // Calculate statistics from quiz data
-    data.quizzes.forEach(quiz => {
-      Object.entries(quiz.responses).forEach(([studentName, responses]) => {
-        const stats = studentStats[studentName];
-        if (stats) {
-          stats.quizzesTaken++;
-          stats.totalScore += responses.filter(r => r.isCorrect).length;
-          stats.totalQuestions += responses.length;
-          stats.lastQuizDate = Math.max(stats.lastQuizDate, quiz.timestamp);
-        }
-      });
-    });
-    
-    // Display student statistics
-    Object.entries(studentStats)
-      .sort(([,a], [,b]) => b.lastQuizDate - a.lastQuizDate)
-      .forEach(([studentName, stats]) => {
-        const row = document.createElement('tr');
-        const averageScore = stats.totalQuestions > 0
-          ? ((stats.totalScore / stats.totalQuestions) * 100).toFixed(1)
-          : 0;
-        const lastQuizDate = stats.lastQuizDate > 0
-          ? new Date(stats.lastQuizDate).toLocaleDateString()
-          : 'N/A';
-        
-        row.innerHTML = `
-          <td>${studentName}</td>
-          <td>${stats.quizzesTaken}</td>
-          <td>${averageScore}%</td>
-          <td>${lastQuizDate}</td>
-        `;
-        
-        studentListBody.appendChild(row);
-      });
   }
 
   // Event listeners
