@@ -164,6 +164,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (response.ok) {
+          // After deleting, check if we need to adjust questions per quiz
+          const questionsResponse = await fetch('/api/admin/questions');
+          const questions = await questionsResponse.json();
+          const currentQuestionsPerQuiz = parseInt(questionsPerQuizInput.value);
+          
+          if (currentQuestionsPerQuiz > questions.length) {
+            // Auto-adjust to new maximum
+            const settingsResponse = await fetch('/api/admin/settings', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ questionsPerQuiz: questions.length })
+            });
+            
+            if (settingsResponse.ok) {
+              alert(`Questions per quiz has been automatically adjusted to ${questions.length} due to question deletion.`);
+            }
+          }
+
+          // Update max value and label
+          questionsPerQuizInput.max = questions.length;
+          const label = document.querySelector('label[for="questions-per-quiz"]');
+          label.textContent = `Number of Questions per Quiz (max ${questions.length}):`;
+          questionsPerQuizInput.value = Math.min(currentQuestionsPerQuiz, questions.length);
+
           loadQuestions();
         } else {
           console.error('Error deleting question:', await response.text());

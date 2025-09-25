@@ -8,7 +8,8 @@
         1758747404430,
         1758824634581,
         1758825224946,
-        1758825474420
+        1758825474420,
+        1758825787603
       ]
     }
   },
@@ -282,6 +283,63 @@
         ]
       },
       "totalQuestions": 1
+    },
+    {
+      "quizId": 1758825787603,
+      "timestamp": 1758825840464,
+      "responses": {
+        "Andrew Harris": [
+          {
+            "questionIndex": 0,
+            "question": "What is the largest ocean on Earth?",
+            "selectedAnswer": "Pacific Ocean",
+            "correctAnswer": "Pacific Ocean",
+            "isCorrect": true,
+            "timestamp": 1758825818170
+          },
+          {
+            "questionIndex": 1,
+            "question": "What is the capital city of Canada?",
+            "selectedAnswer": "Ottawa",
+            "correctAnswer": "Ottawa",
+            "isCorrect": true,
+            "timestamp": 1758825826258
+          },
+          {
+            "questionIndex": 2,
+            "question": "Which element has the chemical symbol 'Au'?",
+            "selectedAnswer": "Gold",
+            "correctAnswer": "Gold",
+            "isCorrect": true,
+            "timestamp": 1758825830150
+          },
+          {
+            "questionIndex": 3,
+            "question": "Who painted the Mona Lisa?",
+            "selectedAnswer": "Leonardo da Vinci",
+            "correctAnswer": "Leonardo da Vinci",
+            "isCorrect": true,
+            "timestamp": 1758825833640
+          },
+          {
+            "questionIndex": 4,
+            "question": "What is the capital of Australia?",
+            "selectedAnswer": "Canberra",
+            "correctAnswer": "Canberra",
+            "isCorrect": true,
+            "timestamp": 1758825836908
+          },
+          {
+            "questionIndex": 5,
+            "question": "Which planet is known as the Red Planet?",
+            "selectedAnswer": "Mars",
+            "correctAnswer": "Mars",
+            "isCorrect": true,
+            "timestamp": 1758825839570
+          }
+        ]
+      },
+      "totalQuestions": 6
     }
   ]
 }
