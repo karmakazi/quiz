@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // DOM Elements
+  const questionsPerQuizInput = document.getElementById('questions-per-quiz');
+  const saveSettingsBtn = document.getElementById('save-settings');
   const questionList = document.getElementById('question-list');
   const addQuestionBtn = document.getElementById('add-question');
   const modal = document.getElementById('question-modal');
@@ -222,7 +224,69 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Load settings
+  async function loadSettings() {
+    try {
+      // Get current settings
+      const settingsResponse = await fetch('/api/admin/settings');
+      const settings = await settingsResponse.json();
+      
+      // Get questions to determine max limit
+      const questionsResponse = await fetch('/api/admin/questions');
+      const questions = await questionsResponse.json();
+      
+      // Update input field
+      questionsPerQuizInput.value = settings.questionsPerQuiz;
+      questionsPerQuizInput.max = questions.length;
+      
+      // Update label to show limit
+      const label = document.querySelector('label[for="questions-per-quiz"]');
+      label.textContent = `Number of Questions per Quiz (max ${questions.length}):`;
+    } catch (error) {
+      console.error('Error loading settings:', error);
+    }
+  }
+
+  // Save settings
+  async function saveSettings() {
+    try {
+      const questionsPerQuiz = parseInt(questionsPerQuizInput.value);
+      const maxQuestions = parseInt(questionsPerQuizInput.max);
+
+      if (questionsPerQuiz < 1) {
+        alert('Number of questions must be at least 1');
+        return;
+      }
+
+      if (questionsPerQuiz > maxQuestions) {
+        alert(`Cannot set more than ${maxQuestions} questions (total questions in pool)`);
+        return;
+      }
+
+      const response = await fetch('/api/admin/settings', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ questionsPerQuiz })
+      });
+
+      if (response.ok) {
+        alert('Settings saved successfully');
+      } else {
+        alert('Error saving settings');
+      }
+    } catch (error) {
+      console.error('Error saving settings:', error);
+      alert('Error saving settings');
+    }
+  }
+
+  // Add settings event listener
+  saveSettingsBtn.addEventListener('click', saveSettings);
+
   // Initial load
   loadQuestions();
+  loadSettings();
   addDefaultOptions();
 });

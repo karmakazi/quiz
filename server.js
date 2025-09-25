@@ -33,6 +33,9 @@ function saveStudentData(data) {
 const app = express();
 const server = http.createServer(app);
 
+// Add middleware for parsing JSON bodies
+app.use(express.json());
+
 // Socket.io with CORS configuration for Vercel
 const io = socketIo(server, {
   cors: {
@@ -94,6 +97,45 @@ const storage = multer.diskStorage({
   }
 });
 const upload = multer({ storage: storage });
+
+// Quiz settings endpoints
+app.get('/api/admin/settings', (req, res) => {
+  try {
+    res.json({ questionsPerQuiz: QUESTIONS_PER_GAME });
+  } catch (error) {
+    console.error('Error getting settings:', error);
+    res.status(500).json({ error: 'Error getting settings' });
+  }
+});
+
+app.post('/api/admin/settings', (req, res) => {
+  try {
+    const { questionsPerQuiz } = req.body;
+    const totalQuestionsInPool = questionsData.questions.length;
+
+    if (!questionsPerQuiz || questionsPerQuiz < 1) {
+      return res.status(400).json({ error: 'Number of questions must be at least 1' });
+    }
+
+    if (questionsPerQuiz > totalQuestionsInPool) {
+      return res.status(400).json({ 
+        error: `Cannot set more than ${totalQuestionsInPool} questions (total questions in pool)` 
+      });
+    }
+    
+    // Update the constant
+    QUESTIONS_PER_GAME = parseInt(questionsPerQuiz);
+    
+    // Save to a settings file for persistence
+    const settingsPath = path.join(__dirname, 'data', 'settings.json');
+    fs.writeFileSync(settingsPath, JSON.stringify({ questionsPerQuiz: QUESTIONS_PER_GAME }, null, 2));
+    
+    res.json({ questionsPerQuiz: QUESTIONS_PER_GAME });
+  } catch (error) {
+    console.error('Error updating settings:', error);
+    res.status(500).json({ error: 'Error updating settings' });
+  }
+});
 
 app.get('/api/admin/questions', (req, res) => {
   try {
@@ -208,7 +250,17 @@ app.get('/api/teacher/dashboard', (req, res) => {
 // Load questions from JSON file
 const questionsData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'questions.json'), 'utf8'));
 let availableQuestions = shuffleArray([...questionsData.questions]); // Create a copy and shuffle immediately
-const QUESTIONS_PER_GAME = 5; // Number of questions per game, can be modified
+// Load settings
+let QUESTIONS_PER_GAME = 5; // Default value
+try {
+  const settingsPath = path.join(__dirname, 'data', 'settings.json');
+  if (fs.existsSync(settingsPath)) {
+    const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf8'));
+    QUESTIONS_PER_GAME = settings.questionsPerQuiz;
+  }
+} catch (error) {
+  console.error('Error loading settings:', error);
+}
 
 // Game state
 const gameState = {
