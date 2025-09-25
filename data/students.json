@@ -19,7 +19,8 @@
     "Joe blow": {
       "name": "Joe blow",
       "quizzes": [
-        1758828382715
+        1758828382715,
+        1758828873733
       ]
     }
   },
@@ -600,6 +601,55 @@
             "correctAnswer": "Gold",
             "isCorrect": false,
             "timestamp": 1758828478213
+          }
+        ]
+      },
+      "totalQuestions": 5
+    },
+    {
+      "quizId": 1758828873733,
+      "timestamp": 1758829436461,
+      "responses": {
+        "Joe blow": [
+          {
+            "questionIndex": 0,
+            "question": "Which planet is known as the Red Planet?",
+            "selectedAnswer": "Mars",
+            "correctAnswer": "Mars",
+            "isCorrect": true,
+            "timestamp": 1758829410540
+          },
+          {
+            "questionIndex": 1,
+            "question": "Which element has the chemical symbol 'Au'?",
+            "selectedAnswer": "Gold",
+            "correctAnswer": "Gold",
+            "isCorrect": true,
+            "timestamp": 1758829417439
+          },
+          {
+            "questionIndex": 2,
+            "question": "What is the largest ocean on Earth?",
+            "selectedAnswer": "Pacific Ocean",
+            "correctAnswer": "Pacific Ocean",
+            "isCorrect": true,
+            "timestamp": 1758829423374
+          },
+          {
+            "questionIndex": 3,
+            "question": "Who painted the Mona Lisa?",
+            "selectedAnswer": "Leonardo da Vinci",
+            "correctAnswer": "Leonardo da Vinci",
+            "isCorrect": true,
+            "timestamp": 1758829429018
+          },
+          {
+            "questionIndex": 4,
+            "question": "What is the capital of Australia?",
+            "selectedAnswer": "Canberra",
+            "correctAnswer": "Canberra",
+            "isCorrect": true,
+            "timestamp": 1758829434633
           }
         ]
       },

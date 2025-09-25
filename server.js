@@ -512,14 +512,28 @@ io.on('connection', (socket) => {
         if (!gameState.responses[player.name]) {
           gameState.responses[player.name] = [];
         }
-        gameState.responses[player.name].push({
+        
+        // Check if student already answered this question
+        const existingAnswerIndex = gameState.responses[player.name].findIndex(
+          r => r.questionIndex === gameState.currentQuestionIndex
+        );
+
+        const newResponse = {
           questionIndex: gameState.currentQuestionIndex,
           question: gameState.currentQuestion.question,
           selectedAnswer: answer,
           correctAnswer: gameState.currentQuestion.correctAnswer,
           isCorrect: answer === gameState.currentQuestion.correctAnswer,
           timestamp: Date.now()
-        });
+        };
+
+        if (existingAnswerIndex !== -1) {
+          // Replace existing answer
+          gameState.responses[player.name][existingAnswerIndex] = newResponse;
+        } else {
+          // Add new answer
+          gameState.responses[player.name].push(newResponse);
+        }
 
         socket.emit('answerSubmitted', answer);
         io.emit('playerAnswered', { playerId: socket.id });
