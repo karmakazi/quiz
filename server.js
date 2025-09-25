@@ -481,6 +481,7 @@ io.on('connection', (socket) => {
       gameState.gameStarted = true;
       gameState.currentQuestionIndex = 0;
       gameState.gameOver = false;
+      gameState.responses = {}; // Reset responses for new game
       
       // Get the first question
       gameState.currentQuestion = getNextQuestion();
@@ -725,6 +726,7 @@ io.on('connection', (socket) => {
     gameState.gameStarted = false;
     gameState.gameOver = false;
     gameState.leaderboard = []; // Clear the leaderboard
+    gameState.responses = {}; // Clear responses
     
     io.emit('gameReset');
     console.log('Game reset');

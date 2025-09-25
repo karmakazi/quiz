@@ -3,10 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const waitingRoom = document.getElementById('waiting-room');
   const gameArea = document.getElementById('game-area');
   const gameOver = document.getElementById('game-over');
+  const responseCount = document.getElementById('response-count');
+  const totalPlayers = document.getElementById('total-players');
   const qrCode = document.getElementById('qr-code');
   const joinUrl = document.getElementById('join-url');
   const waitingPlayersList = document.getElementById('waiting-players-list');
-  const playersList = document.getElementById('players-list');
   const startGameBtn = document.getElementById('start-game-btn');
   const nextBtn = document.getElementById('next-btn');
   const newGameBtn = document.getElementById('new-game-btn');
@@ -94,23 +95,23 @@ document.addEventListener('DOMContentLoaded', () => {
   socket.on('playerLeft', (data) => {
     players = data.players;
     updateWaitingPlayersList();
-    updatePlayersList();
+    updateResponseCounter();
     startGameBtn.disabled = Object.keys(players).length === 0;
   });
 
   socket.on('playerAnswered', (data) => {
     playersWhoAnswered.add(data.playerId);
-    updatePlayersList();
+    updateResponseCounter();
   });
 
   socket.on('gameStarted', (data) => {
     currentQuestion = data.currentQuestion;
     currentQuestionIndex = data.currentQuestionIndex;
     totalQuestions = data.totalQuestions;
-    playersWhoAnswered.clear();
+    playersWhoAnswered = new Set(); // Reset the set completely
     showGameArea();
     displayQuestion();
-    updatePlayersList();
+    updateResponseCounter();
   });
 
   socket.on('nextQuestion', (data) => {
@@ -120,10 +121,9 @@ document.addEventListener('DOMContentLoaded', () => {
     currentQuestionIndex = data.currentQuestionIndex;
     players = data.players;
     scoreChanges = data.scoreChanges || {};
-    playersWhoAnswered.clear();
-    displayQuestion();
-    updatePlayersList();
-    updatePreviousAnswer();
+      playersWhoAnswered = new Set(); // Reset the set completely
+      displayQuestion();
+      updateResponseCounter();
   });
 
   socket.on('gameOver', (data) => {
@@ -260,6 +260,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 5000); // Clear after 5 seconds so the colors remain visible for a while
   }
 
+  function updateResponseCounter() {
+    const numResponses = playersWhoAnswered.size;
+    const numPlayers = Object.keys(players).length;
+    responseCount.textContent = numResponses;
+    totalPlayers.textContent = numPlayers;
+    
+    // Enable next button when all players have answered or if there are no players
+    nextBtn.disabled = numPlayers > 0 && numResponses < numPlayers;
+  }
+
   function displayQuestion() {
     if (!currentQuestion) return;
     
@@ -279,45 +289,21 @@ document.addEventListener('DOMContentLoaded', () => {
     currentQuestion.options.forEach(option => {
       const li = document.createElement('li');
       li.textContent = option;
-      if (option === currentQuestion.correctAnswer) {
-        li.dataset.correct = 'true';
-      }
       optionsList.appendChild(li);
     });
   }
 
-  function updatePreviousAnswer() {
-    const previousAnswerDiv = document.getElementById('previous-answer');
-    const previousQuestionText = document.getElementById('previous-question-text');
-    const previousCorrectAnswer = document.getElementById('previous-correct-answer');
-
-    if (previousQuestion && currentQuestionIndex > 0) {
-      previousAnswerDiv.classList.remove('hidden');
-      previousQuestionText.textContent = previousQuestion.question;
-      previousCorrectAnswer.textContent = `Correct Answer: ${previousQuestion.correctAnswer}`;
-    } else {
-      previousAnswerDiv.classList.add('hidden');
-    }
-  }
 
   function showWaitingRoom() {
     waitingRoom.classList.remove('hidden');
     gameArea.classList.add('hidden');
     gameOver.classList.add('hidden');
-    document.getElementById('previous-answer').classList.add('hidden');
   }
 
   function showGameArea() {
     waitingRoom.classList.add('hidden');
     gameArea.classList.remove('hidden');
     gameOver.classList.add('hidden');
-    
-    // Only show previous answer if we're not on the first question
-    if (currentQuestionIndex === 0) {
-      document.getElementById('previous-answer').classList.add('hidden');
-    } else {
-      updatePreviousAnswer();
-    }
   }
 
   function showGameOver() {

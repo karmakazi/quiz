@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trivia Game - Host</title>
+  <title>Quiz - Host</title>
   <style>
     body {
       font-family: Helvetica, Arial, sans-serif;
@@ -191,11 +191,27 @@
       margin-bottom: 30px;
       font-size: 28px;
     }
+    .response-status {
+      text-align: center;
+      margin: 15px 0;
+      padding: 10px;
+      background-color: #333333;
+      border-radius: 4px;
+      color: #a0a0a0;
+    }
+    .response-status p {
+      margin: 0;
+      font-size: 16px;
+    }
+    .response-status span {
+      color: #4da6ff;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Trivia Game - Host View</h1>
+    <h1>Quiz - Host View</h1>
     
     <!-- Waiting Room -->
     <div id="waiting-room">
@@ -223,14 +239,11 @@
           <ul id="options-list" class="options-list"></ul>
         </div>
         
-        <div id="previous-answer" class="previous-answer hidden">
-          <h3>Previous Answer:</h3>
-          <p id="previous-question-text"></p>
-          <p id="previous-correct-answer"></p>
+        <div class="response-status">
+          <p><span id="response-count">0</span> of <span id="total-players">0</span> students have answered</p>
         </div>
-        
         <div class="button-container">
-          <button id="next-btn">Next Question</button>
+          <button id="next-btn" disabled>Next Question</button>
         </div>
       </div>
       
