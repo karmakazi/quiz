@@ -5,7 +5,8 @@
       "quizzes": [
         1758746772360,
         1758746857245,
-        1758747404430
+        1758747404430,
+        1758824634581
       ]
     }
   },
@@ -152,6 +153,55 @@
             "correctAnswer": "Gold",
             "isCorrect": true,
             "timestamp": 1758747490729
+          }
+        ]
+      },
+      "totalQuestions": 5
+    },
+    {
+      "quizId": 1758824634581,
+      "timestamp": 1758824696581,
+      "responses": {
+        "Andrew Harris": [
+          {
+            "questionIndex": 0,
+            "question": "What is the capital of Australia?",
+            "selectedAnswer": "Canberra",
+            "correctAnswer": "Canberra",
+            "isCorrect": true,
+            "timestamp": 1758824680168
+          },
+          {
+            "questionIndex": 1,
+            "question": "What is the largest ocean on Earth?",
+            "selectedAnswer": "Pacific Ocean",
+            "correctAnswer": "Pacific Ocean",
+            "isCorrect": true,
+            "timestamp": 1758824684365
+          },
+          {
+            "questionIndex": 2,
+            "question": "Who painted the Mona Lisa?",
+            "selectedAnswer": "Leonardo da Vinci",
+            "correctAnswer": "Leonardo da Vinci",
+            "isCorrect": true,
+            "timestamp": 1758824688083
+          },
+          {
+            "questionIndex": 3,
+            "question": "Which element has the chemical symbol 'Au'?",
+            "selectedAnswer": "Gold",
+            "correctAnswer": "Gold",
+            "isCorrect": true,
+            "timestamp": 1758824690234
+          },
+          {
+            "questionIndex": 4,
+            "question": "What is the capital city of Canada",
+            "selectedAnswer": "Toronto",
+            "correctAnswer": "Ottawa",
+            "isCorrect": false,
+            "timestamp": 1758824694124
           }
         ]
       },

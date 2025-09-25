@@ -8,7 +8,7 @@
         "Mars",
         "Jupiter",
         "Saturn",
-        "Mercury"
+        "Uranus"
       ],
       "correctAnswer": "Mars",
       "image": "/images/questions/mars.jpg"
@@ -64,6 +64,19 @@
       ],
       "correctAnswer": "Gold",
       "image": "/images/questions/gold.jpg"
+    },
+    {
+      "id": 1758801140577,
+      "question": "What is the capital city of Canada",
+      "options": [
+        "Toronto",
+        "Vancouver",
+        "Montreal",
+        "Ottawa",
+        "Calgary"
+      ],
+      "correctAnswer": "Ottawa",
+      "image": null
     }
   ]
 }

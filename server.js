@@ -77,7 +77,124 @@ app.get('/teacher', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'teacher.html'));
 });
 
+app.get('/admin', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+});
+
 // API endpoint for teacher dashboard
+// Admin API endpoints
+const multer = require('multer');
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, 'public', 'images', 'questions'));
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    cb(null, uniqueSuffix + path.extname(file.originalname));
+  }
+});
+const upload = multer({ storage: storage });
+
+app.get('/api/admin/questions', (req, res) => {
+  try {
+    const questions = questionsData.questions;
+    res.json(questions);
+  } catch (error) {
+    console.error('Error getting questions:', error);
+    res.status(500).json({ error: 'Error getting questions' });
+  }
+});
+
+app.post('/api/admin/questions', upload.single('image'), (req, res) => {
+  try {
+    const { question, options, correctAnswer } = req.body;
+    const parsedOptions = JSON.parse(options);
+    
+    const newQuestion = {
+      id: Date.now(),
+      question,
+      options: parsedOptions,
+      correctAnswer,
+      image: req.file ? '/images/questions/' + req.file.filename : null
+    };
+
+    questionsData.questions.push(newQuestion);
+    fs.writeFileSync(path.join(__dirname, 'data', 'questions.json'), JSON.stringify(questionsData, null, 2));
+    
+    res.json(newQuestion);
+  } catch (error) {
+    console.error('Error creating question:', error);
+    res.status(500).json({ error: 'Error creating question' });
+  }
+});
+
+app.put('/api/admin/questions/:id', upload.single('image'), (req, res) => {
+  try {
+    const { id } = req.params;
+    const { question, options, correctAnswer } = req.body;
+    const parsedOptions = JSON.parse(options);
+    
+    const questionIndex = questionsData.questions.findIndex(q => q.id === parseInt(id));
+    if (questionIndex === -1) {
+      return res.status(404).json({ error: 'Question not found' });
+    }
+
+    const oldQuestion = questionsData.questions[questionIndex];
+    const updatedQuestion = {
+      ...oldQuestion,
+      question,
+      options: parsedOptions,
+      correctAnswer,
+    };
+
+    if (req.file) {
+      // Delete old image if it exists
+      if (oldQuestion.image) {
+        const oldImagePath = path.join(__dirname, 'public', oldQuestion.image);
+        if (fs.existsSync(oldImagePath)) {
+          fs.unlinkSync(oldImagePath);
+        }
+      }
+      updatedQuestion.image = '/images/questions/' + req.file.filename;
+    }
+
+    questionsData.questions[questionIndex] = updatedQuestion;
+    fs.writeFileSync(path.join(__dirname, 'data', 'questions.json'), JSON.stringify(questionsData, null, 2));
+    
+    res.json(updatedQuestion);
+  } catch (error) {
+    console.error('Error updating question:', error);
+    res.status(500).json({ error: 'Error updating question' });
+  }
+});
+
+app.delete('/api/admin/questions/:id', (req, res) => {
+  try {
+    const { id } = req.params;
+    const questionIndex = questionsData.questions.findIndex(q => q.id === parseInt(id));
+    
+    if (questionIndex === -1) {
+      return res.status(404).json({ error: 'Question not found' });
+    }
+
+    const question = questionsData.questions[questionIndex];
+    if (question.image) {
+      const imagePath = path.join(__dirname, 'public', question.image);
+      if (fs.existsSync(imagePath)) {
+        fs.unlinkSync(imagePath);
+      }
+    }
+
+    questionsData.questions.splice(questionIndex, 1);
+    fs.writeFileSync(path.join(__dirname, 'data', 'questions.json'), JSON.stringify(questionsData, null, 2));
+    
+    res.json({ success: true });
+  } catch (error) {
+    console.error('Error deleting question:', error);
+    res.status(500).json({ error: 'Error deleting question' });
+  }
+});
+
 app.get('/api/teacher/dashboard', (req, res) => {
   try {
     const data = loadStudentData();
