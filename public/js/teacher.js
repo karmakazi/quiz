@@ -158,6 +158,32 @@ document.addEventListener('DOMContentLoaded', () => {
   // Event listeners
   refreshBtn.addEventListener('click', fetchData);
 
+  // Clear data button
+  const clearDataBtn = document.getElementById('clear-data-btn');
+  clearDataBtn.addEventListener('click', async () => {
+    if (confirm('Are you sure you want to clear all student data? This cannot be undone.')) {
+      try {
+        const response = await fetch('/api/teacher/clear-data', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          alert('All data cleared successfully');
+          fetchData(); // Refresh the display
+        } else {
+          const data = await response.json();
+          alert('Error clearing data: ' + (data.error || 'Unknown error'));
+        }
+      } catch (error) {
+        console.error('Error clearing data:', error);
+        alert('Error clearing data. Please try again.');
+      }
+    }
+  });
+
   // Initial load
   fetchData();
 });

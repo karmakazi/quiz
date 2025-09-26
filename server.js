@@ -269,6 +269,25 @@ app.get('/api/teacher/dashboard', (req, res) => {
   }
 });
 
+// Clear all student data
+app.post('/api/teacher/clear-data', (req, res) => {
+  try {
+    // Reset the data to empty state
+    const emptyData = {
+      students: {},
+      quizzes: []
+    };
+    
+    // Save empty data to file
+    saveStudentData(emptyData);
+    
+    res.json({ success: true, message: 'All data cleared successfully' });
+  } catch (error) {
+    console.error('Error clearing data:', error);
+    res.status(500).json({ error: 'Error clearing data' });
+  }
+});
+
 // Load questions from JSON file
 const questionsData = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'questions.json'), 'utf8'));
 let availableQuestions = shuffleArray([...questionsData.questions]); // Create a copy and shuffle immediately
