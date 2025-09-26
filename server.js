@@ -36,17 +36,17 @@ const server = http.createServer(app);
 // Add middleware for parsing JSON bodies
 app.use(express.json());
 
-// Socket.io with CORS configuration for Vercel
+// Socket.io with CORS configuration for Render
 const io = socketIo(server, {
   cors: {
-    origin: "*",
+    origin: ["https://quiz-1q47.onrender.com", "http://localhost:3000"],
     methods: ["GET", "POST"],
-    allowedHeaders: ["*"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
   },
-  // This adapter helps with serverless deployment
   transports: ['websocket', 'polling'],
-  allowEIO3: true
+  allowEIO3: true,
+  path: '/socket.io/'
 });
 
 // Serve static files with proper MIME types
@@ -77,7 +77,7 @@ app.use((req, res, next) => {
   // Add security headers
   res.header('X-Content-Type-Options', 'nosniff');
   res.header('X-Frame-Options', 'SAMEORIGIN');
-  res.header('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';");
+  res.header('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.socket.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:;");
   
   if (req.method === 'OPTIONS') {
     return res.status(200).end();

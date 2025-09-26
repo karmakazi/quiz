@@ -66,15 +66,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Connect to Socket.IO server with options for Vercel serverless
-  const socket = io({
+  const socket = io(window.location.origin, {
+    path: '/socket.io/',
     transports: ['websocket', 'polling'],
     reconnection: true,
-    reconnectionAttempts: Infinity, // Keep trying indefinitely
+    reconnectionAttempts: Infinity,
     reconnectionDelay: 1000,
-    reconnectionDelayMax: 5000, // Cap at 5 seconds
+    reconnectionDelayMax: 5000,
     timeout: 20000,
     autoConnect: true,
-    query: playerName ? { name: playerName } : undefined // Include player name if available
+    query: playerName ? { name: playerName } : undefined
   });
 
   // Add explicit reconnection handling

@@ -64,6 +64,19 @@
       ],
       "correctAnswer": "Gold",
       "image": "/images/questions/gold.jpg"
+    },
+    {
+      "id": 1758832341441,
+      "question": "What is the capital of Canada",
+      "options": [
+        "Toronto",
+        "Vancouver",
+        "Ottawa",
+        "Montreal",
+        "Calgary"
+      ],
+      "correctAnswer": "Ottawa",
+      "image": "/images/questions/1758832341436-180093936.jpg"
     }
   ]
 }
