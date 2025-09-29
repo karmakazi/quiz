@@ -3,7 +3,8 @@
     "Andrew Harris": {
       "name": "Andrew Harris",
       "quizzes": [
-        1758902541619
+        1758902541619,
+        1758903692562
       ]
     }
   },
@@ -60,6 +61,63 @@
             "correctAnswer": "Mars",
             "isCorrect": true,
             "timestamp": 1758902605149
+          }
+        ]
+      },
+      "totalQuestions": 6
+    },
+    {
+      "quizId": 1758903692562,
+      "timestamp": 1758903735797,
+      "responses": {
+        "Andrew Harris": [
+          {
+            "questionIndex": 0,
+            "question": "Which planet is known as the Red Planet?",
+            "selectedAnswer": "Mars",
+            "correctAnswer": "Mars",
+            "isCorrect": true,
+            "timestamp": 1758903719934
+          },
+          {
+            "questionIndex": 1,
+            "question": "Which element has the chemical symbol 'Au'?",
+            "selectedAnswer": "Gold",
+            "correctAnswer": "Gold",
+            "isCorrect": true,
+            "timestamp": 1758903722117
+          },
+          {
+            "questionIndex": 2,
+            "question": "What is the capital of Canada",
+            "selectedAnswer": "Ottawa",
+            "correctAnswer": "Ottawa",
+            "isCorrect": true,
+            "timestamp": 1758903724983
+          },
+          {
+            "questionIndex": 3,
+            "question": "Who painted the Mona Lisa?",
+            "selectedAnswer": "Leonardo da Vinci",
+            "correctAnswer": "Leonardo da Vinci",
+            "isCorrect": true,
+            "timestamp": 1758903726929
+          },
+          {
+            "questionIndex": 4,
+            "question": "What is the capital of Australia?",
+            "selectedAnswer": "Canberra",
+            "correctAnswer": "Canberra",
+            "isCorrect": true,
+            "timestamp": 1758903729181
+          },
+          {
+            "questionIndex": 5,
+            "question": "What is the largest ocean on Earth?",
+            "selectedAnswer": "Pacific Ocean",
+            "correctAnswer": "Pacific Ocean",
+            "isCorrect": true,
+            "timestamp": 1758903734922
           }
         ]
       },
