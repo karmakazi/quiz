@@ -1,82 +1,134 @@
 {
   "questions": [
     {
-      "id": 1,
-      "question": "Which planet is known as the Red Planet?",
+      "id": 1759180793136,
+      "question": "In Saussure’s model of semiotics, what are the two parts that make up a sign?",
       "options": [
-        "Venus",
-        "Mars",
-        "Jupiter",
-        "Saturn",
-        "Uranus"
+        "Icon and Symbol",
+        "Denotation and Connotation",
+        "Signifier and Signified",
+        "Image and Context",
+        "Anchor and Relay"
       ],
-      "correctAnswer": "Mars",
-      "image": "/images/questions/mars.jpg"
+      "correctAnswer": "Signifier and Signified",
+      "image": "/images/questions/1759182555538-64154492.jpg"
     },
     {
-      "id": 2,
-      "question": "What is the largest ocean on Earth?",
+      "id": 1759180897568,
+      "question": "Which type of sign has a direct causal link to what it represents:",
       "options": [
-        "Atlantic Ocean",
-        "Indian Ocean",
-        "Arctic Ocean",
-        "Pacific Ocean",
-        "Southern Ocean"
+        "Icon",
+        "Symbol",
+        "Index",
+        "Signifier",
+        "Connotation"
       ],
-      "correctAnswer": "Pacific Ocean",
-      "image": "/images/questions/pacific-ocean.jpg"
+      "correctAnswer": "Index",
+      "image": "/images/questions/1759182591111-44232997.jpg"
     },
     {
-      "id": 3,
-      "question": "Who painted the Mona Lisa?",
+      "id": 1759180982661,
+      "question": "The word “rose” meaning “a type of flower” is an example of:",
       "options": [
-        "Vincent van Gogh",
-        "Pablo Picasso",
-        "Leonardo da Vinci",
-        "Michelangelo",
-        "Claude Monet"
+        "Connotation",
+        "Denotation",
+        "Symbol",
+        "Myth",
+        "Polysemy"
       ],
-      "correctAnswer": "Leonardo da Vinci",
-      "image": "/images/questions/mona-lisa.jpg"
+      "correctAnswer": "Denotation",
+      "image": "/images/questions/1759180982651-893379549.jpg"
     },
     {
-      "id": 4,
-      "question": "What is the capital of Australia?",
+      "id": 1759181104451,
+      "question": "When text is used to “fix” the meaning of an image (e.g., a headline under a photo), Barthes calls this:",
       "options": [
-        "Sydney",
-        "Melbourne",
-        "Canberra",
-        "Perth",
-        "Brisbane"
+        "Relay",
+        "Anchorage",
+        "Connotation",
+        "Myth",
+        "Ideology"
       ],
-      "correctAnswer": "Canberra",
-      "image": "/images/questions/1758903692128-778610864.jpg"
+      "correctAnswer": "Anchorage",
+      "image": "/images/questions/1759181104447-552415597.jpg"
     },
     {
-      "id": 5,
-      "question": "Which element has the chemical symbol 'Au'?",
+      "id": 1759181330632,
+      "question": "Which of the following best describes polysemy?",
       "options": [
-        "Silver",
-        "Gold",
-        "Aluminum",
-        "Argon",
-        "Arsenic"
+        "A sign that has only one meaning",
+        "The study of myths in media",
+        "The ability of signs to carry multiple meanings",
+        "The use of arbitrary symbols in design",
+        "The literal description of an image"
       ],
-      "correctAnswer": "Gold",
-      "image": "/images/questions/gold.jpg"
+      "correctAnswer": "The ability of signs to carry multiple meanings",
+      "image": "/images/questions/1759181330628-381315175.jpeg"
     },
     {
-      "id": 1758832341441,
-      "question": "What is the capital of Canada",
+      "id": 1759181505273,
+      "question": "Which of the following is an example of a symbol?",
       "options": [
-        "Toronto",
-        "Vancouver",
-        "Ottawa",
-        "Montreal",
-        "Calgary"
+        "A footprint in the sand",
+        "The sound of thunder",
+        "The Canadian flag",
+        "A portrait photograph",
+        "A thermometer reading"
       ],
-      "correctAnswer": "Ottawa",
-      "image": "/images/questions/1758832341436-180093936.jpg"
+      "correctAnswer": "The Canadian flag",
+      "image": "/images/questions/1759181505269-649177630.jpg"
+    },
+    {
+      "id": 1759181663507,
+      "question": "Codes and conventions help viewers interpret visuals because:",
+      "options": [
+        "They are always universal",
+        "They create shared expectations and reduce ambiguity",
+        "They remove all possibility of polysemy",
+        "They guarantee ads will succeed",
+        "They prevent cultural misinterpretation"
+      ],
+      "correctAnswer": "They create shared expectations and reduce ambiguity",
+      "image": "/images/questions/1759181663497-877396764.jpg"
+    },
+    {
+      "id": 1759181837109,
+      "question": "Cognitive dissonance in visual communication occurs when:",
+      "options": [
+        "Signs are always interpreted correctly",
+        "Designers use anchorage effectively",
+        "Viewers face conflicting visual cues",
+        "An image has both denotation and connotation",
+        "Codes and conventions align perfectly"
+      ],
+      "correctAnswer": "Viewers face conflicting visual cues",
+      "image": "/images/questions/1759181837104-329752816.jpg"
+    },
+    {
+      "id": 1759182142792,
+      "question": "Which ad campaign failed because it trivialized social justice protests by using a soda as a symbol of unity?",
+      "options": [
+        "Dove Real Beauty Campaign",
+        "Pepsi Kendall Jenner Ad (2017)",
+        "McDonald’s “Dead Dad” Ad",
+        "Nike “Just Do It” Campaign",
+        "Bloomingdale’s Eggnog Ad"
+      ],
+      "correctAnswer": "Pepsi Kendall Jenner Ad (2017)",
+      "image": "/images/questions/1759182142781-900010357.jpg"
+    },
+    {
+      "id": 1759182450455,
+      "question": "According to Barthes, “myth” in advertising refers to:",
+      "options": [
+        "The literal meaning of an image",
+        "A false story created by brands",
+        "Cultural narratives that feel natural but are constructed",
+        "Text added to images for clarity",
+        "The scientific study of symbols"
+      ],
+      "correctAnswer": "Cultural narratives that feel natural but are constructed",
+      "image": "/images/questions/1759182450450-596340192.jpg"
     }
   ]
 }
