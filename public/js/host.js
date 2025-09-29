@@ -267,8 +267,8 @@ document.addEventListener('DOMContentLoaded', () => {
     responseCount.textContent = numResponses;
     totalPlayers.textContent = numPlayers;
     
-    // Enable next button when all players have answered or if there are no players
-    nextBtn.disabled = numPlayers > 0 && numResponses < numPlayers;
+    // Keep button always enabled, just update the counter
+    nextBtn.disabled = false;
   }
 
   function displayQuestion() {

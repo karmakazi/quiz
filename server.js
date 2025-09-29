@@ -691,6 +691,23 @@ io.on('connection', (socket) => {
       // Record previous score before updating
       const previousScore = player.score;
       
+      // Get player's response data
+      if (!gameState.responses[player.name]) {
+        gameState.responses[player.name] = [];
+      }
+
+      // If player hasn't answered, record it as incorrect with no answer
+      if (!player.currentAnswer) {
+        gameState.responses[player.name].push({
+          questionIndex: gameState.currentQuestionIndex,
+          question: gameState.currentQuestion.question,
+          selectedAnswer: "No answer",
+          correctAnswer: gameState.currentQuestion.correctAnswer,
+          isCorrect: false,
+          timestamp: Date.now()
+        });
+      }
+      
       // Update score if answer is correct
       if (player.currentAnswer === gameState.currentQuestion.correctAnswer) {
         player.score += 1;
