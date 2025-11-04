@@ -1,134 +1,290 @@
 {
   "questions": [
     {
-      "id": 1759180793136,
-      "question": "In Saussure’s model of semiotics, what are the two parts that make up a sign?",
+      "id": 1762281359633,
+      "question": "Which of the following is a core component of a business model?",
       "options": [
-        "Icon and Symbol",
-        "Denotation and Connotation",
-        "Signifier and Signified",
-        "Image and Context",
-        "Anchor and Relay"
+        "Company values",
+        "Revenue streams",
+        "Office location",
+        "Team morale"
       ],
-      "correctAnswer": "Signifier and Signified",
-      "image": "/images/questions/1759182555538-64154492.jpg"
+      "correctAnswer": "Revenue streams",
+      "image": null
     },
     {
-      "id": 1759180897568,
-      "question": "Which type of sign has a direct causal link to what it represents:",
+      "id": 1762281429941,
+      "question": "What does a value proposition typically include?",
       "options": [
-        "Icon",
-        "Symbol",
-        "Index",
-        "Signifier",
-        "Connotation"
+        "The internal HR policy",
+        "The benefit delivered to the user",
+        "The organization’s founding story",
+        "Annual sales targets"
       ],
-      "correctAnswer": "Index",
-      "image": "/images/questions/1759182591111-44232997.jpg"
+      "correctAnswer": "The benefit delivered to the user",
+      "image": null
     },
     {
-      "id": 1759180982661,
-      "question": "The word “rose” meaning “a type of flower” is an example of:",
+      "id": 1762281685068,
+      "question": "Which of the following is a common revenue model?",
       "options": [
-        "Connotation",
-        "Denotation",
-        "Symbol",
-        "Myth",
-        "Polysemy"
+        "Stock options",
+        "Subscription",
+        "Employee bonus",
+        "Advertising spend"
       ],
-      "correctAnswer": "Denotation",
-      "image": "/images/questions/1759180982651-893379549.jpg"
+      "correctAnswer": "Subscription",
+      "image": null
     },
     {
-      "id": 1759181104451,
-      "question": "When text is used to “fix” the meaning of an image (e.g., a headline under a photo), Barthes calls this:",
+      "id": 1762281736707,
+      "question": "Key aspects of an effective business strategy include:",
       "options": [
-        "Relay",
-        "Anchorage",
-        "Connotation",
-        "Myth",
-        "Ideology"
+        "Market positioning",
+        "Brand color selection",
+        "Staff break policies",
+        "Office layout"
       ],
-      "correctAnswer": "Anchorage",
-      "image": "/images/questions/1759181104447-552415597.jpg"
+      "correctAnswer": "Market positioning",
+      "image": null
     },
     {
-      "id": 1759181330632,
-      "question": "Which of the following best describes polysemy?",
+      "id": 1762281790773,
+      "question": "Which elements are typically analyzed during a SWOT analysis?",
       "options": [
-        "A sign that has only one meaning",
-        "The study of myths in media",
-        "The ability of signs to carry multiple meanings",
-        "The use of arbitrary symbols in design",
-        "The literal description of an image"
+        "Strengths, Weaknesses, Opportunities, Threats",
+        "Sales, Workforce, Objectives, Tactics",
+        "Systems, Workflows, Operations, Technology",
+        "Strategy, Workforce, Offerings, Trends"
       ],
-      "correctAnswer": "The ability of signs to carry multiple meanings",
-      "image": "/images/questions/1759181330628-381315175.jpeg"
+      "correctAnswer": "Strengths, Weaknesses, Opportunities, Threats",
+      "image": null
     },
     {
-      "id": 1759181505273,
-      "question": "Which of the following is an example of a symbol?",
+      "id": 1762281848544,
+      "question": "In a UX context, designers contribute to business success by:",
       "options": [
-        "A footprint in the sand",
-        "The sound of thunder",
-        "The Canadian flag",
-        "A portrait photograph",
-        "A thermometer reading"
+        "Handling financial transactions",
+        "Reducing friction in digital experiences",
+        "Managing sales contracts",
+        "Writing company policies"
       ],
-      "correctAnswer": "The Canadian flag",
-      "image": "/images/questions/1759181505269-649177630.jpg"
+      "correctAnswer": "Reducing friction in digital experiences",
+      "image": null
     },
     {
-      "id": 1759181663507,
-      "question": "Codes and conventions help viewers interpret visuals because:",
+      "id": 1762281899167,
+      "question": "Which of the following is a common type of organizational structure?",
       "options": [
-        "They are always universal",
-        "They create shared expectations and reduce ambiguity",
-        "They remove all possibility of polysemy",
-        "They guarantee ads will succeed",
-        "They prevent cultural misinterpretation"
+        "Matrix",
+        "Network security",
+        "Franchise layout",
+        "Infrastructure"
       ],
-      "correctAnswer": "They create shared expectations and reduce ambiguity",
-      "image": "/images/questions/1759181663497-877396764.jpg"
+      "correctAnswer": "Matrix",
+      "image": null
     },
     {
-      "id": 1759181837109,
-      "question": "Cognitive dissonance in visual communication occurs when:",
+      "id": 1762281956806,
+      "question": "Which financial metric is most useful to UX designers?",
       "options": [
-        "Signs are always interpreted correctly",
-        "Designers use anchorage effectively",
-        "Viewers face conflicting visual cues",
-        "An image has both denotation and connotation",
-        "Codes and conventions align perfectly"
+        "Customer acquisition cost (CAC)",
+        "Sales tax percentages",
+        "Currency exchange rates",
+        "Payroll cost"
       ],
-      "correctAnswer": "Viewers face conflicting visual cues",
-      "image": "/images/questions/1759181837104-329752816.jpg"
+      "correctAnswer": "Customer acquisition cost (CAC)",
+      "image": null
     },
     {
-      "id": 1759182142792,
-      "question": "Which ad campaign failed because it trivialized social justice protests by using a soda as a symbol of unity?",
+      "id": 1762282015794,
+      "question": "Innovation in organizations can be supported by:",
       "options": [
-        "Dove Real Beauty Campaign",
-        "Pepsi Kendall Jenner Ad (2017)",
-        "McDonald’s “Dead Dad” Ad",
-        "Nike “Just Do It” Campaign",
-        "Bloomingdale’s Eggnog Ad"
+        "Strict hierarchical approvals",
+        "Cross-functional collaboration",
+        "Increased bureaucracy",
+        "Routine-only work environments"
       ],
-      "correctAnswer": "Pepsi Kendall Jenner Ad (2017)",
-      "image": "/images/questions/1759182142781-900010357.jpg"
+      "correctAnswer": "Cross-functional collaboration",
+      "image": null
     },
     {
-      "id": 1759182450455,
-      "question": "According to Barthes, “myth” in advertising refers to:",
+      "id": 1762282075178,
+      "question": "Indicators of a strong organizational culture include:",
       "options": [
-        "The literal meaning of an image",
-        "A false story created by brands",
-        "Cultural narratives that feel natural but are constructed",
-        "Text added to images for clarity",
-        "The scientific study of symbols"
+        "Rapid hiring practices",
+        "Open communication",
+        "Frequent rebranding",
+        "Competitive secrecy"
       ],
-      "correctAnswer": "Cultural narratives that feel natural but are constructed",
-      "image": "/images/questions/1759182450450-596340192.jpg"
+      "correctAnswer": "Open communication",
+      "image": null
+    },
+    {
+      "id": 1762282142923,
+      "question": "The ___________ describes how an organization creates, delivers, and captures value.",
+      "options": [
+        "Business strategy",
+        "Business model",
+        "Mission statement",
+        "Organizational chart"
+      ],
+      "correctAnswer": "Business model",
+      "image": null
+    },
+    {
+      "id": 1762282197708,
+      "question": "A ___________ is a short description of the unique value a product or service delivers to customers.",
+      "options": [
+        "Brand promise",
+        "Value proposition",
+        "Elevator pitch",
+        "Marketing slogan"
+      ],
+      "correctAnswer": "Value proposition",
+      "image": null
+    },
+    {
+      "id": 1762282256723,
+      "question": "In a ___________ organizational structure, employees may report to both a functional manager and a project manager.",
+      "options": [
+        "Flat",
+        "Matrix",
+        "Hierarchical",
+        "Divisional"
+      ],
+      "correctAnswer": "Matrix",
+      "image": null
+    },
+    {
+      "id": 1762282323310,
+      "question": "___________ refers to the total revenue a company expects from a customer over the entire relationship.",
+      "options": [
+        "Net profit",
+        "Customer lifetime value (CLV)",
+        "Gross margin",
+        "Sales revenue"
+      ],
+      "correctAnswer": "Customer lifetime value (CLV)",
+      "image": null
+    },
+    {
+      "id": 1762282377269,
+      "question": "A business that generates revenue from a one-time product purchase is using a ___________ model.",
+      "options": [
+        "Subscription-based",
+        "Freemium",
+        "Transaction-based",
+        "Commission-based"
+      ],
+      "correctAnswer": "Transaction-based",
+      "image": null
+    },
+    {
+      "id": 1762282430304,
+      "question": "A company’s ___________ describes its high-level plan to achieve competitive advantage.",
+      "options": [
+        "Customer policy",
+        "Vision statement",
+        "Operating manual",
+        "Business strategy"
+      ],
+      "correctAnswer": "Business strategy",
+      "image": null
+    },
+    {
+      "id": 1762282554088,
+      "question": "A ___________ culture values open feedback, learning, and collaboration across roles.",
+      "options": [
+        "Bureaucratic",
+        "Weak",
+        "Strong",
+        "Transactional"
+      ],
+      "correctAnswer": "Strong",
+      "image": null
+    },
+    {
+      "id": 1762282615913,
+      "question": "Organizational ___________ refers to shared values, norms, and behaviors within a company.",
+      "options": [
+        "Structure",
+        "Governance",
+        "Culture",
+        "Leadership"
+      ],
+      "correctAnswer": "Culture",
+      "image": null
+    },
+    {
+      "id": 1762282739421,
+      "question": "11.\tBusiness strategy always comes after the business model.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "False",
+      "image": null
+    },
+    {
+      "id": 1762282795886,
+      "question": "A company's organizational structure can influence how effectively UX is practiced.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "image": null
+    },
+    {
+      "id": 1762282848453,
+      "question": "Only disruptive companies are considered innovative.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "False",
+      "image": null
+    },
+    {
+      "id": 1762282875615,
+      "question": "ROI stands for Return on Innovation.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "False",
+      "image": null
+    },
+    {
+      "id": 1762282917902,
+      "question": "A UX designer does not need to understand a company’s value proposition.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "False",
+      "image": null
+    },
+    {
+      "id": 1762282968259,
+      "question": "The freemium model offers basic services for free, with premium features behind a paywall.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "True",
+      "image": null
+    },
+    {
+      "id": 1762283020372,
+      "question": "Team-building is not relevant to UX designers working independently.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correctAnswer": "False",
+      "image": null
     }
   ]
 }

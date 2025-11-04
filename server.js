@@ -519,6 +519,12 @@ io.on('connection', (socket) => {
   // Host starts the game
   socket.on('startGame', () => {
     if (Object.keys(gameState.players).length > 0) {
+      // Reset available questions pool for new game
+      availableQuestions = shuffleArray([...questionsData.questions]);
+      
+      // Update roundsTotal from settings
+      gameState.roundsTotal = QUESTIONS_PER_GAME;
+      
       gameState.gameStarted = true;
       gameState.currentQuestionIndex = 0;
       gameState.gameOver = false;
@@ -792,6 +798,9 @@ io.on('connection', (socket) => {
 
   // Reset the game
   socket.on('resetGame', () => {
+    // Reset available questions pool
+    availableQuestions = shuffleArray([...questionsData.questions]);
+    
     gameState.players = {};
     gameState.disconnectedPlayers = {}; // Clear disconnected players too
     gameState.currentQuestionIndex = 0;
@@ -799,6 +808,7 @@ io.on('connection', (socket) => {
     gameState.gameOver = false;
     gameState.leaderboard = []; // Clear the leaderboard
     gameState.responses = {}; // Clear responses
+    gameState.roundsTotal = QUESTIONS_PER_GAME; // Update from settings
     
     io.emit('gameReset');
     console.log('Game reset');

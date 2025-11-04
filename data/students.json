@@ -3,178 +3,63 @@
     "Andrew Harris": {
       "name": "Andrew Harris",
       "quizzes": [
-        1758902541619,
-        1758903692562,
-        1759182621637,
-        1759182724490
+        1762285693844,
+        1762285956594,
+        1762285956594
       ]
     },
     "Joe blow": {
       "name": "Joe blow",
       "quizzes": [
-        1759182724490
+        1762285956594
       ]
     }
   },
   "quizzes": [
     {
-      "quizId": 1758902541619,
-      "timestamp": 1758902606495,
+      "quizId": 1762285693844,
+      "timestamp": 1762285834791,
       "responses": {
         "Andrew Harris": [
           {
             "questionIndex": 0,
-            "question": "Who painted the Mona Lisa?",
-            "selectedAnswer": "Leonardo da Vinci",
-            "correctAnswer": "Leonardo da Vinci",
+            "question": "When text is used to “fix” the meaning of an image (e.g., a headline under a photo), Barthes calls this:",
+            "selectedAnswer": "Anchorage",
+            "correctAnswer": "Anchorage",
             "isCorrect": true,
-            "timestamp": 1758902588072
+            "timestamp": 1762285747583
           },
           {
             "questionIndex": 1,
-            "question": "What is the capital of Australia?",
-            "selectedAnswer": "Canberra",
-            "correctAnswer": "Canberra",
-            "isCorrect": true,
-            "timestamp": 1758902590024
-          },
-          {
-            "questionIndex": 2,
-            "question": "What is the largest ocean on Earth?",
-            "selectedAnswer": "Pacific Ocean",
-            "correctAnswer": "Pacific Ocean",
-            "isCorrect": true,
-            "timestamp": 1758902592687
-          },
-          {
-            "questionIndex": 3,
-            "question": "What is the capital of Canada",
-            "selectedAnswer": "Ottawa",
-            "correctAnswer": "Ottawa",
-            "isCorrect": true,
-            "timestamp": 1758902599016
-          },
-          {
-            "questionIndex": 4,
-            "question": "Which element has the chemical symbol 'Au'?",
-            "selectedAnswer": "Gold",
-            "correctAnswer": "Gold",
-            "isCorrect": true,
-            "timestamp": 1758902601900
-          },
-          {
-            "questionIndex": 5,
-            "question": "Which planet is known as the Red Planet?",
-            "selectedAnswer": "Mars",
-            "correctAnswer": "Mars",
-            "isCorrect": true,
-            "timestamp": 1758902605149
-          }
-        ]
-      },
-      "totalQuestions": 6
-    },
-    {
-      "quizId": 1758903692562,
-      "timestamp": 1758903735797,
-      "responses": {
-        "Andrew Harris": [
-          {
-            "questionIndex": 0,
-            "question": "Which planet is known as the Red Planet?",
-            "selectedAnswer": "Mars",
-            "correctAnswer": "Mars",
-            "isCorrect": true,
-            "timestamp": 1758903719934
-          },
-          {
-            "questionIndex": 1,
-            "question": "Which element has the chemical symbol 'Au'?",
-            "selectedAnswer": "Gold",
-            "correctAnswer": "Gold",
-            "isCorrect": true,
-            "timestamp": 1758903722117
-          },
-          {
-            "questionIndex": 2,
-            "question": "What is the capital of Canada",
-            "selectedAnswer": "Ottawa",
-            "correctAnswer": "Ottawa",
-            "isCorrect": true,
-            "timestamp": 1758903724983
-          },
-          {
-            "questionIndex": 3,
-            "question": "Who painted the Mona Lisa?",
-            "selectedAnswer": "Leonardo da Vinci",
-            "correctAnswer": "Leonardo da Vinci",
-            "isCorrect": true,
-            "timestamp": 1758903726929
-          },
-          {
-            "questionIndex": 4,
-            "question": "What is the capital of Australia?",
-            "selectedAnswer": "Canberra",
-            "correctAnswer": "Canberra",
-            "isCorrect": true,
-            "timestamp": 1758903729181
-          },
-          {
-            "questionIndex": 5,
-            "question": "What is the largest ocean on Earth?",
-            "selectedAnswer": "Pacific Ocean",
-            "correctAnswer": "Pacific Ocean",
-            "isCorrect": true,
-            "timestamp": 1758903734922
-          }
-        ]
-      },
-      "totalQuestions": 6
-    },
-    {
-      "quizId": 1759182621637,
-      "timestamp": 1759182724133,
-      "responses": {
-        "Andrew Harris": [
-          {
-            "questionIndex": 0,
-            "question": "In Saussure’s model of semiotics, what are the two parts that make up a sign?",
-            "selectedAnswer": "Signifier and Signified",
-            "correctAnswer": "Signifier and Signified",
-            "isCorrect": true,
-            "timestamp": 1759182653997
-          },
-          {
-            "questionIndex": 1,
-            "question": "Codes and conventions help viewers interpret visuals because:",
-            "selectedAnswer": "They create shared expectations and reduce ambiguity",
-            "correctAnswer": "They create shared expectations and reduce ambiguity",
-            "isCorrect": true,
-            "timestamp": 1759182670512
-          },
-          {
-            "questionIndex": 2,
             "question": "The word “rose” meaning “a type of flower” is an example of:",
             "selectedAnswer": "Denotation",
             "correctAnswer": "Denotation",
             "isCorrect": true,
-            "timestamp": 1759182677403
+            "timestamp": 1762285769605
+          },
+          {
+            "questionIndex": 2,
+            "question": "Which of the following is an example of a symbol?",
+            "selectedAnswer": "The Canadian flag",
+            "correctAnswer": "The Canadian flag",
+            "isCorrect": true,
+            "timestamp": 1762285776872
           },
           {
             "questionIndex": 3,
-            "question": "Cognitive dissonance in visual communication occurs when:",
-            "selectedAnswer": "Viewers face conflicting visual cues",
-            "correctAnswer": "Viewers face conflicting visual cues",
-            "isCorrect": true,
-            "timestamp": 1759182682981
-          },
-          {
-            "questionIndex": 4,
             "question": "According to Barthes, “myth” in advertising refers to:",
             "selectedAnswer": "Cultural narratives that feel natural but are constructed",
             "correctAnswer": "Cultural narratives that feel natural but are constructed",
             "isCorrect": true,
-            "timestamp": 1759182691130
+            "timestamp": 1762285784043
+          },
+          {
+            "questionIndex": 4,
+            "question": "Which ad campaign failed because it trivialized social justice protests by using a soda as a symbol of unity?",
+            "selectedAnswer": "Pepsi Kendall Jenner Ad (2017)",
+            "correctAnswer": "Pepsi Kendall Jenner Ad (2017)",
+            "isCorrect": true,
+            "timestamp": 1762285790575
           },
           {
             "questionIndex": 5,
@@ -182,23 +67,23 @@
             "selectedAnswer": "Index",
             "correctAnswer": "Index",
             "isCorrect": true,
-            "timestamp": 1759182695165
+            "timestamp": 1762285797329
           },
           {
             "questionIndex": 6,
-            "question": "Which ad campaign failed because it trivialized social justice protests by using a soda as a symbol of unity?",
-            "selectedAnswer": "Pepsi Kendall Jenner Ad (2017)",
-            "correctAnswer": "Pepsi Kendall Jenner Ad (2017)",
+            "question": "In Saussure’s model of semiotics, what are the two parts that make up a sign?",
+            "selectedAnswer": "Signifier and Signified",
+            "correctAnswer": "Signifier and Signified",
             "isCorrect": true,
-            "timestamp": 1759182700797
+            "timestamp": 1762285804171
           },
           {
             "questionIndex": 7,
-            "question": "When text is used to “fix” the meaning of an image (e.g., a headline under a photo), Barthes calls this:",
-            "selectedAnswer": "Anchorage",
-            "correctAnswer": "Anchorage",
+            "question": "Codes and conventions help viewers interpret visuals because:",
+            "selectedAnswer": "They create shared expectations and reduce ambiguity",
+            "correctAnswer": "They create shared expectations and reduce ambiguity",
             "isCorrect": true,
-            "timestamp": 1759182709505
+            "timestamp": 1762285817518
           },
           {
             "questionIndex": 8,
@@ -206,190 +91,639 @@
             "selectedAnswer": "The ability of signs to carry multiple meanings",
             "correctAnswer": "The ability of signs to carry multiple meanings",
             "isCorrect": true,
-            "timestamp": 1759182716819
+            "timestamp": 1762285827084
           },
           {
             "questionIndex": 9,
-            "question": "Which of the following is an example of a symbol?",
-            "selectedAnswer": "The Canadian flag",
-            "correctAnswer": "The Canadian flag",
+            "question": "Cognitive dissonance in visual communication occurs when:",
+            "selectedAnswer": "Viewers face conflicting visual cues",
+            "correctAnswer": "Viewers face conflicting visual cues",
             "isCorrect": true,
-            "timestamp": 1759182722378
+            "timestamp": 1762285834111
           }
         ]
       },
       "totalQuestions": 10
     },
     {
-      "quizId": 1759182724490,
-      "timestamp": 1759185599798,
+      "quizId": 1762285956594,
+      "timestamp": 1762286333621,
       "responses": {
         "Andrew Harris": [
           {
             "questionIndex": 0,
-            "question": "Which ad campaign failed because it trivialized social justice protests by using a soda as a symbol of unity?",
-            "selectedAnswer": "Pepsi Kendall Jenner Ad (2017)",
-            "correctAnswer": "Pepsi Kendall Jenner Ad (2017)",
+            "question": "A UX designer does not need to understand a company’s value proposition.",
+            "selectedAnswer": "False",
+            "correctAnswer": "False",
             "isCorrect": true,
-            "timestamp": 1759185443554
+            "timestamp": 1762286012701
           },
           {
             "questionIndex": 1,
-            "question": "Which of the following best describes polysemy?",
-            "selectedAnswer": "The ability of signs to carry multiple meanings",
-            "correctAnswer": "The ability of signs to carry multiple meanings",
+            "question": "Key aspects of an effective business strategy include:",
+            "selectedAnswer": "Market positioning",
+            "correctAnswer": "Market positioning",
             "isCorrect": true,
-            "timestamp": 1759185460348
+            "timestamp": 1762286021414
           },
           {
             "questionIndex": 2,
-            "question": "Which type of sign has a direct causal link to what it represents:",
-            "selectedAnswer": "Index",
-            "correctAnswer": "Index",
+            "question": "In a ___________ organizational structure, employees may report to both a functional manager and a project manager.",
+            "selectedAnswer": "Matrix",
+            "correctAnswer": "Matrix",
             "isCorrect": true,
-            "timestamp": 1759185474352
+            "timestamp": 1762286029195
           },
           {
             "questionIndex": 3,
-            "question": "When text is used to “fix” the meaning of an image (e.g., a headline under a photo), Barthes calls this:",
-            "selectedAnswer": "Anchorage",
-            "correctAnswer": "Anchorage",
+            "question": "Which of the following is a common type of organizational structure?",
+            "selectedAnswer": "Matrix",
+            "correctAnswer": "Matrix",
             "isCorrect": true,
-            "timestamp": 1759185492999
+            "timestamp": 1762286033788
           },
           {
             "questionIndex": 4,
-            "question": "Cognitive dissonance in visual communication occurs when:",
-            "selectedAnswer": "Viewers face conflicting visual cues",
-            "correctAnswer": "Viewers face conflicting visual cues",
+            "question": "Organizational ___________ refers to shared values, norms, and behaviors within a company.",
+            "selectedAnswer": "Culture",
+            "correctAnswer": "Culture",
             "isCorrect": true,
-            "timestamp": 1759185512603
+            "timestamp": 1762286039344
           },
           {
             "questionIndex": 5,
-            "question": "In Saussure’s model of semiotics, what are the two parts that make up a sign?",
-            "selectedAnswer": "Signifier and Signified",
-            "correctAnswer": "Signifier and Signified",
+            "question": "Team-building is not relevant to UX designers working independently.",
+            "selectedAnswer": "False",
+            "correctAnswer": "False",
             "isCorrect": true,
-            "timestamp": 1759185536309
+            "timestamp": 1762286045510
           },
           {
             "questionIndex": 6,
-            "question": "The word “rose” meaning “a type of flower” is an example of:",
-            "selectedAnswer": "Denotation",
-            "correctAnswer": "Denotation",
+            "question": "A ___________ culture values open feedback, learning, and collaboration across roles.",
+            "selectedAnswer": "Strong",
+            "correctAnswer": "Strong",
             "isCorrect": true,
-            "timestamp": 1759185547991
+            "timestamp": 1762286051624
           },
           {
             "questionIndex": 7,
-            "question": "Which of the following is an example of a symbol?",
-            "selectedAnswer": "The Canadian flag",
-            "correctAnswer": "The Canadian flag",
+            "question": "11.\tBusiness strategy always comes after the business model.",
+            "selectedAnswer": "False",
+            "correctAnswer": "False",
             "isCorrect": true,
-            "timestamp": 1759185558630
+            "timestamp": 1762286056012
           },
           {
             "questionIndex": 8,
-            "question": "Codes and conventions help viewers interpret visuals because:",
-            "selectedAnswer": "They create shared expectations and reduce ambiguity",
-            "correctAnswer": "They create shared expectations and reduce ambiguity",
-            "isCorrect": true,
-            "timestamp": 1759185575343
+            "question": "A company’s ___________ describes its high-level plan to achieve competitive advantage.",
+            "selectedAnswer": "Vision statement",
+            "correctAnswer": "Business strategy",
+            "isCorrect": false,
+            "timestamp": 1762286063077
           },
           {
             "questionIndex": 9,
-            "question": "According to Barthes, “myth” in advertising refers to:",
-            "selectedAnswer": "Cultural narratives that feel natural but are constructed",
-            "correctAnswer": "Cultural narratives that feel natural but are constructed",
+            "question": "Which elements are typically analyzed during a SWOT analysis?",
+            "selectedAnswer": "Strengths, Weaknesses, Opportunities, Threats",
+            "correctAnswer": "Strengths, Weaknesses, Opportunities, Threats",
             "isCorrect": true,
-            "timestamp": 1759185594633
+            "timestamp": 1762286067112
+          },
+          {
+            "questionIndex": 10,
+            "question": "The freemium model offers basic services for free, with premium features behind a paywall.",
+            "selectedAnswer": "True",
+            "correctAnswer": "True",
+            "isCorrect": true,
+            "timestamp": 1762286071168
+          },
+          {
+            "questionIndex": 11,
+            "question": "A business that generates revenue from a one-time product purchase is using a ___________ model.",
+            "selectedAnswer": "Transaction-based",
+            "correctAnswer": "Transaction-based",
+            "isCorrect": true,
+            "timestamp": 1762286076481
+          },
+          {
+            "questionIndex": 12,
+            "question": "Only disruptive companies are considered innovative.",
+            "selectedAnswer": "False",
+            "correctAnswer": "False",
+            "isCorrect": true,
+            "timestamp": 1762286079974
+          },
+          {
+            "questionIndex": 13,
+            "question": "Indicators of a strong organizational culture include:",
+            "selectedAnswer": "Open communication",
+            "correctAnswer": "Open communication",
+            "isCorrect": true,
+            "timestamp": 1762286087498
+          },
+          {
+            "questionIndex": 14,
+            "question": "ROI stands for Return on Innovation.",
+            "selectedAnswer": "False",
+            "correctAnswer": "False",
+            "isCorrect": true,
+            "timestamp": 1762286093648
+          },
+          {
+            "questionIndex": 15,
+            "question": "What does a value proposition typically include?",
+            "selectedAnswer": "The benefit delivered to the user",
+            "correctAnswer": "The benefit delivered to the user",
+            "isCorrect": true,
+            "timestamp": 1762286113685
+          },
+          {
+            "questionIndex": 16,
+            "question": "Innovation in organizations can be supported by:",
+            "selectedAnswer": "Cross-functional collaboration",
+            "correctAnswer": "Cross-functional collaboration",
+            "isCorrect": true,
+            "timestamp": 1762286130363
+          },
+          {
+            "questionIndex": 17,
+            "question": "The ___________ describes how an organization creates, delivers, and captures value.",
+            "selectedAnswer": "Business model",
+            "correctAnswer": "Business model",
+            "isCorrect": true,
+            "timestamp": 1762286144401
+          },
+          {
+            "questionIndex": 18,
+            "question": "Which of the following is a core component of a business model?",
+            "selectedAnswer": "Company values",
+            "correctAnswer": "Revenue streams",
+            "isCorrect": false,
+            "timestamp": 1762286234230
+          },
+          {
+            "questionIndex": 19,
+            "question": "Which financial metric is most useful to UX designers?",
+            "selectedAnswer": "Customer acquisition cost (CAC)",
+            "correctAnswer": "Customer acquisition cost (CAC)",
+            "isCorrect": true,
+            "timestamp": 1762286243709
+          },
+          {
+            "questionIndex": 20,
+            "question": "Which of the following is a common revenue model?",
+            "selectedAnswer": "Subscription",
+            "correctAnswer": "Subscription",
+            "isCorrect": true,
+            "timestamp": 1762286249863
+          },
+          {
+            "questionIndex": 21,
+            "question": "A company's organizational structure can influence how effectively UX is practiced.",
+            "selectedAnswer": "True",
+            "correctAnswer": "True",
+            "isCorrect": true,
+            "timestamp": 1762286258357
+          },
+          {
+            "questionIndex": 22,
+            "question": "A ___________ is a short description of the unique value a product or service delivers to customers.",
+            "selectedAnswer": "Value proposition",
+            "correctAnswer": "Value proposition",
+            "isCorrect": true,
+            "timestamp": 1762286315393
+          },
+          {
+            "questionIndex": 23,
+            "question": "___________ refers to the total revenue a company expects from a customer over the entire relationship.",
+            "selectedAnswer": "Customer lifetime value (CLV)",
+            "correctAnswer": "Customer lifetime value (CLV)",
+            "isCorrect": true,
+            "timestamp": 1762286323278
+          },
+          {
+            "questionIndex": 24,
+            "question": "In a UX context, designers contribute to business success by:",
+            "selectedAnswer": "Reducing friction in digital experiences",
+            "correctAnswer": "Reducing friction in digital experiences",
+            "isCorrect": true,
+            "timestamp": 1762286331778
+          }
+        ]
+      },
+      "totalQuestions": 25
+    },
+    {
+      "quizId": 1762285956594,
+      "timestamp": 1762287023337,
+      "responses": {
+        "Andrew Harris": [
+          {
+            "questionIndex": 0,
+            "question": "What does a value proposition typically include?",
+            "selectedAnswer": "The benefit delivered to the user",
+            "correctAnswer": "The benefit delivered to the user",
+            "isCorrect": true,
+            "timestamp": 1762286739228
+          },
+          {
+            "questionIndex": 1,
+            "question": "Which financial metric is most useful to UX designers?",
+            "selectedAnswer": "Customer acquisition cost (CAC)",
+            "correctAnswer": "Customer acquisition cost (CAC)",
+            "isCorrect": true,
+            "timestamp": 1762286750390
+          },
+          {
+            "questionIndex": 2,
+            "question": "11.\tBusiness strategy always comes after the business model.",
+            "selectedAnswer": "False",
+            "correctAnswer": "False",
+            "isCorrect": true,
+            "timestamp": 1762286761869
+          },
+          {
+            "questionIndex": 3,
+            "question": "Key aspects of an effective business strategy include:",
+            "selectedAnswer": "Market positioning",
+            "correctAnswer": "Market positioning",
+            "isCorrect": true,
+            "timestamp": 1762286773941
+          },
+          {
+            "questionIndex": 4,
+            "question": "A ___________ is a short description of the unique value a product or service delivers to customers.",
+            "selectedAnswer": "Value proposition",
+            "correctAnswer": "Value proposition",
+            "isCorrect": true,
+            "timestamp": 1762286786435
+          },
+          {
+            "questionIndex": 5,
+            "question": "Innovation in organizations can be supported by:",
+            "selectedAnswer": "Cross-functional collaboration",
+            "correctAnswer": "Cross-functional collaboration",
+            "isCorrect": true,
+            "timestamp": 1762286798007
+          },
+          {
+            "questionIndex": 6,
+            "question": "___________ refers to the total revenue a company expects from a customer over the entire relationship.",
+            "selectedAnswer": "Customer lifetime value (CLV)",
+            "correctAnswer": "Customer lifetime value (CLV)",
+            "isCorrect": true,
+            "timestamp": 1762286807017
+          },
+          {
+            "questionIndex": 7,
+            "question": "In a ___________ organizational structure, employees may report to both a functional manager and a project manager.",
+            "selectedAnswer": "Matrix",
+            "correctAnswer": "Matrix",
+            "isCorrect": true,
+            "timestamp": 1762286816233
+          },
+          {
+            "questionIndex": 8,
+            "question": "A business that generates revenue from a one-time product purchase is using a ___________ model.",
+            "selectedAnswer": "Transaction-based",
+            "correctAnswer": "Transaction-based",
+            "isCorrect": true,
+            "timestamp": 1762286827292
+          },
+          {
+            "questionIndex": 9,
+            "question": "Which of the following is a common type of organizational structure?",
+            "selectedAnswer": "Matrix",
+            "correctAnswer": "Matrix",
+            "isCorrect": true,
+            "timestamp": 1762286838149
+          },
+          {
+            "questionIndex": 10,
+            "question": "ROI stands for Return on Innovation.",
+            "selectedAnswer": "False",
+            "correctAnswer": "False",
+            "isCorrect": true,
+            "timestamp": 1762286846647
+          },
+          {
+            "questionIndex": 11,
+            "question": "Which of the following is a common revenue model?",
+            "selectedAnswer": "Subscription",
+            "correctAnswer": "Subscription",
+            "isCorrect": true,
+            "timestamp": 1762286861034
+          },
+          {
+            "questionIndex": 12,
+            "question": "Indicators of a strong organizational culture include:",
+            "selectedAnswer": "Open communication",
+            "correctAnswer": "Open communication",
+            "isCorrect": true,
+            "timestamp": 1762286870711
+          },
+          {
+            "questionIndex": 13,
+            "question": "Organizational ___________ refers to shared values, norms, and behaviors within a company.",
+            "selectedAnswer": "Culture",
+            "correctAnswer": "Culture",
+            "isCorrect": true,
+            "timestamp": 1762286881104
+          },
+          {
+            "questionIndex": 14,
+            "question": "A company’s ___________ describes its high-level plan to achieve competitive advantage.",
+            "selectedAnswer": "Business strategy",
+            "correctAnswer": "Business strategy",
+            "isCorrect": true,
+            "timestamp": 1762286899382
+          },
+          {
+            "questionIndex": 15,
+            "question": "Team-building is not relevant to UX designers working independently.",
+            "selectedAnswer": "False",
+            "correctAnswer": "False",
+            "isCorrect": true,
+            "timestamp": 1762286909316
+          },
+          {
+            "questionIndex": 16,
+            "question": "Which elements are typically analyzed during a SWOT analysis?",
+            "selectedAnswer": "Strengths, Weaknesses, Opportunities, Threats",
+            "correctAnswer": "Strengths, Weaknesses, Opportunities, Threats",
+            "isCorrect": true,
+            "timestamp": 1762286917463
+          },
+          {
+            "questionIndex": 17,
+            "question": "A company's organizational structure can influence how effectively UX is practiced.",
+            "selectedAnswer": "True",
+            "correctAnswer": "True",
+            "isCorrect": true,
+            "timestamp": 1762286933585
+          },
+          {
+            "questionIndex": 18,
+            "question": "Which of the following is a core component of a business model?",
+            "selectedAnswer": "Company values",
+            "correctAnswer": "Revenue streams",
+            "isCorrect": false,
+            "timestamp": 1762286943928
+          },
+          {
+            "questionIndex": 19,
+            "question": "A ___________ culture values open feedback, learning, and collaboration across roles.",
+            "selectedAnswer": "Strong",
+            "correctAnswer": "Strong",
+            "isCorrect": true,
+            "timestamp": 1762286953655
+          },
+          {
+            "questionIndex": 20,
+            "question": "The ___________ describes how an organization creates, delivers, and captures value.",
+            "selectedAnswer": "Business model",
+            "correctAnswer": "Business model",
+            "isCorrect": true,
+            "timestamp": 1762286970759
+          },
+          {
+            "questionIndex": 21,
+            "question": "A UX designer does not need to understand a company’s value proposition.",
+            "selectedAnswer": "False",
+            "correctAnswer": "False",
+            "isCorrect": true,
+            "timestamp": 1762286981918
+          },
+          {
+            "questionIndex": 22,
+            "question": "In a UX context, designers contribute to business success by:",
+            "selectedAnswer": "Reducing friction in digital experiences",
+            "correctAnswer": "Reducing friction in digital experiences",
+            "isCorrect": true,
+            "timestamp": 1762286996601
+          },
+          {
+            "questionIndex": 23,
+            "question": "The freemium model offers basic services for free, with premium features behind a paywall.",
+            "selectedAnswer": "True",
+            "correctAnswer": "True",
+            "isCorrect": true,
+            "timestamp": 1762287008834
+          },
+          {
+            "questionIndex": 24,
+            "question": "Only disruptive companies are considered innovative.",
+            "selectedAnswer": "False",
+            "correctAnswer": "False",
+            "isCorrect": true,
+            "timestamp": 1762287017656
           }
         ],
         "Joe blow": [
           {
             "questionIndex": 0,
-            "question": "Which ad campaign failed because it trivialized social justice protests by using a soda as a symbol of unity?",
-            "selectedAnswer": "Dove Real Beauty Campaign",
-            "correctAnswer": "Pepsi Kendall Jenner Ad (2017)",
+            "question": "What does a value proposition typically include?",
+            "selectedAnswer": "The organization’s founding story",
+            "correctAnswer": "The benefit delivered to the user",
             "isCorrect": false,
-            "timestamp": 1759185446771
+            "timestamp": 1762286744451
           },
           {
             "questionIndex": 1,
-            "question": "Which of the following best describes polysemy?",
-            "selectedAnswer": "The use of arbitrary symbols in design",
-            "correctAnswer": "The ability of signs to carry multiple meanings",
-            "isCorrect": false,
-            "timestamp": 1759185465678
+            "question": "Which financial metric is most useful to UX designers?",
+            "selectedAnswer": "Customer acquisition cost (CAC)",
+            "correctAnswer": "Customer acquisition cost (CAC)",
+            "isCorrect": true,
+            "timestamp": 1762286755532
           },
           {
             "questionIndex": 2,
-            "question": "Which type of sign has a direct causal link to what it represents:",
-            "selectedAnswer": "Index",
-            "correctAnswer": "Index",
+            "question": "11.\tBusiness strategy always comes after the business model.",
+            "selectedAnswer": "False",
+            "correctAnswer": "False",
             "isCorrect": true,
-            "timestamp": 1759185478531
+            "timestamp": 1762286764652
           },
           {
             "questionIndex": 3,
-            "question": "When text is used to “fix” the meaning of an image (e.g., a headline under a photo), Barthes calls this:",
-            "selectedAnswer": "Connotation",
-            "correctAnswer": "Anchorage",
+            "question": "Key aspects of an effective business strategy include:",
+            "selectedAnswer": "Brand color selection",
+            "correctAnswer": "Market positioning",
             "isCorrect": false,
-            "timestamp": 1759185496611
+            "timestamp": 1762286778860
           },
           {
             "questionIndex": 4,
-            "question": "Cognitive dissonance in visual communication occurs when:",
-            "selectedAnswer": "Viewers face conflicting visual cues",
-            "correctAnswer": "Viewers face conflicting visual cues",
+            "question": "A ___________ is a short description of the unique value a product or service delivers to customers.",
+            "selectedAnswer": "Value proposition",
+            "correctAnswer": "Value proposition",
             "isCorrect": true,
-            "timestamp": 1759185516483
+            "timestamp": 1762286789508
           },
           {
             "questionIndex": 5,
-            "question": "In Saussure’s model of semiotics, what are the two parts that make up a sign?",
-            "selectedAnswer": "Signifier and Signified",
-            "correctAnswer": "Signifier and Signified",
+            "question": "Innovation in organizations can be supported by:",
+            "selectedAnswer": "Cross-functional collaboration",
+            "correctAnswer": "Cross-functional collaboration",
             "isCorrect": true,
-            "timestamp": 1759185538665
+            "timestamp": 1762286800790
           },
           {
             "questionIndex": 6,
-            "question": "The word “rose” meaning “a type of flower” is an example of:",
-            "selectedAnswer": "No answer",
-            "correctAnswer": "Denotation",
+            "question": "___________ refers to the total revenue a company expects from a customer over the entire relationship.",
+            "selectedAnswer": "Net profit",
+            "correctAnswer": "Customer lifetime value (CLV)",
             "isCorrect": false,
-            "timestamp": 1759185555965
+            "timestamp": 1762286810450
           },
           {
             "questionIndex": 7,
-            "question": "Which of the following is an example of a symbol?",
-            "selectedAnswer": "The Canadian flag",
-            "correctAnswer": "The Canadian flag",
+            "question": "In a ___________ organizational structure, employees may report to both a functional manager and a project manager.",
+            "selectedAnswer": "Matrix",
+            "correctAnswer": "Matrix",
             "isCorrect": true,
-            "timestamp": 1759185561328
+            "timestamp": 1762286819074
           },
           {
             "questionIndex": 8,
-            "question": "Codes and conventions help viewers interpret visuals because:",
-            "selectedAnswer": "They create shared expectations and reduce ambiguity",
-            "correctAnswer": "They create shared expectations and reduce ambiguity",
-            "isCorrect": true,
-            "timestamp": 1759185578761
+            "question": "A business that generates revenue from a one-time product purchase is using a ___________ model.",
+            "selectedAnswer": "Freemium",
+            "correctAnswer": "Transaction-based",
+            "isCorrect": false,
+            "timestamp": 1762286832117
           },
           {
             "questionIndex": 9,
-            "question": "According to Barthes, “myth” in advertising refers to:",
-            "selectedAnswer": "Cultural narratives that feel natural but are constructed",
-            "correctAnswer": "Cultural narratives that feel natural but are constructed",
+            "question": "Which of the following is a common type of organizational structure?",
+            "selectedAnswer": "Matrix",
+            "correctAnswer": "Matrix",
             "isCorrect": true,
-            "timestamp": 1759185597421
+            "timestamp": 1762286841318
+          },
+          {
+            "questionIndex": 10,
+            "question": "ROI stands for Return on Innovation.",
+            "selectedAnswer": "False",
+            "correctAnswer": "False",
+            "isCorrect": true,
+            "timestamp": 1762286849286
+          },
+          {
+            "questionIndex": 11,
+            "question": "Which of the following is a common revenue model?",
+            "selectedAnswer": "Subscription",
+            "correctAnswer": "Subscription",
+            "isCorrect": true,
+            "timestamp": 1762286865071
+          },
+          {
+            "questionIndex": 12,
+            "question": "Indicators of a strong organizational culture include:",
+            "selectedAnswer": "Competitive secrecy",
+            "correctAnswer": "Open communication",
+            "isCorrect": false,
+            "timestamp": 1762286875373
+          },
+          {
+            "questionIndex": 13,
+            "question": "Organizational ___________ refers to shared values, norms, and behaviors within a company.",
+            "selectedAnswer": "Culture",
+            "correctAnswer": "Culture",
+            "isCorrect": true,
+            "timestamp": 1762286884506
+          },
+          {
+            "questionIndex": 14,
+            "question": "A company’s ___________ describes its high-level plan to achieve competitive advantage.",
+            "selectedAnswer": "Business strategy",
+            "correctAnswer": "Business strategy",
+            "isCorrect": true,
+            "timestamp": 1762286903992
+          },
+          {
+            "questionIndex": 15,
+            "question": "Team-building is not relevant to UX designers working independently.",
+            "selectedAnswer": "True",
+            "correctAnswer": "False",
+            "isCorrect": false,
+            "timestamp": 1762286912923
+          },
+          {
+            "questionIndex": 16,
+            "question": "Which elements are typically analyzed during a SWOT analysis?",
+            "selectedAnswer": "Strengths, Weaknesses, Opportunities, Threats",
+            "correctAnswer": "Strengths, Weaknesses, Opportunities, Threats",
+            "isCorrect": true,
+            "timestamp": 1762286920073
+          },
+          {
+            "questionIndex": 17,
+            "question": "A company's organizational structure can influence how effectively UX is practiced.",
+            "selectedAnswer": "True",
+            "correctAnswer": "True",
+            "isCorrect": true,
+            "timestamp": 1762286936442
+          },
+          {
+            "questionIndex": 18,
+            "question": "Which of the following is a core component of a business model?",
+            "selectedAnswer": "Company values",
+            "correctAnswer": "Revenue streams",
+            "isCorrect": false,
+            "timestamp": 1762286947209
+          },
+          {
+            "questionIndex": 19,
+            "question": "A ___________ culture values open feedback, learning, and collaboration across roles.",
+            "selectedAnswer": "Transactional",
+            "correctAnswer": "Strong",
+            "isCorrect": false,
+            "timestamp": 1762286957560
+          },
+          {
+            "questionIndex": 20,
+            "question": "The ___________ describes how an organization creates, delivers, and captures value.",
+            "selectedAnswer": "Business strategy",
+            "correctAnswer": "Business model",
+            "isCorrect": false,
+            "timestamp": 1762286974750
+          },
+          {
+            "questionIndex": 21,
+            "question": "A UX designer does not need to understand a company’s value proposition.",
+            "selectedAnswer": "False",
+            "correctAnswer": "False",
+            "isCorrect": true,
+            "timestamp": 1762286985412
+          },
+          {
+            "questionIndex": 22,
+            "question": "In a UX context, designers contribute to business success by:",
+            "selectedAnswer": "Reducing friction in digital experiences",
+            "correctAnswer": "Reducing friction in digital experiences",
+            "isCorrect": true,
+            "timestamp": 1762287003193
+          },
+          {
+            "questionIndex": 23,
+            "question": "The freemium model offers basic services for free, with premium features behind a paywall.",
+            "selectedAnswer": "True",
+            "correctAnswer": "True",
+            "isCorrect": true,
+            "timestamp": 1762287012698
+          },
+          {
+            "questionIndex": 24,
+            "question": "Only disruptive companies are considered innovative.",
+            "selectedAnswer": "False",
+            "correctAnswer": "False",
+            "isCorrect": true,
+            "timestamp": 1762287020502
           }
         ]
       },
-      "totalQuestions": 10
+      "totalQuestions": 25
     }
   ]
 }

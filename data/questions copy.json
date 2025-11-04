@@ -1,0 +1,134 @@
+{
+  "questions": [
+    {
+      "id": 1759180793136,
+      "question": "In Saussure’s model of semiotics, what are the two parts that make up a sign?",
+      "options": [
+        "Icon and Symbol",
+        "Denotation and Connotation",
+        "Signifier and Signified",
+        "Image and Context",
+        "Anchor and Relay"
+      ],
+      "correctAnswer": "Signifier and Signified",
+      "image": "/images/questions/1759182555538-64154492.jpg"
+    },
+    {
+      "id": 1759180897568,
+      "question": "Which type of sign has a direct causal link to what it represents:",
+      "options": [
+        "Icon",
+        "Symbol",
+        "Index",
+        "Signifier",
+        "Connotation"
+      ],
+      "correctAnswer": "Index",
+      "image": "/images/questions/1759182591111-44232997.jpg"
+    },
+    {
+      "id": 1759180982661,
+      "question": "The word “rose” meaning “a type of flower” is an example of:",
+      "options": [
+        "Connotation",
+        "Denotation",
+        "Symbol",
+        "Myth",
+        "Polysemy"
+      ],
+      "correctAnswer": "Denotation",
+      "image": "/images/questions/1759180982651-893379549.jpg"
+    },
+    {
+      "id": 1759181104451,
+      "question": "When text is used to “fix” the meaning of an image (e.g., a headline under a photo), Barthes calls this:",
+      "options": [
+        "Relay",
+        "Anchorage",
+        "Connotation",
+        "Myth",
+        "Ideology"
+      ],
+      "correctAnswer": "Anchorage",
+      "image": "/images/questions/1759181104447-552415597.jpg"
+    },
+    {
+      "id": 1759181330632,
+      "question": "Which of the following best describes polysemy?",
+      "options": [
+        "A sign that has only one meaning",
+        "The study of myths in media",
+        "The ability of signs to carry multiple meanings",
+        "The use of arbitrary symbols in design",
+        "The literal description of an image"
+      ],
+      "correctAnswer": "The ability of signs to carry multiple meanings",
+      "image": "/images/questions/1759181330628-381315175.jpeg"
+    },
+    {
+      "id": 1759181505273,
+      "question": "Which of the following is an example of a symbol?",
+      "options": [
+        "A footprint in the sand",
+        "The sound of thunder",
+        "The Canadian flag",
+        "A portrait photograph",
+        "A thermometer reading"
+      ],
+      "correctAnswer": "The Canadian flag",
+      "image": "/images/questions/1759181505269-649177630.jpg"
+    },
+    {
+      "id": 1759181663507,
+      "question": "Codes and conventions help viewers interpret visuals because:",
+      "options": [
+        "They are always universal",
+        "They create shared expectations and reduce ambiguity",
+        "They remove all possibility of polysemy",
+        "They guarantee ads will succeed",
+        "They prevent cultural misinterpretation"
+      ],
+      "correctAnswer": "They create shared expectations and reduce ambiguity",
+      "image": "/images/questions/1759181663497-877396764.jpg"
+    },
+    {
+      "id": 1759181837109,
+      "question": "Cognitive dissonance in visual communication occurs when:",
+      "options": [
+        "Signs are always interpreted correctly",
+        "Designers use anchorage effectively",
+        "Viewers face conflicting visual cues",
+        "An image has both denotation and connotation",
+        "Codes and conventions align perfectly"
+      ],
+      "correctAnswer": "Viewers face conflicting visual cues",
+      "image": "/images/questions/1759181837104-329752816.jpg"
+    },
+    {
+      "id": 1759182142792,
+      "question": "Which ad campaign failed because it trivialized social justice protests by using a soda as a symbol of unity?",
+      "options": [
+        "Dove Real Beauty Campaign",
+        "Pepsi Kendall Jenner Ad (2017)",
+        "McDonald’s “Dead Dad” Ad",
+        "Nike “Just Do It” Campaign",
+        "Bloomingdale’s Eggnog Ad"
+      ],
+      "correctAnswer": "Pepsi Kendall Jenner Ad (2017)",
+      "image": "/images/questions/1759182142781-900010357.jpg"
+    },
+    {
+      "id": 1759182450455,
+      "question": "According to Barthes, “myth” in advertising refers to:",
+      "options": [
+        "The literal meaning of an image",
+        "A false story created by brands",
+        "Cultural narratives that feel natural but are constructed",
+        "Text added to images for clarity",
+        "The scientific study of symbols"
+      ],
+      "correctAnswer": "Cultural narratives that feel natural but are constructed",
+      "image": "/images/questions/1759182450450-596340192.jpg"
+    }
+  ]
+}

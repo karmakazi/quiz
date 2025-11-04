@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
     players = data.players;
     scoreChanges = data.scoreChanges || {};
       playersWhoAnswered = new Set(); // Reset the set completely
-      displayQuestion();
+    displayQuestion();
       updateResponseCounter();
   });
 
