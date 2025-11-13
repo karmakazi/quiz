@@ -5,7 +5,9 @@
       "quizzes": [
         1762285693844,
         1762285956594,
-        1762285956594
+        1762285956594,
+        1762892034410,
+        1762892034410
       ]
     },
     "Joe blow": {
@@ -724,6 +726,144 @@
         ]
       },
       "totalQuestions": 25
+    },
+    {
+      "quizId": 1762892034410,
+      "timestamp": 1762959272133,
+      "responses": {
+        "Andrew Harris": [
+          {
+            "questionIndex": 0,
+            "question": "In branding, “green” is most often associated with which of the following ideologies?",
+            "selectedAnswer": "Environmental consciousness",
+            "correctAnswer": "Environmental consciousness",
+            "isCorrect": true,
+            "timestamp": 1762959270587
+          }
+        ]
+      },
+      "totalQuestions": 1
+    },
+    {
+      "quizId": 1762892034410,
+      "timestamp": 1762959591000,
+      "responses": {
+        "Andrew Harris": [
+          {
+            "questionIndex": 0,
+            "question": "The “Don’t Buy This Jacket” Patagonia campaign is an example of:",
+            "selectedAnswer": "Anti-consumerism as branding",
+            "correctAnswer": "Anti-consumerism as branding",
+            "isCorrect": true,
+            "timestamp": 1762959424695
+          },
+          {
+            "questionIndex": 1,
+            "question": "When a campaign repeatedly uses the same colors, symbols, and slogans to make a message seem “natural,” it is employing:",
+            "selectedAnswer": "Myth-making",
+            "correctAnswer": "Myth-making",
+            "isCorrect": true,
+            "timestamp": 1762959463702
+          },
+          {
+            "questionIndex": 2,
+            "question": "What feature most clearly distinguishes propaganda from standard advertising?",
+            "selectedAnswer": "It promotes ideological or political beliefs",
+            "correctAnswer": "It promotes ideological or political beliefs",
+            "isCorrect": true,
+            "timestamp": 1762959475730
+          },
+          {
+            "questionIndex": 3,
+            "question": "A brand that deliberately appears raw, ironic, or anti-corporate is engaging in:",
+            "selectedAnswer": "Subversive branding",
+            "correctAnswer": "Subversive branding",
+            "isCorrect": true,
+            "timestamp": 1762959482450
+          },
+          {
+            "questionIndex": 4,
+            "question": "What is the main ethical concern when using persuasive visual design?",
+            "selectedAnswer": "Misrepresenting information or manipulating emotion",
+            "correctAnswer": "Misrepresenting information or manipulating emotion",
+            "isCorrect": true,
+            "timestamp": 1762959492895
+          },
+          {
+            "questionIndex": 5,
+            "question": "According to Roland Barthes, how do advertisements create myth?",
+            "selectedAnswer": "By turning cultural values into naturalized truths",
+            "correctAnswer": "By turning cultural values into naturalized truths",
+            "isCorrect": true,
+            "timestamp": 1762959500214
+          },
+          {
+            "questionIndex": 6,
+            "question": "Which of the following best defines propaganda in a visual communication context?",
+            "selectedAnswer": "The use of visuals to manipulate emotion and reinforce ideology",
+            "correctAnswer": "The use of visuals to manipulate emotion and reinforce ideology",
+            "isCorrect": true,
+            "timestamp": 1762959514347
+          },
+          {
+            "questionIndex": 7,
+            "question": "In color symbolism, black is most often used in branding to communicate:",
+            "selectedAnswer": "Luxury, power, and sophistication",
+            "correctAnswer": "Luxury, power, and sophistication",
+            "isCorrect": true,
+            "timestamp": 1762959524945
+          },
+          {
+            "questionIndex": 8,
+            "question": "In branding, “green” is most often associated with which of the following ideologies?",
+            "selectedAnswer": "Environmental consciousness",
+            "correctAnswer": "Environmental consciousness",
+            "isCorrect": true,
+            "timestamp": 1762959529511
+          },
+          {
+            "questionIndex": 9,
+            "question": "Which of the following best describes color polysemy?",
+            "selectedAnswer": "The idea that a single color can have multiple meanings depending on context",
+            "correctAnswer": "The idea that a single color can have multiple meanings depending on context",
+            "isCorrect": true,
+            "timestamp": 1762959536312
+          },
+          {
+            "questionIndex": 10,
+            "question": "Which of the following is an example of visual rhetoric?",
+            "selectedAnswer": "The arrangement of visual elements to persuade or guide interpretation",
+            "correctAnswer": "The arrangement of visual elements to persuade or guide interpretation",
+            "isCorrect": true,
+            "timestamp": 1762959546773
+          },
+          {
+            "questionIndex": 11,
+            "question": "When a new campaign imitates the look of a TIME magazine cover to borrow credibility, this is an example of:",
+            "selectedAnswer": "Intertextuality",
+            "correctAnswer": "Intertextuality",
+            "isCorrect": true,
+            "timestamp": 1762959556332
+          },
+          {
+            "questionIndex": 12,
+            "question": "The repeated use of emotional imagery, simplified messaging, and group identity in a campaign are signs of:",
+            "selectedAnswer": "Propaganda",
+            "correctAnswer": "Propaganda",
+            "isCorrect": true,
+            "timestamp": 1762959580652
+          },
+          {
+            "questionIndex": 13,
+            "question": "The repeated use of a specific typeface, color palette, and grid system across a brand’s materials is an example of:",
+            "selectedAnswer": "A design system",
+            "correctAnswer": "A design system",
+            "isCorrect": true,
+            "timestamp": 1762959589452
+          }
+        ]
+      },
+      "totalQuestions": 14
     }
   ]
 }
