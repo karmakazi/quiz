@@ -1,289 +1,237 @@
 {
   "questions": [
     {
-      "id": 1762281359633,
-      "question": "Which of the following is a core component of a business model?",
+      "id": 1762892249475,
+      "question": "Which of the following best describes color polysemy?",
       "options": [
-        "Company values",
-        "Revenue streams",
-        "Office location",
-        "Team morale"
+        "Using only primary colors in design",
+        "The scientific study of color mixing",
+        "The idea that a single color can have multiple meanings depending on context",
+        "The universal symbolism of color across cultures",
+        "The emotional impact of bright colors"
       ],
-      "correctAnswer": "Revenue streams",
+      "correctAnswer": "The idea that a single color can have multiple meanings depending on context",
       "image": null
     },
     {
-      "id": 1762281429941,
-      "question": "What does a value proposition typically include?",
+      "id": 1762892432592,
+      "question": "According to Roland Barthes, how do advertisements create myth?",
       "options": [
-        "The internal HR policy",
-        "The benefit delivered to the user",
-        "The organization’s founding story",
-        "Annual sales targets"
+        "By using only literal images",
+        "By focusing solely on product function",
+        "By avoiding emotional appeals",
+        "By turning cultural values into naturalized truths",
+        "By removing all ideological content"
       ],
-      "correctAnswer": "The benefit delivered to the user",
+      "correctAnswer": "By turning cultural values into naturalized truths",
       "image": null
     },
     {
-      "id": 1762281685068,
-      "question": "Which of the following is a common revenue model?",
+      "id": 1762892498970,
+      "question": "Which of the following is an example of visual rhetoric?",
       "options": [
-        "Stock options",
-        "Subscription",
-        "Employee bonus",
-        "Advertising spend"
+        "The use of serif fonts in novels",
+        "Adjusting image brightness for consistency",
+        "Cropping photos for social media",
+        "Using high-resolution images in advertisements",
+        "The arrangement of visual elements to persuade or guide interpretation"
       ],
-      "correctAnswer": "Subscription",
+      "correctAnswer": "The arrangement of visual elements to persuade or guide interpretation",
       "image": null
     },
     {
-      "id": 1762281736707,
-      "question": "Key aspects of an effective business strategy include:",
+      "id": 1762892559055,
+      "question": "A brand that deliberately appears raw, ironic, or anti-corporate is engaging in:",
       "options": [
-        "Market positioning",
-        "Brand color selection",
-        "Staff break policies",
-        "Office layout"
+        "Minimalist branding",
+        "Heritage branding",
+        "Subversive branding",
+        "Functional branding",
+        "Rebranding"
       ],
-      "correctAnswer": "Market positioning",
+      "correctAnswer": "Subversive branding",
       "image": null
     },
     {
-      "id": 1762281790773,
-      "question": "Which elements are typically analyzed during a SWOT analysis?",
+      "id": 1762892859330,
+      "question": "The “Don’t Buy This Jacket” Patagonia campaign is an example of:",
       "options": [
-        "Strengths, Weaknesses, Opportunities, Threats",
-        "Sales, Workforce, Objectives, Tactics",
-        "Systems, Workflows, Operations, Technology",
-        "Strategy, Workforce, Offerings, Trends"
+        "Anti-consumerism as branding",
+        "Greenwashing",
+        "Political propaganda",
+        "Product failure",
+        "Nostalgia marketing"
       ],
-      "correctAnswer": "Strengths, Weaknesses, Opportunities, Threats",
+      "correctAnswer": "Anti-consumerism as branding",
       "image": null
     },
     {
-      "id": 1762281848544,
-      "question": "In a UX context, designers contribute to business success by:",
+      "id": 1762892928160,
+      "question": "Which of the following best defines propaganda in a visual communication context?",
       "options": [
-        "Handling financial transactions",
-        "Reducing friction in digital experiences",
-        "Managing sales contracts",
-        "Writing company policies"
+        "A neutral form of public information",
+        "The use of visuals to manipulate emotion and reinforce ideology",
+        "A humorous critique of advertising",
+        "Any type of visual education",
+        "The use of color psychology in branding"
       ],
-      "correctAnswer": "Reducing friction in digital experiences",
+      "correctAnswer": "The use of visuals to manipulate emotion and reinforce ideology",
       "image": null
     },
     {
-      "id": 1762281899167,
-      "question": "Which of the following is a common type of organizational structure?",
+      "id": 1762892998799,
+      "question": "The repeated use of a specific typeface, color palette, and grid system across a brand’s materials is an example of:",
       "options": [
-        "Matrix",
-        "Network security",
-        "Franchise layout",
-        "Infrastructure"
+        "Intertextuality",
+        "A design system",
+        "Typography hierarchy",
+        "Brand myth",
+        "Layout framing"
       ],
-      "correctAnswer": "Matrix",
+      "correctAnswer": "A design system",
       "image": null
     },
     {
-      "id": 1762281956806,
-      "question": "Which financial metric is most useful to UX designers?",
+      "id": 1762893284911,
+      "question": "What feature most clearly distinguishes propaganda from standard advertising?",
       "options": [
-        "Customer acquisition cost (CAC)",
-        "Sales tax percentages",
-        "Currency exchange rates",
-        "Payroll cost"
+        "It promotes ideological or political beliefs",
+        "It uses color psychology",
+        "It aims to sell products rather than ideas",
+        "It avoids emotional appeal",
+        "It relies only on text"
       ],
-      "correctAnswer": "Customer acquisition cost (CAC)",
+      "correctAnswer": "It promotes ideological or political beliefs",
       "image": null
     },
     {
-      "id": 1762282015794,
-      "question": "Innovation in organizations can be supported by:",
+      "id": 1762893554223,
+      "question": "What is the main ethical concern when using persuasive visual design?",
       "options": [
-        "Strict hierarchical approvals",
-        "Cross-functional collaboration",
-        "Increased bureaucracy",
-        "Routine-only work environments"
+        "Overuse of color",
+        "Misrepresenting information or manipulating emotion",
+        "Relying too heavily on typography",
+        "Including too many design elements",
+        "Using intertextual references"
       ],
-      "correctAnswer": "Cross-functional collaboration",
+      "correctAnswer": "Misrepresenting information or manipulating emotion",
       "image": null
     },
     {
-      "id": 1762282075178,
-      "question": "Indicators of a strong organizational culture include:",
+      "id": 1762960122301,
+      "question": "In typography, a clear hierarchy primarily helps the viewer to:",
       "options": [
-        "Rapid hiring practices",
-        "Open communication",
-        "Frequent rebranding",
-        "Competitive secrecy"
+        "Appreciate color balance",
+        "Identify the brand’s ideology",
+        "Compare typefaces",
+        "Understand the order of information",
+        "Focus on emotional tone"
       ],
-      "correctAnswer": "Open communication",
+      "correctAnswer": "Understand the order of information",
       "image": null
     },
     {
-      "id": 1762282142923,
-      "question": "The ___________ describes how an organization creates, delivers, and captures value.",
+      "id": 1762960180891,
+      "question": "When a serif typeface is used to convey tradition or authority, the font is functioning as:",
       "options": [
-        "Business strategy",
-        "Business model",
-        "Mission statement",
-        "Organizational chart"
+        "An index",
+        "A signifier",
+        "A denotation",
+        "A myth",
+        "A code"
       ],
-      "correctAnswer": "Business model",
+      "correctAnswer": "A signifier",
       "image": null
     },
     {
-      "id": 1762282197708,
-      "question": "A ___________ is a short description of the unique value a product or service delivers to customers.",
+      "id": 1762960242318,
+      "question": "When a designer intentionally references a famous type treatment (e.g., Star Wars logo typography), this is an example of:",
       "options": [
-        "Brand promise",
-        "Value proposition",
-        "Elevator pitch",
-        "Marketing slogan"
+        "Visual substitution",
+        "Polysemy",
+        "Intertextuality",
+        "Contrast hierarchy",
+        "Anchoring"
       ],
-      "correctAnswer": "Value proposition",
+      "correctAnswer": "Intertextuality",
       "image": null
     },
     {
-      "id": 1762282256723,
-      "question": "In a ___________ organizational structure, employees may report to both a functional manager and a project manager.",
+      "id": 1762960306584,
+      "question": "Which of the following best demonstrates polysemy of color?",
       "options": [
-        "Flat",
-        "Matrix",
-        "Hierarchical",
-        "Divisional"
+        "Blue used consistently to mean “trust”",
+        "Yellow used for high visibility",
+        "Green as the universal symbol for nature",
+        "Black representing elegance in all contexts",
+        "Red meaning love in one culture and danger in another"
       ],
-      "correctAnswer": "Matrix",
+      "correctAnswer": "Red meaning love in one culture and danger in another",
       "image": null
     },
     {
-      "id": 1762282323310,
-      "question": "___________ refers to the total revenue a company expects from a customer over the entire relationship.",
+      "id": 1762960383117,
+      "question": "In cross-cultural design, why is understanding color symbolism important?",
       "options": [
-        "Net profit",
-        "Customer lifetime value (CLV)",
-        "Gross margin",
-        "Sales revenue"
+        "It ensures all designs look uniform worldwide",
+        "It reduces printing costs",
+        "It makes logos easier to animate",
+        "It increases type hierarchy consistency",
+        "It prevents accidental miscommunication of meaning"
       ],
-      "correctAnswer": "Customer lifetime value (CLV)",
+      "correctAnswer": "It prevents accidental miscommunication of meaning",
       "image": null
     },
     {
-      "id": 1762282377269,
-      "question": "A business that generates revenue from a one-time product purchase is using a ___________ model.",
+      "id": 1762960519594,
+      "question": "A photograph that shows both a subject and its shadow functions semiotically as:",
       "options": [
-        "Subscription-based",
-        "Freemium",
-        "Transaction-based",
-        "Commission-based"
+        "An icon",
+        "A symbol",
+        "An index",
+        "A metaphor",
+        "A code"
       ],
-      "correctAnswer": "Transaction-based",
+      "correctAnswer": "An index",
       "image": null
     },
     {
-      "id": 1762282430304,
-      "question": "A company’s ___________ describes its high-level plan to achieve competitive advantage.",
+      "id": 1762960598315,
+      "question": "A visual metaphor works by:",
       "options": [
-        "Customer policy",
-        "Vision statement",
-        "Operating manual",
-        "Business strategy"
+        "Replacing one image with another to suggest new meaning",
+        "Presenting unrelated images with equal weight",
+        "Using consistent brand typography",
+        "Flattening hierarchy in layout",
+        "Standardizing the viewer’s interpretation"
       ],
-      "correctAnswer": "Business strategy",
+      "correctAnswer": "Replacing one image with another to suggest new meaning",
       "image": null
     },
     {
-      "id": 1762282554088,
-      "question": "A ___________ culture values open feedback, learning, and collaboration across roles.",
+      "id": 1762960664190,
+      "question": "In composition, “framing” refers to:",
       "options": [
-        "Bureaucratic",
-        "Weak",
-        "Strong",
-        "Transactional"
+        "The color palette used for emotional tone",
+        "The relationship between icon and index",
+        "The alignment of type elements",
+        "The visual borders that determine what is included or excluded in an image",
+        "The depth of field in photography"
       ],
-      "correctAnswer": "Strong",
+      "correctAnswer": "The visual borders that determine what is included or excluded in an image",
       "image": null
     },
     {
-      "id": 1762282615913,
-      "question": "Organizational ___________ refers to shared values, norms, and behaviors within a company.",
+      "id": 1762960735254,
+      "question": "Intertextuality in layout design most often helps viewers by:",
       "options": [
-        "Structure",
-        "Governance",
-        "Culture",
-        "Leadership"
+        "Making compositions intentionally confusing",
+        "Avoiding established visual conventions",
+        "Increasing white space in compositions",
+        "Connecting new designs to familiar cultural references",
+        "Minimizing rhetorical effect"
       ],
-      "correctAnswer": "Culture",
-      "image": null
-    },
-    {
-      "id": 1762282739421,
-      "question": "11.\tBusiness strategy always comes after the business model.",
-      "options": [
-        "True",
-        "False"
-      ],
-      "correctAnswer": "False",
-      "image": null
-    },
-    {
-      "id": 1762282795886,
-      "question": "A company's organizational structure can influence how effectively UX is practiced.",
-      "options": [
-        "True",
-        "False"
-      ],
-      "correctAnswer": "True",
-      "image": null
-    },
-    {
-      "id": 1762282848453,
-      "question": "Only disruptive companies are considered innovative.",
-      "options": [
-        "True",
-        "False"
-      ],
-      "correctAnswer": "False",
-      "image": null
-    },
-    {
-      "id": 1762282875615,
-      "question": "ROI stands for Return on Innovation.",
-      "options": [
-        "True",
-        "False"
-      ],
-      "correctAnswer": "False",
-      "image": null
-    },
-    {
-      "id": 1762282917902,
-      "question": "A UX designer does not need to understand a company’s value proposition.",
-      "options": [
-        "True",
-        "False"
-      ],
-      "correctAnswer": "False",
-      "image": null
-    },
-    {
-      "id": 1762282968259,
-      "question": "The freemium model offers basic services for free, with premium features behind a paywall.",
-      "options": [
-        "True",
-        "False"
-      ],
-      "correctAnswer": "True",
-      "image": null
-    },
-    {
-      "id": 1762283020372,
-      "question": "Team-building is not relevant to UX designers working independently.",
-      "options": [
-        "True",
-        "False"
-      ],
-      "correctAnswer": "False",
+      "correctAnswer": "Connecting new designs to familiar cultural references",
       "image": null
     }
   ]
