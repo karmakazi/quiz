@@ -1,237 +1,231 @@
 {
   "questions": [
     {
-      "id": 1762892249475,
-      "question": "Which of the following best describes color polysemy?",
+      "id": 1771452390812,
+      "question": "What is data visualization fundamentally described as in Week 1?",
       "options": [
-        "Using only primary colors in design",
-        "The scientific study of color mixing",
-        "The idea that a single color can have multiple meanings depending on context",
-        "The universal symbolism of color across cultures",
-        "The emotional impact of bright colors"
+        "A statistical technique",
+        "A programming discipline",
+        "A human practice of translating information into visual form",
+        "A decorative enhancement for reports"
       ],
-      "correctAnswer": "The idea that a single color can have multiple meanings depending on context",
+      "correctAnswer": "A human practice of translating information into visual form",
       "image": null
     },
     {
-      "id": 1762892432592,
-      "question": "According to Roland Barthes, how do advertisements create myth?",
+      "id": 1771452444055,
+      "question": "According to the historical context slide, visualization dates back to:",
       "options": [
-        "By using only literal images",
-        "By focusing solely on product function",
-        "By avoiding emotional appeals",
-        "By turning cultural values into naturalized truths",
-        "By removing all ideological content"
+        "The Chauvet cave drawings",
+        "Minard’s 1869 graphic",
+        "The invention of the printing press ",
+        "The 2000s digital dashboard era"
       ],
-      "correctAnswer": "By turning cultural values into naturalized truths",
+      "correctAnswer": "The Chauvet cave drawings",
       "image": null
     },
     {
-      "id": 1762892498970,
-      "question": "Which of the following is an example of visual rhetoric?",
+      "id": 1771452478249,
+      "question": "Minard’s visualization of Napoleon’s campaign displayed how many variables simultaneously?",
       "options": [
-        "The use of serif fonts in novels",
-        "Adjusting image brightness for consistency",
-        "Cropping photos for social media",
-        "Using high-resolution images in advertisements",
-        "The arrangement of visual elements to persuade or guide interpretation"
+        "3",
+        "4",
+        "6",
+        "8"
       ],
-      "correctAnswer": "The arrangement of visual elements to persuade or guide interpretation",
+      "correctAnswer": "6",
       "image": null
     },
     {
-      "id": 1762892559055,
-      "question": "A brand that deliberately appears raw, ironic, or anti-corporate is engaging in:",
+      "id": 1771452866814,
+      "question": "Which of the following is a key driver behind the rise of visualization today?",
       "options": [
-        "Minimalist branding",
-        "Heritage branding",
-        "Subversive branding",
-        "Functional branding",
-        "Rebranding"
+        "Decrease in data generation",
+        "Demand for data-driven decision making",
+        "Reduction in computing power",
+        "Elimination of qualitative research"
       ],
-      "correctAnswer": "Subversive branding",
+      "correctAnswer": "Demand for data-driven decision making",
       "image": null
     },
     {
-      "id": 1762892859330,
-      "question": "The “Don’t Buy This Jacket” Patagonia campaign is an example of:",
+      "id": 1771452926785,
+      "question": "In presenter-driven storytelling, who controls the narrative flow?",
       "options": [
-        "Anti-consumerism as branding",
-        "Greenwashing",
-        "Political propaganda",
-        "Product failure",
-        "Nostalgia marketing"
+        "The user",
+        "The dataset",
+        "The designer",
+        "The software"
       ],
-      "correctAnswer": "Anti-consumerism as branding",
+      "correctAnswer": "The designer",
       "image": null
     },
     {
-      "id": 1762892928160,
-      "question": "Which of the following best defines propaganda in a visual communication context?",
+      "id": 1771452995405,
+      "question": "Which of the following is considered a business intelligence tool in Week 2?",
       "options": [
-        "A neutral form of public information",
-        "The use of visuals to manipulate emotion and reinforce ideology",
-        "A humorous critique of advertising",
-        "Any type of visual education",
-        "The use of color psychology in branding"
+        "Microsoft Excel",
+        "Illustrator",
+        "RStudio",
+        "Tableau"
       ],
-      "correctAnswer": "The use of visuals to manipulate emotion and reinforce ideology",
+      "correctAnswer": "Tableau",
       "image": null
     },
     {
-      "id": 1762892998799,
-      "question": "The repeated use of a specific typeface, color palette, and grid system across a brand’s materials is an example of:",
+      "id": 1771453087252,
+      "question": "In data terminology, what is an “observation”?",
       "options": [
-        "Intertextuality",
-        "A design system",
-        "Typography hierarchy",
-        "Brand myth",
-        "Layout framing"
+        "A prediction target",
+        "A variable",
+        "One unit of analysis, typically one row",
+        "A summary statistic"
       ],
-      "correctAnswer": "A design system",
+      "correctAnswer": "One unit of analysis, typically one row",
       "image": null
     },
     {
-      "id": 1762893284911,
-      "question": "What feature most clearly distinguishes propaganda from standard advertising?",
+      "id": 1771453155694,
+      "question": "According to the UX rule, “Quant shows scale. Qual shows ______.”",
       "options": [
-        "It promotes ideological or political beliefs",
-        "It uses color psychology",
-        "It aims to sell products rather than ideas",
-        "It avoids emotional appeal",
-        "It relies only on text"
+        "Meaning",
+        "Distribution",
+        "Accuracy",
+        "Prediction"
       ],
-      "correctAnswer": "It promotes ideological or political beliefs",
+      "correctAnswer": "Meaning",
       "image": null
     },
     {
-      "id": 1762893554223,
-      "question": "What is the main ethical concern when using persuasive visual design?",
+      "id": 1771453205477,
+      "question": "A target variable represents:",
       "options": [
-        "Overuse of color",
-        "Misrepresenting information or manipulating emotion",
-        "Relying too heavily on typography",
-        "Including too many design elements",
-        "Using intertextual references"
+        "A feature used for visualization color",
+        "The main outcome you care about",
+        "A missing data field",
+        "A qualitative insight"
       ],
-      "correctAnswer": "Misrepresenting information or manipulating emotion",
+      "correctAnswer": "The main outcome you care about",
       "image": null
     },
     {
-      "id": 1762960122301,
-      "question": "In typography, a clear hierarchy primarily helps the viewer to:",
+      "id": 1771453284165,
+      "question": "According to the data cleaning slide, cleaning should never:",
       "options": [
-        "Appreciate color balance",
-        "Identify the brand’s ideology",
-        "Compare typefaces",
-        "Understand the order of information",
-        "Focus on emotional tone"
+        "Remove duplicates",
+        "Validate ranges ",
+        "Standardize formats",
+        "Change meaning"
       ],
-      "correctAnswer": "Understand the order of information",
+      "correctAnswer": "Change meaning",
       "image": null
     },
     {
-      "id": 1762960180891,
-      "question": "When a serif typeface is used to convey tradition or authority, the font is functioning as:",
+      "id": 1771453335534,
+      "question": "For showing change over time, which chart type is most appropriate?",
       "options": [
-        "An index",
-        "A signifier",
-        "A denotation",
-        "A myth",
-        "A code"
+        "Line chart",
+        " Word cloud",
+        "Network diagram",
+        "Pie chart"
       ],
-      "correctAnswer": "A signifier",
+      "correctAnswer": "Line chart",
       "image": null
     },
     {
-      "id": 1762960242318,
-      "question": "When a designer intentionally references a famous type treatment (e.g., Star Wars logo typography), this is an example of:",
+      "id": 1771453407282,
+      "question": "Word clouds are best used to show:",
       "options": [
-        "Visual substitution",
-        "Polysemy",
-        "Intertextuality",
-        "Contrast hierarchy",
-        "Anchoring"
+        "Trends over time",
+        "Frequency of words",
+        "Causal relationships",
+        "Statistical significance"
       ],
-      "correctAnswer": "Intertextuality",
+      "correctAnswer": "Frequency of words",
       "image": null
     },
     {
-      "id": 1762960306584,
-      "question": "Which of the following best demonstrates polysemy of color?",
+      "id": 1771453453503,
+      "question": "In a network diagram, what does node position typically communicate?",
       "options": [
-        "Blue used consistently to mean “trust”",
-        "Yellow used for high visibility",
-        "Green as the universal symbol for nature",
-        "Black representing elegance in all contexts",
-        "Red meaning love in one culture and danger in another"
+        "Centrality and relationship distance",
+        "Color intensity",
+        "Sentiment",
+        "Time progression"
       ],
-      "correctAnswer": "Red meaning love in one culture and danger in another",
+      "correctAnswer": "Centrality and relationship distance",
       "image": null
     },
     {
-      "id": 1762960383117,
-      "question": "In cross-cultural design, why is understanding color symbolism important?",
+      "id": 1771453602002,
+      "question": "According to Week 4, animated displays are particularly useful when:",
       "options": [
-        "It ensures all designs look uniform worldwide",
-        "It reduces printing costs",
-        "It makes logos easier to animate",
-        "It increases type hierarchy consistency",
-        "It prevents accidental miscommunication of meaning"
+        "Printing static reports",
+        "Avoiding interaction",
+        "Showing a single number",
+        "Guiding a presenter-led explanation"
       ],
-      "correctAnswer": "It prevents accidental miscommunication of meaning",
+      "correctAnswer": "Guiding a presenter-led explanation",
       "image": null
     },
     {
-      "id": 1762960519594,
-      "question": "A photograph that shows both a subject and its shadow functions semiotically as:",
+      "id": 1771453659819,
+      "question": "According to Week 6, a visualization is not merely a picture of data; it is:",
       "options": [
-        "An icon",
-        "A symbol",
-        "An index",
-        "A metaphor",
-        "A code"
+        "A decoration",
+        "A summary table",
+        "A database",
+        "An argument about data"
       ],
-      "correctAnswer": "An index",
+      "correctAnswer": "An argument about data",
       "image": null
     },
     {
-      "id": 1762960598315,
-      "question": "A visual metaphor works by:",
+      "id": 1771453722288,
+      "question": "Visual hierarchy is primarily created through:",
       "options": [
-        "Replacing one image with another to suggest new meaning",
-        "Presenting unrelated images with equal weight",
-        "Using consistent brand typography",
-        "Flattening hierarchy in layout",
-        "Standardizing the viewer’s interpretation"
+        "Random placement",
+        "Animation only",
+        "Size, color, weight, and spacing",
+        "Increasing chart complexity"
       ],
-      "correctAnswer": "Replacing one image with another to suggest new meaning",
+      "correctAnswer": "Size, color, weight, and spacing",
       "image": null
     },
     {
-      "id": 1762960664190,
-      "question": "In composition, “framing” refers to:",
+      "id": 1771453789271,
+      "question": "Pre-attentive processing refers to our ability to:",
       "options": [
-        "The color palette used for emotional tone",
-        "The relationship between icon and index",
-        "The alignment of type elements",
-        "The visual borders that determine what is included or excluded in an image",
-        "The depth of field in photography"
+        "Instantly detect differences in color",
+        "Read annotations carefully",
+        "Calculate averages quickly",
+        "Interpret statistical models"
       ],
-      "correctAnswer": "The visual borders that determine what is included or excluded in an image",
+      "correctAnswer": "Instantly detect differences in color",
       "image": null
     },
     {
-      "id": 1762960735254,
-      "question": "Intertextuality in layout design most often helps viewers by:",
+      "id": 1771453854858,
+      "question": "According to the data-ink ratio principle, designers should:",
       "options": [
-        "Making compositions intentionally confusing",
-        "Avoiding established visual conventions",
-        "Increasing white space in compositions",
-        "Connecting new designs to familiar cultural references",
-        "Minimizing rhetorical effect"
+        "Increase decorative elements",
+        "Use 3D charts for clarity",
+        "Add drop shadows for emphasis",
+        "Remove anything that does not communicate information"
       ],
-      "correctAnswer": "Connecting new designs to familiar cultural references",
+      "correctAnswer": "Remove anything that does not communicate information",
+      "image": null
+    },
+    {
+      "id": 1771453919168,
+      "question": "The visualization design checklist emphasizes that a strong title should:",
+      "options": [
+        "Communicate the key insight",
+        "Be vague to allow interpretation",
+        "Describe the chart type",
+        "Match the dataset name"
+      ],
+      "correctAnswer": "Communicate the key insight",
       "image": null
     }
   ]
