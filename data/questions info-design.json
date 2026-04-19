@@ -1,0 +1,147 @@
+{
+  "questions": [
+    {
+      "id": 1774024358493,
+      "question": "In the “Three Pillars of Data Storytelling,” which pillar ensures credibility?",
+      "options": [
+        "Narrative",
+        "Visuals",
+        "Data",
+        "Context",
+        "Interaction"
+      ],
+      "correctAnswer": "Data",
+      "image": "/images/questions/1774035111158-877085303.png"
+    },
+    {
+      "id": 1774024426087,
+      "question": "What distinguishes data journalism from traditional reporting?",
+      "options": [
+        "Its reliance on interviews over datasets",
+        "Its focus on visual aesthetics",
+        "Its use of storytelling without data",
+        "Its treatment of datasets as the primary source",
+        "Its avoidance of public-facing content"
+      ],
+      "correctAnswer": "Its treatment of datasets as the primary source",
+      "image": "/images/questions/1774035125525-591916651.png"
+    },
+    {
+      "id": 1774024700677,
+      "question": "Which principle emphasizes that data should not be manipulated to support a pre-existing conclusion?",
+      "options": [
+        "Context is Crucial",
+        "Integrity First",
+        "Show Your Work",
+        "Keep it Accessible",
+        "Narrative Framing"
+      ],
+      "correctAnswer": "Integrity First",
+      "image": "/images/questions/1774035138308-750301646.png"
+    },
+    {
+      "id": 1774024777377,
+      "question": "What is the defining characteristic of a reader-driven narrative?",
+      "options": [
+        "Strict linear storytelling",
+        "Limited interaction",
+        "Designer-controlled sequencing",
+        "Emphasis on a single conclusion",
+        "User exploration and discovery"
+      ],
+      "correctAnswer": "User exploration and discovery",
+      "image": "/images/questions/1774035160264-58154330.png"
+    },
+    {
+      "id": 1774025340220,
+      "question": "Which of the following best defines an infographic?",
+      "options": [
+        "A dataset formatted for analysis",
+        "A textual explanation of complex ideas",
+        "A visual representation of information for clarity and speed",
+        "A diagram used only for instructional purposes",
+        "A collection of unrelated visual elements"
+      ],
+      "correctAnswer": "A visual representation of information for clarity and speed",
+      "image": "/images/questions/1774035173406-968151111.png"
+    },
+    {
+      "id": 1774025480648,
+      "question": "Which infographic type is best suited for showing chronological progression?",
+      "options": [
+        "Comparison infographic",
+        "Informational infographic",
+        "Instructional infographic",
+        "Timeline infographic",
+        "Exploratory dashboard"
+      ],
+      "correctAnswer": "Timeline infographic",
+      "image": "/images/questions/1774035185372-704955178.png"
+    },
+    {
+      "id": 1774025554094,
+      "question": "What is the primary UX goal of an instructional “how-to” infographic?",
+      "options": [
+        "Encourage exploration",
+        "Provide high-level summaries",
+        "Enable immediate actionable understanding",
+        "Compare multiple datasets",
+        "Present historical trends"
+      ],
+      "correctAnswer": "Enable immediate actionable understanding",
+      "image": "/images/questions/1774035197090-637428788.png"
+    },
+    {
+      "id": 1774025614592,
+      "question": "During the infographic design process, what is the main purpose of wireframing?",
+      "options": [
+        "Applying final visual styles",
+        "Gathering data sources",
+        "Defining visual hierarchy and layout",
+        "Testing user engagement",
+        "Creating polished illustrations"
+      ],
+      "correctAnswer": "Defining visual hierarchy and layout",
+      "image": null
+    },
+    {
+      "id": 1774025660637,
+      "question": "According to LATCH, which method is best when information has no inherent relationship?",
+      "options": [
+        "Location",
+        "Time",
+        "Category",
+        "Hierarchy",
+        "Alphabet"
+      ],
+      "correctAnswer": "Alphabet",
+      "image": null
+    },
+    {
+      "id": 1774025727066,
+      "question": "Which Gestalt principle explains why objects placed close together are perceived as related?",
+      "options": [
+        "Similarity",
+        "Continuity",
+        "Closure",
+        "Proximity",
+        "Figure/Ground"
+      ],
+      "correctAnswer": "Proximity",
+      "image": null
+    },
+    {
+      "id": 1774025820067,
+      "question": "What is “chartjunk”?",
+      "options": [
+        "Incomplete datasets",
+        "Redundant data points",
+        "Decorative elements that distract from data",
+        "Incorrect chart types",
+        "Overly simplified visuals"
+      ],
+      "correctAnswer": "Decorative elements that distract from data",
+      "image": null
+    }
+  ]
+}

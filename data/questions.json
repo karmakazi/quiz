@@ -1,147 +1,264 @@
 {
   "questions": [
     {
-      "id": 1774024358493,
-      "question": "In the “Three Pillars of Data Storytelling,” which pillar ensures credibility?",
+      "id": 1768800001001,
+      "question": "What is data visualization described as in Week 1?",
       "options": [
-        "Narrative",
-        "Visuals",
-        "Data",
-        "Context",
-        "Interaction"
+        "A statistical test for significance",
+        "A human practice of translating information into visual form",
+        "A database optimization method",
+        "A decorative technique for slide design",
+        "A replacement for qualitative research"
       ],
-      "correctAnswer": "Data",
-      "image": "/images/questions/1774035111158-877085303.png"
+      "correctAnswer": "A human practice of translating information into visual form",
+      "image": "/images/questions/1776626545353-663734624.png"
     },
     {
-      "id": 1774024426087,
-      "question": "What distinguishes data journalism from traditional reporting?",
+      "id": 1768800001002,
+      "question": "Visualization is said to date back over 32,000 years to which example?",
       "options": [
-        "Its reliance on interviews over datasets",
-        "Its focus on visual aesthetics",
-        "Its use of storytelling without data",
-        "Its treatment of datasets as the primary source",
-        "Its avoidance of public-facing content"
+        "The invention of the bar chart",
+        "Minard’s campaign map",
+        "The Chauvet cave drawings",
+        "The first printed atlas",
+        "The rise of Tableau"
       ],
-      "correctAnswer": "Its treatment of datasets as the primary source",
-      "image": "/images/questions/1774035125525-591916651.png"
+      "correctAnswer": "The Chauvet cave drawings",
+      "image": "/images/questions/1776626554766-800115072.png"
     },
     {
-      "id": 1774024700677,
-      "question": "Which principle emphasizes that data should not be manipulated to support a pre-existing conclusion?",
+      "id": 1768800001003,
+      "question": "Minard’s 1869 visualization simultaneously displayed how many variables?",
       "options": [
-        "Context is Crucial",
-        "Integrity First",
-        "Show Your Work",
-        "Keep it Accessible",
-        "Narrative Framing"
+        "2",
+        "4",
+        "5",
+        "6",
+        "8"
       ],
-      "correctAnswer": "Integrity First",
-      "image": "/images/questions/1774035138308-750301646.png"
+      "correctAnswer": "6",
+      "image": "/images/questions/1776626564724-507057472.png"
     },
     {
-      "id": 1774024777377,
-      "question": "What is the defining characteristic of a reader-driven narrative?",
+      "id": 1768800001004,
+      "question": "Which pairing describes the two storytelling modes discussed in Week 1?",
       "options": [
-        "Strict linear storytelling",
-        "Limited interaction",
-        "Designer-controlled sequencing",
-        "Emphasis on a single conclusion",
-        "User exploration and discovery"
+        "Static vs print",
+        "Analog vs digital",
+        "Presenter-driven vs user-driven",
+        "Qualitative vs quantitative",
+        "2D vs 3D"
       ],
-      "correctAnswer": "User exploration and discovery",
-      "image": "/images/questions/1774035160264-58154330.png"
+      "correctAnswer": "Presenter-driven vs user-driven",
+      "image": "/images/questions/1776626581214-630755499.png"
     },
     {
-      "id": 1774025340220,
-      "question": "Which of the following best defines an infographic?",
+      "id": 1768800001005,
+      "question": "Visualization tools are grouped into how many major categories in Week 2?",
       "options": [
-        "A dataset formatted for analysis",
-        "A textual explanation of complex ideas",
-        "A visual representation of information for clarity and speed",
-        "A diagram used only for instructional purposes",
-        "A collection of unrelated visual elements"
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
       ],
-      "correctAnswer": "A visual representation of information for clarity and speed",
-      "image": "/images/questions/1774035173406-968151111.png"
+      "correctAnswer": "4",
+      "image": "/images/questions/1776626591246-866525534.png"
     },
     {
-      "id": 1774025480648,
-      "question": "Which infographic type is best suited for showing chronological progression?",
+      "id": 1768800001006,
+      "question": "Which of the following is considered a basic productivity application?",
       "options": [
-        "Comparison infographic",
-        "Informational infographic",
-        "Instructional infographic",
-        "Timeline infographic",
-        "Exploratory dashboard"
+        "RStudio",
+        "Microsoft Excel",
+        "D3.js",
+        "IBM Watson",
+        "Observable"
       ],
-      "correctAnswer": "Timeline infographic",
-      "image": "/images/questions/1774035185372-704955178.png"
+      "correctAnswer": "Microsoft Excel",
+      "image": "/images/questions/1776626601300-645640366.png"
     },
     {
-      "id": 1774025554094,
-      "question": "What is the primary UX goal of an instructional “how-to” infographic?",
+      "id": 1768800001007,
+      "question": "In UX + Data Science terminology, an observation (row) represents:",
       "options": [
-        "Encourage exploration",
-        "Provide high-level summaries",
-        "Enable immediate actionable understanding",
-        "Compare multiple datasets",
-        "Present historical trends"
+        "A chart legend entry",
+        "One unit of analysis such as a user or session",
+        "A statistical model",
+        "A feature engineered for prediction",
+        "A cleaned dataset"
       ],
-      "correctAnswer": "Enable immediate actionable understanding",
-      "image": "/images/questions/1774035197090-637428788.png"
+      "correctAnswer": "One unit of analysis such as a user or session",
+      "image": "/images/questions/1776626611362-835272943.png"
     },
     {
-      "id": 1774025614592,
-      "question": "During the infographic design process, what is the main purpose of wireframing?",
+      "id": 1768800001008,
+      "question": "The rule given in class states: Quant shows scale; Qual shows:",
       "options": [
-        "Applying final visual styles",
-        "Gathering data sources",
-        "Defining visual hierarchy and layout",
-        "Testing user engagement",
-        "Creating polished illustrations"
+        "Accuracy",
+        "Distribution",
+        "Meaning",
+        "Prediction",
+        "Variance"
       ],
-      "correctAnswer": "Defining visual hierarchy and layout",
-      "image": null
+      "correctAnswer": "Meaning",
+      "image": "/images/questions/1776626626419-549944827.png"
     },
     {
-      "id": 1774025660637,
-      "question": "According to LATCH, which method is best when information has no inherent relationship?",
+      "id": 1768800001009,
+      "question": "A target variable represents:",
       "options": [
-        "Location",
-        "Time",
-        "Category",
-        "Hierarchy",
-        "Alphabet"
+        "Any missing data field",
+        "A decorative label",
+        "The main outcome you care about",
+        "A variable created during cleaning",
+        "A qualitative quote"
       ],
-      "correctAnswer": "Alphabet",
-      "image": null
+      "correctAnswer": "The main outcome you care about",
+      "image": "/images/questions/1776626648635-380740926.png"
     },
     {
-      "id": 1774025727066,
-      "question": "Which Gestalt principle explains why objects placed close together are perceived as related?",
+      "id": 1768800001010,
+      "question": "The slides emphasize that cleaning data should not:",
       "options": [
-        "Similarity",
-        "Continuity",
-        "Closure",
-        "Proximity",
-        "Figure/Ground"
+        "Remove duplicates",
+        "Standardize formats",
+        "Change meaning",
+        "Validate ranges",
+        "Fix typos"
       ],
-      "correctAnswer": "Proximity",
-      "image": null
+      "correctAnswer": "Change meaning",
+      "image": "/images/questions/1776626658542-778494293.png"
     },
     {
-      "id": 1774025820067,
-      "question": "What is “chartjunk”?",
+      "id": 1768800001011,
+      "question": "Which chart is most appropriate for showing change over time?",
       "options": [
-        "Incomplete datasets",
-        "Redundant data points",
-        "Decorative elements that distract from data",
-        "Incorrect chart types",
-        "Overly simplified visuals"
+        "Word cloud",
+        "Network diagram",
+        "Line chart",
+        "Treemap",
+        "Pie chart"
       ],
-      "correctAnswer": "Decorative elements that distract from data",
-      "image": null
+      "correctAnswer": "Line chart",
+      "image": "/images/questions/1776626669012-166617229.png"
+    },
+    {
+      "id": 1768800001012,
+      "question": "Word clouds are typically used to show:",
+      "options": [
+        "Trends over time",
+        "Word frequency",
+        "Causal relationships",
+        "Regression outputs",
+        "Probability distributions"
+      ],
+      "correctAnswer": "Word frequency",
+      "image": "/images/questions/1776626678993-466899173.png"
+    },
+    {
+      "id": 1768800001013,
+      "question": "Network diagrams rely on what data structure?",
+      "options": [
+        "Pivot tables",
+        "Edge lists or adjacency matrices",
+        "Time series indexes",
+        "Raster images",
+        "Bar chart arrays"
+      ],
+      "correctAnswer": "Edge lists or adjacency matrices",
+      "image": "/images/questions/1776626689606-618459076.png"
+    },
+    {
+      "id": 1768800001014,
+      "question": "Almost every chart can be transformed into which three formats?",
+      "options": [
+        "2D, 3D, VR",
+        "Static, animated, interactive",
+        "Qualitative, quantitative, hybrid",
+        "Simple, moderate, complex",
+        "Analog, digital, immersive"
+      ],
+      "correctAnswer": "Static, animated, interactive",
+      "image": "/images/questions/1776626698830-771505523.png"
+    },
+    {
+      "id": 1768800001015,
+      "question": "Data visualization is defined in Week 6 as:",
+      "options": [
+        "Written communication",
+        "Visual communication",
+        "A form of programming",
+        "Pure decoration",
+        "Statistical modeling"
+      ],
+      "correctAnswer": "Visual communication",
+      "image": "/images/questions/1776626711925-871989345.png"
+    },
+    {
+      "id": 1768800001016,
+      "question": "A visualization is not merely a picture of data; it is:",
+      "options": [
+        "A screenshot",
+        "An argument about data",
+        "A decorative illustration",
+        "A spreadsheet export",
+        "A raw dataset"
+      ],
+      "correctAnswer": "An argument about data",
+      "image": "/images/questions/1776626721369-937843011.png"
+    },
+    {
+      "id": 1768800001017,
+      "question": "Visual hierarchy is established through:",
+      "options": [
+        "Random placement",
+        "3D effects",
+        "Size, colour, weight, and spacing",
+        "Decorative icons",
+        "Drop shadows"
+      ],
+      "correctAnswer": "Size, colour, weight, and spacing",
+      "image": "/images/questions/1776626734842-797317066.png"
+    },
+    {
+      "id": 1768800001018,
+      "question": "Pre-attentive processing allows viewers to:",
+      "options": [
+        "Compute statistics instantly",
+        "Detect color differences instantly",
+        "Interpret regression models",
+        "Replace legends automatically",
+        "Summarize qualitative data"
+      ],
+      "correctAnswer": "Detect color differences instantly",
+      "image": "/images/questions/1776626745590-608618926.png"
+    },
+    {
+      "id": 1768800001019,
+      "question": "Which line type should be tertiary and kept faint?",
+      "options": [
+        "Data lines",
+        "Axes",
+        "Gridlines",
+        "Trend highlights",
+        "Annotations"
+      ],
+      "correctAnswer": "Gridlines",
+      "image": "/images/questions/1776626755907-462102963.png"
+    },
+    {
+      "id": 1768800001020,
+      "question": "The data-ink ratio refers to:",
+      "options": [
+        "The amount of decorative ink used",
+        "The proportion of ink used to display data versus decoration",
+        "The number of labels per chart",
+        "The ratio of axes to data points",
+        "The balance of color in a palette"
+      ],
+      "correctAnswer": "The proportion of ink used to display data versus decoration",
+      "image": "/images/questions/1776626766292-416864462.png"
     }
   ]
 }

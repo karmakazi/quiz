@@ -1,4 +1,462 @@
 {
-  "students": {},
-  "quizzes": []
+  "students": {
+    "Drewski": {
+      "name": "Drewski",
+      "quizzes": [
+        1774028876025
+      ]
+    },
+    "Marcia Vona": {
+      "name": "Marcia Vona",
+      "quizzes": [
+        1774028876025
+      ]
+    },
+    "Blah": {
+      "name": "Blah",
+      "quizzes": [
+        1774028876025
+      ]
+    },
+    "Andrew Harris": {
+      "name": "Andrew Harris",
+      "quizzes": [
+        1774275740219,
+        1776626298158
+      ]
+    }
+  },
+  "quizzes": [
+    {
+      "quizId": 1774028876025,
+      "timestamp": 1774034733249,
+      "responses": {
+        "Drewski": [
+          {
+            "questionIndex": 0,
+            "question": "Which Gestalt principle explains why objects placed close together are perceived as related?",
+            "selectedAnswer": "Proximity",
+            "correctAnswer": "Proximity",
+            "isCorrect": true,
+            "timestamp": 1774034644285
+          },
+          {
+            "questionIndex": 1,
+            "question": "Which infographic type is best suited for showing chronological progression?",
+            "selectedAnswer": "Timeline infographic",
+            "correctAnswer": "Timeline infographic",
+            "isCorrect": true,
+            "timestamp": 1774034651618
+          },
+          {
+            "questionIndex": 2,
+            "question": "According to LATCH, which method is best when information has no inherent relationship?",
+            "selectedAnswer": "Alphabet",
+            "correctAnswer": "Alphabet",
+            "isCorrect": true,
+            "timestamp": 1774034656467
+          },
+          {
+            "questionIndex": 3,
+            "question": "What distinguishes data journalism from traditional reporting?",
+            "selectedAnswer": "Its treatment of datasets as the primary source",
+            "correctAnswer": "Its treatment of datasets as the primary source",
+            "isCorrect": true,
+            "timestamp": 1774034663187
+          },
+          {
+            "questionIndex": 4,
+            "question": "In the “Three Pillars of Data Storytelling,” which pillar ensures credibility?",
+            "selectedAnswer": "Data",
+            "correctAnswer": "Data",
+            "isCorrect": true,
+            "timestamp": 1774034671540
+          },
+          {
+            "questionIndex": 5,
+            "question": "What is the primary UX goal of an instructional “how-to” infographic?",
+            "selectedAnswer": "Enable immediate actionable understanding",
+            "correctAnswer": "Enable immediate actionable understanding",
+            "isCorrect": true,
+            "timestamp": 1774034677771
+          },
+          {
+            "questionIndex": 6,
+            "question": "What is “chartjunk”?",
+            "selectedAnswer": "Decorative elements that distract from data",
+            "correctAnswer": "Decorative elements that distract from data",
+            "isCorrect": true,
+            "timestamp": 1774034684984
+          },
+          {
+            "questionIndex": 7,
+            "question": "Which principle emphasizes that data should not be manipulated to support a pre-existing conclusion?",
+            "selectedAnswer": "Integrity First",
+            "correctAnswer": "Integrity First",
+            "isCorrect": true,
+            "timestamp": 1774034708691
+          },
+          {
+            "questionIndex": 8,
+            "question": "Which of the following best defines an infographic?",
+            "selectedAnswer": "A visual representation of information for clarity and speed",
+            "correctAnswer": "A visual representation of information for clarity and speed",
+            "isCorrect": true,
+            "timestamp": 1774034723100
+          },
+          {
+            "questionIndex": 9,
+            "question": "During the infographic design process, what is the main purpose of wireframing?",
+            "selectedAnswer": "Defining visual hierarchy and layout",
+            "correctAnswer": "Defining visual hierarchy and layout",
+            "isCorrect": true,
+            "timestamp": 1774034732384
+          }
+        ],
+        "Marcia Vona": [
+          {
+            "questionIndex": 0,
+            "question": "Which Gestalt principle explains why objects placed close together are perceived as related?",
+            "selectedAnswer": "No answer",
+            "correctAnswer": "Proximity",
+            "isCorrect": false,
+            "timestamp": 1774034645926
+          },
+          {
+            "questionIndex": 1,
+            "question": "Which infographic type is best suited for showing chronological progression?",
+            "selectedAnswer": "No answer",
+            "correctAnswer": "Timeline infographic",
+            "isCorrect": false,
+            "timestamp": 1774034652968
+          },
+          {
+            "questionIndex": 2,
+            "question": "According to LATCH, which method is best when information has no inherent relationship?",
+            "selectedAnswer": "No answer",
+            "correctAnswer": "Alphabet",
+            "isCorrect": false,
+            "timestamp": 1774034657453
+          },
+          {
+            "questionIndex": 3,
+            "question": "What distinguishes data journalism from traditional reporting?",
+            "selectedAnswer": "No answer",
+            "correctAnswer": "Its treatment of datasets as the primary source",
+            "isCorrect": false,
+            "timestamp": 1774034665399
+          },
+          {
+            "questionIndex": 4,
+            "question": "In the “Three Pillars of Data Storytelling,” which pillar ensures credibility?",
+            "selectedAnswer": "No answer",
+            "correctAnswer": "Data",
+            "isCorrect": false,
+            "timestamp": 1774034672570
+          },
+          {
+            "questionIndex": 5,
+            "question": "What is the primary UX goal of an instructional “how-to” infographic?",
+            "selectedAnswer": "No answer",
+            "correctAnswer": "Enable immediate actionable understanding",
+            "isCorrect": false,
+            "timestamp": 1774034678895
+          },
+          {
+            "questionIndex": 6,
+            "question": "What is “chartjunk”?",
+            "selectedAnswer": "No answer",
+            "correctAnswer": "Decorative elements that distract from data",
+            "isCorrect": false,
+            "timestamp": 1774034686134
+          },
+          {
+            "questionIndex": 7,
+            "question": "Which principle emphasizes that data should not be manipulated to support a pre-existing conclusion?",
+            "selectedAnswer": "No answer",
+            "correctAnswer": "Integrity First",
+            "isCorrect": false,
+            "timestamp": 1774034715440
+          },
+          {
+            "questionIndex": 8,
+            "question": "Which of the following best defines an infographic?",
+            "selectedAnswer": "No answer",
+            "correctAnswer": "A visual representation of information for clarity and speed",
+            "isCorrect": false,
+            "timestamp": 1774034726676
+          },
+          {
+            "questionIndex": 9,
+            "question": "During the infographic design process, what is the main purpose of wireframing?",
+            "selectedAnswer": "No answer",
+            "correctAnswer": "Defining visual hierarchy and layout",
+            "isCorrect": false,
+            "timestamp": 1774034733243
+          }
+        ],
+        "Blah": [
+          {
+            "questionIndex": 0,
+            "question": "Which Gestalt principle explains why objects placed close together are perceived as related?",
+            "selectedAnswer": "No answer",
+            "correctAnswer": "Proximity",
+            "isCorrect": false,
+            "timestamp": 1774034645926
+          },
+          {
+            "questionIndex": 1,
+            "question": "Which infographic type is best suited for showing chronological progression?",
+            "selectedAnswer": "No answer",
+            "correctAnswer": "Timeline infographic",
+            "isCorrect": false,
+            "timestamp": 1774034652968
+          },
+          {
+            "questionIndex": 2,
+            "question": "According to LATCH, which method is best when information has no inherent relationship?",
+            "selectedAnswer": "No answer",
+            "correctAnswer": "Alphabet",
+            "isCorrect": false,
+            "timestamp": 1774034657453
+          },
+          {
+            "questionIndex": 3,
+            "question": "What distinguishes data journalism from traditional reporting?",
+            "selectedAnswer": "No answer",
+            "correctAnswer": "Its treatment of datasets as the primary source",
+            "isCorrect": false,
+            "timestamp": 1774034665399
+          },
+          {
+            "questionIndex": 4,
+            "question": "In the “Three Pillars of Data Storytelling,” which pillar ensures credibility?",
+            "selectedAnswer": "No answer",
+            "correctAnswer": "Data",
+            "isCorrect": false,
+            "timestamp": 1774034672570
+          },
+          {
+            "questionIndex": 5,
+            "question": "What is the primary UX goal of an instructional “how-to” infographic?",
+            "selectedAnswer": "No answer",
+            "correctAnswer": "Enable immediate actionable understanding",
+            "isCorrect": false,
+            "timestamp": 1774034678895
+          },
+          {
+            "questionIndex": 6,
+            "question": "What is “chartjunk”?",
+            "selectedAnswer": "No answer",
+            "correctAnswer": "Decorative elements that distract from data",
+            "isCorrect": false,
+            "timestamp": 1774034686134
+          },
+          {
+            "questionIndex": 7,
+            "question": "Which principle emphasizes that data should not be manipulated to support a pre-existing conclusion?",
+            "selectedAnswer": "No answer",
+            "correctAnswer": "Integrity First",
+            "isCorrect": false,
+            "timestamp": 1774034715440
+          },
+          {
+            "questionIndex": 8,
+            "question": "Which of the following best defines an infographic?",
+            "selectedAnswer": "No answer",
+            "correctAnswer": "A visual representation of information for clarity and speed",
+            "isCorrect": false,
+            "timestamp": 1774034726676
+          },
+          {
+            "questionIndex": 9,
+            "question": "During the infographic design process, what is the main purpose of wireframing?",
+            "selectedAnswer": "No answer",
+            "correctAnswer": "Defining visual hierarchy and layout",
+            "isCorrect": false,
+            "timestamp": 1774034733243
+          }
+        ]
+      },
+      "totalQuestions": 10
+    },
+    {
+      "quizId": 1774275740219,
+      "timestamp": 1774275915426,
+      "responses": {
+        "Andrew Harris": [
+          {
+            "questionIndex": 0,
+            "question": "Which Gestalt principle explains why objects placed close together are perceived as related?",
+            "selectedAnswer": "Proximity",
+            "correctAnswer": "Proximity",
+            "isCorrect": true,
+            "timestamp": 1774275783242
+          },
+          {
+            "questionIndex": 1,
+            "question": "Which principle emphasizes that data should not be manipulated to support a pre-existing conclusion?",
+            "selectedAnswer": "Integrity First",
+            "correctAnswer": "Integrity First",
+            "isCorrect": true,
+            "timestamp": 1774275805170
+          },
+          {
+            "questionIndex": 2,
+            "question": "In the “Three Pillars of Data Storytelling,” which pillar ensures credibility?",
+            "selectedAnswer": "Data",
+            "correctAnswer": "Data",
+            "isCorrect": true,
+            "timestamp": 1774275808988
+          },
+          {
+            "questionIndex": 3,
+            "question": "What is the primary UX goal of an instructional “how-to” infographic?",
+            "selectedAnswer": "Enable immediate actionable understanding",
+            "correctAnswer": "Enable immediate actionable understanding",
+            "isCorrect": true,
+            "timestamp": 1774275818265
+          },
+          {
+            "questionIndex": 4,
+            "question": "According to LATCH, which method is best when information has no inherent relationship?",
+            "selectedAnswer": "Alphabet",
+            "correctAnswer": "Alphabet",
+            "isCorrect": true,
+            "timestamp": 1774275829336
+          },
+          {
+            "questionIndex": 5,
+            "question": "Which of the following best defines an infographic?",
+            "selectedAnswer": "A visual representation of information for clarity and speed",
+            "correctAnswer": "A visual representation of information for clarity and speed",
+            "isCorrect": true,
+            "timestamp": 1774275866715
+          },
+          {
+            "questionIndex": 6,
+            "question": "What is the defining characteristic of a reader-driven narrative?",
+            "selectedAnswer": "User exploration and discovery",
+            "correctAnswer": "User exploration and discovery",
+            "isCorrect": true,
+            "timestamp": 1774275895284
+          },
+          {
+            "questionIndex": 7,
+            "question": "What is “chartjunk”?",
+            "selectedAnswer": "Decorative elements that distract from data",
+            "correctAnswer": "Decorative elements that distract from data",
+            "isCorrect": true,
+            "timestamp": 1774275901518
+          },
+          {
+            "questionIndex": 8,
+            "question": "During the infographic design process, what is the main purpose of wireframing?",
+            "selectedAnswer": "Defining visual hierarchy and layout",
+            "correctAnswer": "Defining visual hierarchy and layout",
+            "isCorrect": true,
+            "timestamp": 1774275908288
+          },
+          {
+            "questionIndex": 9,
+            "question": "Which infographic type is best suited for showing chronological progression?",
+            "selectedAnswer": "Timeline infographic",
+            "correctAnswer": "Timeline infographic",
+            "isCorrect": true,
+            "timestamp": 1774275914026
+          }
+        ]
+      },
+      "totalQuestions": 10
+    },
+    {
+      "quizId": 1776626298158,
+      "timestamp": 1776626459665,
+      "responses": {
+        "Andrew Harris": [
+          {
+            "questionIndex": 0,
+            "question": "Pre-attentive processing allows viewers to:",
+            "selectedAnswer": "Detect color differences instantly",
+            "correctAnswer": "Detect color differences instantly",
+            "isCorrect": true,
+            "timestamp": 1776626355328
+          },
+          {
+            "questionIndex": 1,
+            "question": "Visualization is said to date back over 32,000 years to which example?",
+            "selectedAnswer": "The Chauvet cave drawings",
+            "correctAnswer": "The Chauvet cave drawings",
+            "isCorrect": true,
+            "timestamp": 1776626365538
+          },
+          {
+            "questionIndex": 2,
+            "question": "A target variable represents:",
+            "selectedAnswer": "The main outcome you care about",
+            "correctAnswer": "The main outcome you care about",
+            "isCorrect": true,
+            "timestamp": 1776626372417
+          },
+          {
+            "questionIndex": 3,
+            "question": "The data-ink ratio refers to:",
+            "selectedAnswer": "The proportion of ink used to display data versus decoration",
+            "correctAnswer": "The proportion of ink used to display data versus decoration",
+            "isCorrect": true,
+            "timestamp": 1776626387258
+          },
+          {
+            "questionIndex": 4,
+            "question": "The rule given in class states: Quant shows scale; Qual shows:",
+            "selectedAnswer": "Meaning",
+            "correctAnswer": "Meaning",
+            "isCorrect": true,
+            "timestamp": 1776626398036
+          },
+          {
+            "questionIndex": 5,
+            "question": "Word clouds are typically used to show:",
+            "selectedAnswer": "Word frequency",
+            "correctAnswer": "Word frequency",
+            "isCorrect": true,
+            "timestamp": 1776626405241
+          },
+          {
+            "questionIndex": 6,
+            "question": "Which of the following is considered a basic productivity application?",
+            "selectedAnswer": "Microsoft Excel",
+            "correctAnswer": "Microsoft Excel",
+            "isCorrect": true,
+            "timestamp": 1776626419726
+          },
+          {
+            "questionIndex": 7,
+            "question": "A visualization is not merely a picture of data; it is:",
+            "selectedAnswer": "An argument about data",
+            "correctAnswer": "An argument about data",
+            "isCorrect": true,
+            "timestamp": 1776626425665
+          },
+          {
+            "questionIndex": 8,
+            "question": "Which pairing describes the two storytelling modes discussed in Week 1?",
+            "selectedAnswer": "Presenter-driven vs user-driven",
+            "correctAnswer": "Presenter-driven vs user-driven",
+            "isCorrect": true,
+            "timestamp": 1776626442815
+          },
+          {
+            "questionIndex": 9,
+            "question": "Visualization tools are grouped into how many major categories in Week 2?",
+            "selectedAnswer": "5",
+            "correctAnswer": "4",
+            "isCorrect": false,
+            "timestamp": 1776626457655
+          }
+        ]
+      },
+      "totalQuestions": 10
+    }
+  ]
 }
